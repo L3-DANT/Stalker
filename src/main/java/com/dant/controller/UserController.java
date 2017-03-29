@@ -1,7 +1,7 @@
 package com.dant.controller;
 
-import com.dant.business.AccountBusiness;
-import com.dant.entity.Account;
+import com.dant.business.UserBusiness;
+import com.dant.entity.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,19 +12,19 @@ import javax.ws.rs.core.MediaType;
 @Path("/api/account")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class AccountController {
+public class UserController {
 
-    private AccountBusiness accountBusiness = new AccountBusiness();
+    private UserBusiness accountBusiness = new UserBusiness();
 
     @GET
     @Path("/create")
-    public Account create(@QueryParam("email") String email) {
+    public User create(@QueryParam("email") String email) {
         return accountBusiness.create(email);
     }
 
 
     @GET
-    public Account getAccount(@QueryParam("email") String email) {
+    public User getAccount(@QueryParam("email") String email) {
         return accountBusiness.getAccount(email);
     }
 }

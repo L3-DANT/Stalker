@@ -24,7 +24,8 @@ public class MongoUtil {
         private static Datastore getDatastore() {
             MongoClient client = new MongoClient();
             Set<Class> set = new HashSet<>(1);
-            set.add(Account.class);
+            set.add(User.class);
+            set.add(Position.class);
             return new Morphia(set).createDatastore(client, "kevin");
         }
 
