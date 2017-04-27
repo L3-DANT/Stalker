@@ -14,18 +14,38 @@ public class MeetPoint {
     private boolean favorite;
     private User user;
 
-    public ObjectId getId() { return id; }
+    public MeetPoint(String name, String address, double latitude, double longitude, boolean favorite, User user) {
+        this.name = name;
+        this.address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.favorite = favorite;
+        this.user = user;
+    }
 
-    public void setId(ObjectId id) { this.id = id; }
+    public ObjectId getId() { return id; }
 
     public String getName() { return name; }
 
-    public void setName(String name) { this.name = name; }
+    public void setAdress(String name) { this.name = name; }
+
+    public String getAdress() { return address; }
+
+    public void setName(String address) { this.address = address; }
 
     public double getLatitude() { return latitude; }
 
     public void setLatitude(double latitude) { this.latitude = latitude; }
 
-    
+    public double getLongitude() { return longitude; }
 
+    public void setLongitude(double longitude) { this.longitude = longitude; }
+
+    public boolean getFavorite() { return favorite; }
+
+    public void setFavorite(boolean favorite) { this.favorite = favorite; }
+
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

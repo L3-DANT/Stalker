@@ -15,19 +15,17 @@ public class User implements Serializable {
 	private ObjectId id;
 	private String name;
 	private String email;
-//    private long updated;
 
-	public User() {
-//		updated = System.currentTimeMillis();
-	}
-
-	public User(String email) {
-		this();
+	public User(String name, String email) {
+		this.name = name;
 		this.email = email;
 
 	}
 
-    public ObjectId getId() { return id; }
+	public User() {
+	}
+
+	public ObjectId getId() { return id; }
 
 	public String getName() { return name; }
 
@@ -38,14 +36,6 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-//	public long getUpdated() {
-//		return updated;
-//	}
-
-//	public void setUpdated(long updated) {
-//		this.updated = updated;
-//	}
 
 	@Override
 	public boolean equals(Object o) {
