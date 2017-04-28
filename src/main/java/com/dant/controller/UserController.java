@@ -5,6 +5,7 @@ import com.dant.entity.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 /**
  * Created by pitton on 2017-02-20.
@@ -14,17 +15,24 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
 
-    private UserBusiness accountBusiness = new UserBusiness();
+    private UserBusiness userBusiness = new UserBusiness();
 
     @GET
     @Path("/create")
-    public User create(@QueryParam("email") String email) {
-        return accountBusiness.create(email);
+    public User create(@QueryParam("email") String email, @QueryParam("name") String name) {
+        return userBusiness.create(email, name);
     }
-
 
     @GET
-    public User getAccount(@QueryParam("email") String email) {
-        return accountBusiness.getAccount(email);
+    @Path("/getUser")
+    public User getUser(@QueryParam("email") String email) {
+        return userBusiness.getAccount(email);
     }
+
+    @GET
+    @Path("/getFriends")
+    public List<User> getFriends(@QueryParam("email") String email) {
+        return userBusiness.getFriends(email);
+    }
+
 }

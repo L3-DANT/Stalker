@@ -1,6 +1,8 @@
 package com.dant.util;
 
-import com.dant.entity.Account;
+import com.dant.entity.MeetPoint;
+import com.dant.entity.Position;
+import com.dant.entity.User;
 import com.mongodb.MongoClient;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -26,7 +28,8 @@ public class MongoUtil {
             Set<Class> set = new HashSet<>(1);
             set.add(User.class);
             set.add(Position.class);
-            return new Morphia(set).createDatastore(client, "kevin");
+            set.add(MeetPoint.class);
+            return new Morphia(set).createDatastore(client, "StalkerDb");
         }
 
     }

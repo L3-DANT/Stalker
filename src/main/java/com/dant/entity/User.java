@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by pitton on 2017-02-21.
@@ -15,19 +16,24 @@ public class User implements Serializable {
 	private ObjectId id;
 	private String name;
 	private String email;
+	@Reference
+    private List<User> friends;
 
 	public User(String name, String email) {
 		this.name = name;
 		this.email = email;
-
 	}
 
 	public User() {
 	}
-	//blabla
+
 	public ObjectId getId() { return id; }
 
 	public String getName() { return name; }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 	public String getEmail() {
 		return email;

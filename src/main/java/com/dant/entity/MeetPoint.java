@@ -1,17 +1,20 @@
 package com.dant.entity;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.*;
 
 /**
  * Created by 3502804 on 29/03/17.
  */
 public class MeetPoint {
+    @Id
     private ObjectId id;
     private String name;
     private String address;
     private double latitude;
     private double longitude;
     private boolean favorite;
+    @Reference
     private User user;
 
     public MeetPoint(String name, String address, double latitude, double longitude, boolean favorite, User user) {

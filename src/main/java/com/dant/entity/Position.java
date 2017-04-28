@@ -1,16 +1,20 @@
 package com.dant.entity;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.*;
 
 /**
  * Created by 3502804 on 29/03/17.
  */
+@Entity
 public class Position {
+    @Id
     private ObjectId id;
     private double longitude;
     private double latitude;
     private long time;
     //jodaime
+    @Reference
     private User user;
 
     public Position(double longitude, double latitude, long time, User user) {
