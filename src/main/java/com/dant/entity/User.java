@@ -24,7 +24,7 @@ public class User implements Serializable {
 
 	public User() {
 	}
-
+	//blabla
 	public ObjectId getId() { return id; }
 
 	public String getName() { return name; }
