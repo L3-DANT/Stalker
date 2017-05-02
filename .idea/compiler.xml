@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dant" />
         <module name="Stalker" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="dant" target="1.8" />
       <module name="Stalker" target="1.8" />
     </bytecodeTargetLevel>
   </component>
