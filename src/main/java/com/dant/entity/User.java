@@ -4,27 +4,36 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by pitton on 2017-02-21.
  */
 @Entity
-public class Account implements Serializable {
+public class User implements Serializable {
 
 	@Id
-	private ObjectId _id;
+	private ObjectId id;
+	private String name;
 	private String email;
-	private long updated;
+	@Reference
+    private List<User> friends;
 
-	public Account() {
-		updated = System.currentTimeMillis();
-	}
-
-	public Account(String email) {
-		this();
+	public User(String name, String email) {
+		this.name = name;
 		this.email = email;
-
 	}
+
+	public User() {
+	}
+
+	public ObjectId getId() { return id; }
+
+	public String getName() { return name; }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 	public String getEmail() {
 		return email;
@@ -34,20 +43,12 @@ public class Account implements Serializable {
 		this.email = email;
 	}
 
-	public long getUpdated() {
-		return updated;
-	}
-
-	public void setUpdated(long updated) {
-		this.updated = updated;
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		Account account = (Account) o;
+		User account = (User) o;
 
 		return email.equals(account.email);
 	}

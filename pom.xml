@@ -35,7 +35,6 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.9.7</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mongodb.morphia/morphia -->
 		<dependency>
 			<groupId>org.mongodb.morphia</groupId>
 			<artifactId>morphia</artifactId>
