@@ -12,11 +12,12 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var MapOutlet: MKMapView!
+    
+    @IBOutlet weak var MapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MapOutlet.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
+        MapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

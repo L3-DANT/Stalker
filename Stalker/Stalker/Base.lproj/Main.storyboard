@@ -25,7 +25,7 @@
         <!--Connexion Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Connexion Controller" id="BYZ-38-t0r" customClass="ViewController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Connexion Controller" id="BYZ-38-t0r" customClass="ConnexionController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -86,6 +86,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Db-aQ-LqF"/>
+                    <connections>
+                        <outlet property="emailInput" destination="zNK-GY-eFD" id="WFF-5R-8MP"/>
+                        <outlet property="ere" destination="zNK-GY-eFD" id="CX0-7g-sqk"/>
+                        <outlet property="passwordInput" destination="Ude-jA-PGA" id="9YT-Si-a8Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,12 +108,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HuL-zN-wry">
-                                <frame key="frameInset" minY="72" width="1366" height="952"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fRv-Sc-q9f"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fRv-Sc-q9f" firstAttribute="leading" secondItem="hms-1Y-iNY" secondAttribute="leading" id="0ZE-uE-Sei"/>
+                            <constraint firstItem="GA7-KB-GOf" firstAttribute="top" secondItem="fRv-Sc-q9f" secondAttribute="bottom" id="5VJ-Hq-7dc"/>
+                            <constraint firstAttribute="trailing" secondItem="fRv-Sc-q9f" secondAttribute="trailing" id="e59-tN-Gff"/>
+                            <constraint firstItem="fRv-Sc-q9f" firstAttribute="top" secondItem="MN9-fd-k7P" secondAttribute="bottom" id="ebF-rv-4qt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Stalker" id="Ww6-XI-8xW">
                         <barButtonItem key="leftBarButtonItem" title="menu" id="b6v-nf-DnV">
@@ -118,12 +126,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="MapOutlet" destination="HuL-zN-wry" id="SgO-uX-dQF"/>
+                        <outlet property="MapView" destination="fRv-Sc-q9f" id="99c-UT-HnK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kg-jd-8pG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903.5" y="85.5"/>
+            <point key="canvasLocation" x="903.20000000000005" y="85.007496251874073"/>
         </scene>
         <!--Menu-->
         <scene sceneID="8s9-Hy-CHk">
@@ -131,12 +139,12 @@
                 <tableViewController title="Menu" id="H48-2t-QO4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5m-ag-Owm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="85"/>
+            <point key="canvasLocation" x="1964" y="85"/>
         </scene>
         <!--Inscription Controller-->
         <scene sceneID="Kqj-5A-WdJ">
             <objects>
-                <viewController title="Inscription Controller" id="2F0-fZ-9tz" sceneMemberID="viewController">
+                <viewController title="Inscription Controller" id="2F0-fZ-9tz" customClass="ConnexionController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lBL-Al-8eR"/>
                         <viewControllerLayoutGuide type="bottom" id="wld-j7-hS7"/>
@@ -150,7 +158,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yf0-e5-iqh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yf0-e5-iqh">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="XSI-z5-fmf"/>
                                 </constraints>
@@ -158,7 +166,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2B-g6-zth">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2B-g6-zth">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ZXF-JU-scD"/>
                                 </constraints>
@@ -179,6 +187,9 @@
                                     <constraint firstAttribute="width" constant="73" id="gpD-4v-kOq"/>
                                 </constraints>
                                 <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <segue destination="ZQl-Ht-2YU" kind="show" id="meS-Xx-nBF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,4 +212,7 @@
             <point key="canvasLocation" x="-723.1884057971015" y="833.96739130434787"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="meS-Xx-nBF"/>
+    </inferredMetricsTieBreakers>
 </document>

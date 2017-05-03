@@ -9,7 +9,13 @@
 import UIKit
 
 class ConnexionController: UIViewController {
-
+    
+    @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var emailInput: UITextField!
+    
+    let session = Session()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setu p after loading the view, typically from a nib.
