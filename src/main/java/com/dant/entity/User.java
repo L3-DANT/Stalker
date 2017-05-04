@@ -73,9 +73,18 @@ public class User implements Serializable {
         this.token = token;
     }
 
-    public List<User> getFriends() { return friends; }
+    public List<User> getFriends() {
+        return friends;
+    }
 
-    public void addFriend(User friend) { friends.add(friend); }
+    public void setFriends(List<User> friends) {
+        this.friends = friends;
+    }
+
+    public void addFriend(User friend) {
+        friends.add(friend);
+    }
+
 
     @Override
     public boolean equals(Object o) {

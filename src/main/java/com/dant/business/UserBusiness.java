@@ -6,6 +6,8 @@ import com.dant.entity.User;
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 /**
  * Created by 3502804 on 02/03/17.
@@ -23,8 +25,8 @@ public class UserBusiness {
         if (!validPassword) {
             throw new ForbiddenException();
         }
-        //user.setToken(new Random().nextInt(10000) + "");
-        //userDAO.save(user);
+        user.setToken(new BigInteger(130, new SecureRandom()).toString(32));
+        userDAO.save(user);
         return user;
     }
 
@@ -42,6 +44,7 @@ public class UserBusiness {
             throw new NotFoundException();
         }
         user.setName(name);
+        // TODO: tester unicité email
         user.setEmail(email);
         user.setPassword(password);
         return userDAO.save(user);

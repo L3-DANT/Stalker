@@ -34,12 +34,12 @@ public class UserController {
         return userBusiness.authenticate(email, password).toDTO();
     }
 
-    @POST
+    @GET
     @Path("/create")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO createUser(@FormParam("name") String name,
-                           @FormParam("email") String email,
-                           @FormParam("password") String password) {
+//    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public UserDTO createUser(@QueryParam("name") String name,
+                           @QueryParam("email") String email,
+                           @QueryParam("password") String password) {
         return userBusiness.createUser(name, email, password).toDTO();
     }
 
