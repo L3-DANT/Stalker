@@ -1,13 +1,17 @@
 package com.dant.business;
 
 import com.dant.dao.DAO;
+import com.dant.entity.MeetPoint;
 import com.dant.entity.User;
+import com.dant.entity.dto.MeetPointDTO;
+import com.dant.entity.dto.UserDTO;
+import com.dant.util.MongoUtil;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by 3502804 on 02/03/17.
@@ -16,7 +20,15 @@ public class UserBusiness {
 
     private final DAO<User> userDAO = new DAO<>();
 
-    public User authenticate(String email, String password) {
+    public UserDTO getUser(String token) {
+        User user = userDAO.getOne(User.class, "token", token);
+        if (user == null) {
+            throw new NotFoundException();
+        }
+        return user.toDTO();
+    }
+
+    public UserDTO authenticate(String email, String password) {
         User user = userDAO.getOne(User.class, "email", email);
         if (user == null) {
             throw new NotFoundException();
@@ -25,41 +37,61 @@ public class UserBusiness {
         if (!validPassword) {
             throw new ForbiddenException();
         }
-        user.setToken(new BigInteger(130, new SecureRandom()).toString(32));
-        userDAO.save(user);
-        return user;
+        user.setToken(MongoUtil.generateToken());
+        return userDAO.save(user).toDTO();
     }
 
-    public User createUser(String name, String email, String password) {
+    public UserDTO createUser(String name, String email, String password) {
         User user = userDAO.getOne(User.class, "email", email);
         if (user != null) {
             throw new BadRequestException();
         }
-        return userDAO.save(new User(name, email, password));
+        user = new User(name, email, password);
+        user.setToken(MongoUtil.generateToken());
+        return userDAO.save(user).toDTO();
     }
 
-    public User updateUser(String name, String email, String password, String token) {
+    public UserDTO updateUser(String name, String email, String password, String token) {
         User user = userDAO.getOne(User.class, "token", token);
         if (user == null) {
             throw new NotFoundException();
         }
+        if (userDAO.getOne(User.class, "email", email) != null) {
+            throw new BadRequestException();
+        }
         user.setName(name);
-        // TODO: tester unicité email
         user.setEmail(email);
         user.setPassword(password);
-        return userDAO.save(user);
+        return userDAO.save(user).toDTO();
     }
 
     public void removeUser(String token) {
         userDAO.delete(User.class, "token", token);
     }
 
-    public User getUser(String token) {
+    public List<UserDTO> getFriends(String token) {
         User user = userDAO.getOne(User.class, "token", token);
         if (user == null) {
             throw new NotFoundException();
         }
-        return user;
+        List<UserDTO> friends = new ArrayList<>();
+        for (User friend : user.getFriends()) {
+            friend.setToken(null);
+            friends.add(friend.toDTO());
+        }
+        return friends;
+    }
+
+    public List<MeetPointDTO> getMeetPoints(String token) {
+        User user = userDAO.getOne(User.class, "token", token);
+        if (user == null) {
+            throw new NotFoundException();
+        }
+        List<MeetPointDTO> meetPoints = new ArrayList<>();
+        for (MeetPoint meetPoint : user.getMeetPoints()) {
+            meetPoints.add(meetPoint.toDTO());
+        }
+        return meetPoints;
     }
 
 }

@@ -17,12 +17,7 @@ public class MeetPointController {
 
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void createMeetPoint(@FormParam("name") String name,
-                             @FormParam("address") String address,
-                             @FormParam("latitude") double latitude,
-                             @FormParam("longitude") double longitude,
-                             @FormParam("favorite") boolean favorite,
-                             @FormParam("user") String user) {
+    public void createMeetPoint(@FormParam("name") String name, @FormParam("address") String address, @FormParam("latitude") double latitude, @FormParam("longitude") double longitude, @FormParam("favorite") boolean favorite, @FormParam("user") String user) {
         meetPointBusiness.createMeetPoint(name, address, latitude, longitude, favorite, user);
     }
 

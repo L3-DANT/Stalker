@@ -1,12 +1,12 @@
 package com.dant.util;
 
-import com.dant.entity.MeetPoint;
-import com.dant.entity.Position;
-import com.dant.entity.User;
+import com.dant.entity.*;
 import com.mongodb.MongoClient;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,4 +35,9 @@ public class MongoUtil {
     }
 
     private MongoUtil() {}
+
+    public static String generateToken() {
+        return new BigInteger(130, new SecureRandom()).toString(32);
+    }
+
 }
