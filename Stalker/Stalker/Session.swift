@@ -14,8 +14,8 @@ class Session {
     private var token: String?
     
     init() {
-        self.email = nil
-        self.password = nil
+        self.email = "bob@gsdmail.com"
+        self.password = "1234"
     }
     
     init(email: String, password: String){
@@ -25,29 +25,31 @@ class Session {
     
     func connexion() -> Bool {
         if (self.email != nil && self.password != nil){
-            let feedURL = "http://"
-            let request = URLRequest(url: URL(string: feedURL)!)
-            let sessionHTTP = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                DispatchQueue.main.async {
-                    if let jsonData = data,
-                        let feed = (try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)) as? NSDictionary {
-                            feed.setValue(self.email, forKeyPath: "email")
-                            feed.setValue(self.password, forKeyPath: "password")
-                        //envoyer requete
-                        //tester la reponse http 200 ou 401
-                        let httpResponse = response as? HTTPURLResponse
-                        if (httpResponse != nil) {
-                            if httpResponse?.statusCode == 200 {
-                                self.token = httpResponse?.allHeaderFields["token"] as! String?
-                            }
-                            else {
-                                exit(1)
-                            }
-                        }
-                    }
+
+            let json: [String: Any] = ["email": self.email,
+                                       "password": self.password]
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            
+            // create post request
+            let url = URL(string: "http://35.187.122.195:8080/api/user/")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            // insert json data to the request
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
                 }
-            })
-        sessionHTTP.resume()
+                if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
+                        self.token = responseJSON?.value(forKeyPath: "token") as? String
+                }
+            }
+            
+            task.resume()
         }
         if (self.token != nil) { return true }
         else { return false }
