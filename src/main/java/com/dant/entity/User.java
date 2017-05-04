@@ -1,5 +1,6 @@
 package com.dant.entity;
 
+import com.dant.entity.dto.UserDTO;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;
 
@@ -12,54 +13,86 @@ import java.util.List;
 @Entity
 public class User implements Serializable {
 
-	@Id
-	private ObjectId id;
-	private String name;
-	private String email;
-	@Reference
+    @Id
+    private ObjectId id;
+    private String name;
+    // TODO: Indexer email?
+    private String email;
+    private String password;
+    // TODO: Indexer token (hashcode)
+    private String token;
+    @Reference
     private List<User> friends;
 
-	public User(String name, String email) {
-		this.name = name;
-		this.email = email;
-	}
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
-	public User() {
-	}
+    public User() {
+    }
 
-	public ObjectId getId() { return id; }
+    public UserDTO toDTO() {
+        return new UserDTO(name, email, token);
+    }
 
-	public String getName() { return name; }
+    public ObjectId getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+    public String getPassword() {
+        return password;
+    }
 
-		User account = (User) o;
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-		return email.equals(account.email);
-	}
+    public String getToken() {
+        return token;
+    }
 
-	@Override
-	public int hashCode() {
-		return email.hashCode();
-	}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-	@Override
-	public String toString() {
-		return email;
-	}
+    public List<User> getFriends() { return friends; }
+
+    public void addFriend(User friend) { friends.add(friend); }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return email.equals(user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return email.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return email;
+    }
+
 }

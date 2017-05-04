@@ -1,6 +1,9 @@
 package com.dant.app;
 
 import com.dant.controller.UserController;
+import com.dant.exception.BadRequestExceptionMapper;
+import com.dant.exception.ForbiddenExceptionMapper;
+import com.dant.exception.NotFoundExceptionMapper;
 import com.dant.exception.RuntimeExceptionMapper;
 import com.dant.filter.GsonProvider;
 
@@ -27,6 +30,9 @@ public class App extends Application {
 		Set<Class<?>> sets = new HashSet<>(1);
 		sets.add(GsonProvider.class);
 		sets.add(RuntimeExceptionMapper.class);
+		sets.add(ForbiddenExceptionMapper.class);
+		sets.add(NotFoundExceptionMapper.class);
+		sets.add(BadRequestExceptionMapper.class);
 		return sets;
 	}
 }

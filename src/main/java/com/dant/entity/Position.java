@@ -8,18 +8,19 @@ import org.mongodb.morphia.annotations.*;
  */
 @Entity
 public class Position {
+
     @Id
     private ObjectId id;
-    private double longitude;
     private double latitude;
+    private double longitude;
+    //jodatime
     private long time;
-    //jodaime
     @Reference
     private User user;
 
-    public Position(double longitude, double latitude, long time, User user) {
-        this.longitude = longitude;
+    public Position(double latitude, double longitude, long time, User user) {
         this.latitude = latitude;
+        this.longitude = longitude;
         this.time = time;
         this.user = user;
     }
@@ -28,12 +29,12 @@ public class Position {
         return id;
     }
 
-    public double getLongitude() {
-        return longitude;
-    }
-
     public double getLatitude() {
         return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 
     public long getTime() {
@@ -43,4 +44,5 @@ public class Position {
     public User getUser() {
         return user;
     }
+
 }

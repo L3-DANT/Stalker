@@ -2,6 +2,7 @@ package com.dant.dao;
 
 import com.dant.util.MongoUtil;
 import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.query.Query;
 
 import java.util.List;
 
@@ -12,17 +13,32 @@ public class DAO<T> {
 
     private final Datastore ds = MongoUtil.ds();
 
-    public T save (T object) {
+    public T save(T object) {
         ds.save(object);
         return object;
     }
 
-    public List<T> getAll(Class<T> clazz, String field, String value) {
-        return ds.createQuery(clazz).filter(field, value).asList();
+    public void delete(Class<T> clazz, String field, String value) {
+        Query<T> query = ds.createQuery(clazz).filter(field, value);
+        ds.delete(query);
     }
 
     public T getOne(Class<T> clazz, String field, String value) {
         return ds.createQuery(clazz).filter(field, value).get();
+    }
+
+    public T getOne(Class<T> clazz,
+                    String field1,
+                    Object value1,
+                    String field2,
+                    Object value2) {
+        return ds.createQuery(clazz)
+                .field(field1).equal(value1)
+                .field(field2).equal(value2).get();
+    }
+
+    public List<T> getAll(Class<T> clazz, String field, Object value) {
+        return ds.createQuery(clazz).filter(field, value).asList();
     }
 
 }
