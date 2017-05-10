@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
-		D60736151EB2328A00703459 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736141EB2328A00703459 /* MenuController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D627E6F01EBA145200FEDEEA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627E6EF1EBA145200FEDEEA /* Session.swift */; };
 		D640C5D51EB21E24006F0C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640C5D41EB21E24006F0C0F /* AppDelegate.swift */; };
@@ -16,11 +15,16 @@
 		D640C5DA1EB21E24006F0C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5D81EB21E24006F0C0F /* Main.storyboard */; };
 		D640C5DC1EB21E24006F0C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DB1EB21E24006F0C0F /* Assets.xcassets */; };
 		D640C5DF1EB21E24006F0C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */; };
+		D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193011EC306B100A42E5C /* MeetPoint.swift */; };
+		D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */; };
+		D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */; };
+		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
+		D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */; };
+		D6DBB26D1EBB7C280060756E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26C1EBB7C280060756E /* Friend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		D60736141EB2328A00703459 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D627E6EF1EBA145200FEDEEA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D640C5D11EB21E24006F0C0F /* Stalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +34,12 @@
 		D640C5DB1EB21E24006F0C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D640C5DE1EB21E24006F0C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D640C5E01EB21E24006F0C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D67193011EC306B100A42E5C /* MeetPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPoint.swift; sourceTree = "<group>"; };
+		D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewController.swift; sourceTree = "<group>"; };
+		D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewCell.swift; sourceTree = "<group>"; };
+		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		D6DBB26C1EBB7C280060756E /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +89,13 @@
 				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
 				D640C5E01EB21E24006F0C0F /* Info.plist */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
-				D60736141EB2328A00703459 /* MenuController.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
+				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
+				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
+				D6DBB26C1EBB7C280060756E /* Friend.swift */,
+				D67193011EC306B100A42E5C /* MeetPoint.swift */,
+				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
+				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
 			);
 			path = Stalker;
 			sourceTree = "<group>";
@@ -157,11 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D60736151EB2328A00703459 /* MenuController.swift in Sources */,
 				D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */,
+				D6DBB26D1EBB7C280060756E /* Friend.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
+				D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */,
 				D640C5D51EB21E24006F0C0F /* AppDelegate.swift in Sources */,
+				D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */,
+				D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */,
+				D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */,
+				D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Stalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sar.Stalker;
@@ -294,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Stalker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sar.Stalker;

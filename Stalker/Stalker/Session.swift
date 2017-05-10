@@ -26,7 +26,11 @@ class Session {
     func connexion() -> Bool {
         if (self.email != nil && self.password != nil){
             let feedURL = "http://"
-            let request = URLRequest(url: URL(string: feedURL)!)
+            let request = URLRequest(url: URL(string: feedURL)!)//definir type de methode get ou post
+            //request.httpBody
+            
+            // Dictionary ---[JSONSeriqlisation]--> Data
+            
             let sessionHTTP = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 DispatchQueue.main.async {
                     if let jsonData = data,
