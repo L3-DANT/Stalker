@@ -43,14 +43,45 @@ class FriendsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    //Delete Button
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return [UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            
+            // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
+            
+            func myHandler(alert: UIAlertAction){
+                self.friends.remove(at: indexPath.row)
+                tableView.reloadData()
+                print("You tapped: \(alert.title)")
+            }
+            
+            let otherAlert = UIAlertController(title: "Do you want to delete this friend?", message: "your friend will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            
+            
+            let callFunction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: myHandler)
+            
+            let dismiss = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            // relate actions to controllers
+            otherAlert.addAction(callFunction)
+            otherAlert.addAction(dismiss)
+            
+            self.present(otherAlert, animated: true, completion: nil)
+            
+            
+        })]
+    }
 
 
     private func loadFriends(){
         let friend1 = Friend(name:"ally", position:"Amiens")
         let friend2 = Friend(name: "bob", position: "Bourges")
-        let friend3 = Friend(name: "claudine", position: "Caen")
+        let friend3 = Friend(name: "claude", position: "Caen")
         let friend4 = Friend(name: "eliott", position: "Epinay")
+        let friend5 = Friend(name: "fred", position: "Fontainebleau")
         
-        friends += [friend1, friend2, friend3, friend4]
+        friends += [friend1, friend2, friend3, friend4, friend5]
     }
 }

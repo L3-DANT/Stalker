@@ -14,14 +14,20 @@ class MeetPoint {
     var address: String
     var latitude: Double
     var longitude: Double
-    var favorite: Bool
     
-    init(name: String, address: String, latitude: Double, longitude: Double, favorite: Bool){
+    init(name: String, address: String, latitude: Double, longitude: Double){
         self.name = name
         self.address = address
         self.latitude = latitude
         self.longitude = longitude
-        self.favorite = favorite
+    }
+    
+    init(name: String, address: String){
+        self.name = name
+        self.address = address
+        //TO DO long lat 
+        self.latitude = 0.0
+        self.longitude = 0.0
     }
 
 }

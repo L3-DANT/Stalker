@@ -50,11 +50,41 @@ class MeetPointsTableViewController: UITableViewController {
         return cell
     }
     
+    //Delete Button
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return [UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            
+            // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
+            
+            func myHandler(alert: UIAlertAction){
+                self.meetpoints.remove(at: indexPath.row)
+                tableView.reloadData()
+                print("You tapped: \(alert.title)")
+            }
+            
+            let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "your meetpoint will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            
+            
+            let callFunction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: myHandler)
+            
+            let dismiss = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            // relate actions to controllers
+            otherAlert.addAction(callFunction)
+            otherAlert.addAction(dismiss)
+            
+            self.present(otherAlert, animated: true, completion: nil)
+            
+            
+        })]
+    }
+    
     
     private func loadMeetPoints(){
-        let meetpoint1 = MeetPoint(name: "Tour Eiffel", address: "ave de la Tour Eiffel", latitude: 45.02, longitude: 46.25, favorite: true)
-        let meetpoint2 = MeetPoint(name: "Arc de Triomphe", address: "ave de l'Arc de Triomphe", latitude: 45.02, longitude: 46.25, favorite: false)
-        let meetpoint3 = MeetPoint(name: "Notre Dame", address: "ave de Notre Dame", latitude: 45.02, longitude: 46.25, favorite: true)
+        let meetpoint1 = MeetPoint(name: "Tour Eiffel", address: "ave de la Tour Eiffel", latitude: 45.02, longitude: 46.25)
+        let meetpoint2 = MeetPoint(name: "Arc de Triomphe", address: "ave de l'Arc de Triomphe", latitude: 45.02, longitude: 46.25)
+        let meetpoint3 = MeetPoint(name: "Notre Dame", address: "ave de Notre Dame", latitude: 45.02, longitude: 46.25)
         
         meetpoints += [meetpoint1, meetpoint2, meetpoint3]
     }
