@@ -1,6 +1,7 @@
 package com.dant.entity;
 
 import com.dant.entity.dto.MeetPointDTO;
+import org.apache.commons.lang.RandomStringUtils;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.*;
 
@@ -12,6 +13,8 @@ import java.io.Serializable;
 public class MeetPoint implements Serializable {
 
     @Id
+//    private ObjectId mongoId;
+//    private String id;
     private ObjectId id;
     private String name;
     private String address;
@@ -28,6 +31,7 @@ public class MeetPoint implements Serializable {
         this.longitude = longitude;
         this.favorite = favorite;
         this.user = user;
+//        this.id = RandomStringUtils.random(32, true, true);
     }
 
     public MeetPoint() {

@@ -23,6 +23,11 @@ public class DAO<T> {
         ds.delete(query);
     }
 
+    public void delete(Class<T> clazz, String field1, String value1, String field2, String value2) {
+        Query<T> query = ds.createQuery(clazz).field(field1).equal(value1).field(field2).equal(value2);
+        ds.delete(query);
+    }
+
     public T getOne(Class<T> clazz, String field, String value) {
         return ds.createQuery(clazz).filter(field, value).get();
     }

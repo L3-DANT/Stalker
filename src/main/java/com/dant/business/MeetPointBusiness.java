@@ -51,10 +51,11 @@ public class MeetPointBusiness {
             throw new BadRequestException();
         }
         // TODO: get meetPoint
+        // Comment identifier un meetPoint
         return new MeetPoint();
     }
 
-    public List<MeetPoint> getAllMeetPoint(String userToken) {
+    public List<MeetPoint> getAllMeetPoints(String userToken) {
         User user = userDAO.getOne(User.class, "token", userToken);
         if (user == null) {
             throw new BadRequestException();
