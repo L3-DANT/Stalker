@@ -13,7 +13,7 @@ public class FriendshipController {
     private FriendshipBusiness userBusiness = new FriendshipBusiness();
 
     @POST
-    @Path("/askFriend")
+//    @Path("/askFriend")
     public FriendshipDTO askFriend(@FormParam("friendSource") String friendSource, @FormParam("friendDest") String friendDest) {
         return userBusiness.askFriend(friendSource, friendDest);
     }

@@ -36,16 +36,8 @@ public class Friendship implements Serializable {
         return friendSource;
     }
 
-    public void setFriendSource(User friendSource) {
-        this.friendSource = friendSource;
-    }
-
     public User getFriendDest() {
         return friendDest;
-    }
-
-    public void setFriendDest(User friendDest) {
-        this.friendDest = friendDest;
     }
 
     public boolean isAccepted() {

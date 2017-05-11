@@ -43,9 +43,11 @@ public class FriendshipBusiness {
         List<UserDTO> friendsDTO = new ArrayList<>();
         List<Friendship> friends = friendshipDAO.getAll(Friendship.class, "friendSource", email);;
         for(Friendship fs : friends) {
-            User friend = userDAO.getOne(User.class, "email", fs.getFriendDest().getEmail());
-            if(friend != null)
-                friendsDTO.add(friend.toDTO());
+            if(fs.isAccepted()){
+                User friend = userDAO.getOne(User.class, "email", fs.getFriendDest().getEmail());
+                if(friend != null)
+                    friendsDTO.add(friend.toDTO());
+            }
         }
         friends = friendshipDAO.getAll(Friendship.class, "friendDest", email);;
         for(Friendship fs : friends) {
@@ -65,7 +67,7 @@ public class FriendshipBusiness {
         List<UserDTO> friendsDTO = new ArrayList<>();
         List<Friendship> friends = friendshipDAO.getAll(Friendship.class, "friendDest", email);;
         for(Friendship fs : friends) {
-            if(fs.isAccepted()){
+            if(!fs.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", fs.getFriendSource().getEmail());
                 if(friend != null)
                     friendsDTO.add(friend.toDTO());
