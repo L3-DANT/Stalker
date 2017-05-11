@@ -14,30 +14,29 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
-
     private UserBusiness userBusiness = new UserBusiness();
 
     @POST
+    @Path("/authenticate")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO authenticate(@QueryParam("email") String email,
-                                @QueryParam("password") String password) {
+    public UserDTO authenticate(@FormParam("email") String email,
+                                @FormParam("password") String password) {
         return userBusiness.authenticate(email, password);
     }
 
-    @POST
+    @GET
     @Path("/friends")
     public List<UserDTO> getFriends(@FormParam("token") String token) {
         return userBusiness.getFriends(token);
     }
 
-    @POST
+    @GET
     @Path("/meetpoints")
     public List<MeetPointDTO> getMeetPoints(@FormParam("token") String token) {
         return userBusiness.getMeetPoints(token);
     }
 
     @POST
-    @Path("/create")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public UserDTO createUser(@FormParam("name") String name,
                               @FormParam("email") String email,
@@ -45,8 +44,7 @@ public class UserController {
         return userBusiness.createUser(name, email, password);
     }
 
-    @POST
-    @Path("/upadte")
+    @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public UserDTO updateUser(@FormParam("name") String name,
                               @FormParam("email") String email,
@@ -56,9 +54,7 @@ public class UserController {
     }
 
     @DELETE
-    @Path("/remove")
     public void removeUser(@HeaderParam("token") String token) {
         userBusiness.removeUser(token);
     }
-
 }

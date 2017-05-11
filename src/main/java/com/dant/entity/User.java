@@ -25,24 +25,21 @@ public class User implements Serializable {
     // TODO: Indexer token (hashcode)
     private String token;
     @Reference
-    private List<User> friends;
-    @Reference
     private List<MeetPoint> meetPoints;
     @Reference
     private List<Position> positions;
 
-    public User(String name, String email, String password, String token, List<User> friends, List<MeetPoint> meetPoints, List<Position> positions) {
+    public User(String name, String email, String password, String token, List<MeetPoint> meetPoints, List<Position> positions) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.token = token;
-        this.friends = friends;
         this.meetPoints = meetPoints;
         this.positions = positions;
     }
 
     public User(String name, String email, String password) {
-        this(name, email, password, "", new ArrayList<User>(), new ArrayList<MeetPoint>(), new ArrayList<Position>());
+        this(name, email, password, "", new ArrayList<MeetPoint>(), new ArrayList<Position>());
         this.email = email;
         this.password = password;
     }
@@ -88,18 +85,6 @@ public class User implements Serializable {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public List<User> getFriends() {
-        return friends;
-    }
-
-    public void addFriend(User friend) {
-        friends.add(friend);
-    }
-
-    public void setFriends(List<User> friends) {
-        this.friends = friends;
     }
 
     public List<MeetPoint> getMeetPoints() {

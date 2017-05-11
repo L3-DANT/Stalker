@@ -1,8 +1,10 @@
 package com.dant.business;
 
 import com.dant.dao.DAO;
+import com.dant.entity.Friendship;
 import com.dant.entity.MeetPoint;
 import com.dant.entity.User;
+import com.dant.entity.dto.FriendshipDTO;
 import com.dant.entity.dto.MeetPointDTO;
 import com.dant.entity.dto.UserDTO;
 import com.dant.util.MongoUtil;
@@ -75,10 +77,10 @@ public class UserBusiness {
             throw new NotFoundException();
         }
         List<UserDTO> friends = new ArrayList<>();
-        for (User friend : user.getFriends()) {
-            friend.setToken(null);
-            friends.add(friend.toDTO());
-        }
+//        for (User friend : user.getFriends()) {
+//            friend.setToken(null);
+//            friends.add(friend.toDTO());
+//        }
         return friends;
     }
 
@@ -93,5 +95,4 @@ public class UserBusiness {
         }
         return meetPoints;
     }
-
 }

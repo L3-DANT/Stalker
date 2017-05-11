@@ -1,5 +1,6 @@
 package com.dant.app;
 
+import com.dant.controller.MeetPointController;
 import com.dant.controller.UserController;
 import com.dant.exception.BadRequestExceptionMapper;
 import com.dant.exception.ForbiddenExceptionMapper;
@@ -20,14 +21,15 @@ public class App extends Application {
 
 	@Override
 	public Set<Object> getSingletons() {
-		Set<Object> sets = new HashSet<>(1);
+		Set<Object> sets = new HashSet<>();
 		sets.add(new UserController());
+		sets.add(new MeetPointController());
 		return sets;
 	}
 
 	@Override
 	public Set<Class<?>> getClasses() {
-		Set<Class<?>> sets = new HashSet<>(1);
+		Set<Class<?>> sets = new HashSet<>();
 		sets.add(GsonProvider.class);
 		sets.add(RuntimeExceptionMapper.class);
 		sets.add(ForbiddenExceptionMapper.class);

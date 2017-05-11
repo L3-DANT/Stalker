@@ -29,6 +29,7 @@ public class MongoUtil {
             set.add(User.class);
             set.add(Position.class);
             set.add(MeetPoint.class);
+            set.add(Friendship.class);
             return new Morphia(set).createDatastore(client, "StalkerDb");
         }
 
