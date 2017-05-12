@@ -12,12 +12,16 @@ class MeetPoint {
     
     var name: String
     var address: String
+    var postalCode : String
+    var city: String
     var latitude: Double
     var longitude: Double
     
     init(name: String, address: String, latitude: Double, longitude: Double){
         self.name = name
         self.address = address
+        self.postalCode = "00000"
+        self.city = "Nil"
         self.latitude = latitude
         self.longitude = longitude
     }
@@ -26,6 +30,8 @@ class MeetPoint {
         self.name = name
         self.address = address
         //TO DO long lat 
+        self.postalCode = "00000"
+        self.city = "Nil"
         self.latitude = 0.0
         self.longitude = 0.0
     }
