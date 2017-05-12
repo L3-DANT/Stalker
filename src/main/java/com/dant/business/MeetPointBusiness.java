@@ -15,7 +15,7 @@ public class MeetPointBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<MeetPoint> meetPointDAO = new DAO<>();
 
-    public MeetPoint createMeetPoint(String name, String address, double latitude, double longitude, boolean favorite, String userToken) {
+    public MeetPoint createMeetPoint(String userToken, String name, String address, int postalCode, String town, double latitude, double longitude) {
         User user = userDAO.getOne(User.class, "token", userToken);
         if (user == null) {
             throw new BadRequestException();
@@ -24,7 +24,17 @@ public class MeetPointBusiness {
         if (meetPoint != null) {
             throw new BadRequestException();
         }
-        return meetPointDAO.save(new MeetPoint(name, address, latitude, longitude, favorite, user));
+        return meetPointDAO.save(new MeetPoint(name, address, postalCode, town, latitude, longitude));
+    }
+
+    public MeetPoint getMeetPoint(String address, String userToken) {
+        User user = userDAO.getOne(User.class, "token", userToken);
+        if (user == null) {
+            throw new BadRequestException();
+        }
+        // TODO: get meetPoint
+        // Comment identifier un meetPoint
+        return new MeetPoint();
     }
 
     public void updateMeetPoint(String name, String address, double latitude, double longitude, boolean favorite, String userToken) {
@@ -43,16 +53,6 @@ public class MeetPointBusiness {
         }
         // TODO: delete meetPoint
 
-    }
-
-    public MeetPoint getMeetPoint(String address, String userToken) {
-        User user = userDAO.getOne(User.class, "token", userToken);
-        if (user == null) {
-            throw new BadRequestException();
-        }
-        // TODO: get meetPoint
-        // Comment identifier un meetPoint
-        return new MeetPoint();
     }
 
     public List<MeetPoint> getAllMeetPoints(String userToken) {

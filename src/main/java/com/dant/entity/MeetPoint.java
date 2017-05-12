@@ -13,38 +13,45 @@ import java.io.Serializable;
 public class MeetPoint implements Serializable {
 
     @Id
-//    private ObjectId mongoId;
-//    private String id;
-    private ObjectId id;
+    private ObjectId mongoId;       // Id for mongoDb
+    private String id;              // Id for
+//    private ObjectId id;
     private String name;
     private String address;
+    private int postalCode;
+    private String town;
     private double latitude;
     private double longitude;
-    private boolean favorite;
-    @Reference
-    private User user;
 
-    public MeetPoint(String name, String address, double latitude, double longitude, boolean favorite, User user) {
+    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude) {
         this.name = name;
         this.address = address;
+        this.postalCode = postalCode;
+        this.town = town;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.favorite = favorite;
-        this.user = user;
-//        this.id = RandomStringUtils.random(32, true, true);
+        this.id = RandomStringUtils.random(32, true, true);
     }
 
     public MeetPoint() {
     }
 
-    public MeetPointDTO toDTO() { return new MeetPointDTO(name, address, latitude, longitude, favorite); }
+    public MeetPointDTO toDTO() { return new MeetPointDTO(id, name, address, postalCode, town, latitude, longitude); }
 
     public ObjectId getId() {
+        return mongoId;
+    }
+
+    public String getOurId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setAdress(String name) {
+        this.name = name;
     }
 
     public void setName(String address) {
@@ -55,8 +62,20 @@ public class MeetPoint implements Serializable {
         return address;
     }
 
-    public void setAdress(String name) {
-        this.name = name;
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public double getLatitude() {
@@ -73,22 +92,6 @@ public class MeetPoint implements Serializable {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public boolean getFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override
