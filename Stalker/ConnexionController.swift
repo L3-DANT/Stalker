@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ConnexionController: UIViewController {
+class ConnexionController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var passwordInput: UITextField!
     
     let session = Session()
     
@@ -19,11 +19,27 @@ class ConnexionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setu p after loading the view, typically from a nib.
+        emailInput.delegate = self
+        emailInput.tag = 0
+        passwordInput.delegate = self
+        passwordInput.tag = 1
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        // Do not add a line break
+        return false
     }
 
 
