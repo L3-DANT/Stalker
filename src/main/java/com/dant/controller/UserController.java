@@ -24,18 +24,6 @@ public class UserController {
         return userBusiness.authenticate(email, password);
     }
 
-    @GET
-    @Path("/friends")
-    public List<UserDTO> getFriends(@FormParam("token") String token) {
-        return userBusiness.getFriends(token);
-    }
-
-    @GET
-    @Path("/meetpoints")
-    public List<MeetPointDTO> getMeetPoints(@FormParam("token") String token) {
-        return userBusiness.getMeetPoints(token);
-    }
-
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public UserDTO createUser(@FormParam("name") String name,
@@ -57,4 +45,10 @@ public class UserController {
     public void removeUser(@HeaderParam("token") String token) {
         userBusiness.removeUser(token);
     }
+
+//    @GET
+//    @Path("/friends")
+//    public List<UserDTO> getFriends(@FormParam("token") String token) {
+//        return userBusiness.getFriends(token);
+//    }
 }

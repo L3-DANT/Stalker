@@ -40,18 +40,16 @@ public class FriendshipBusiness {
         if (user == null)
             throw new NotFoundException();
         List<UserDTO> friendsDTO = new ArrayList<>();
-        List<Friendship> friends = friendshipDAO.getAll(Friendship.class, "friendSource", email);;
-        for(Friendship fs : friends) {
-            if(fs.isAccepted()){
-                User friend = userDAO.getOne(User.class, "email", fs.getFriendDest().getEmail());
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", email)) {
+            if(friendship.isAccepted()){
+                User friend = userDAO.getOne(User.class, "email", friendship.getFriendDest().getEmail());
                 if(friend != null)
                     friendsDTO.add(friend.toDTO());
             }
         }
-        friends = friendshipDAO.getAll(Friendship.class, "friendDest", email);;
-        for(Friendship fs : friends) {
-            if(fs.isAccepted()){
-                User friend = userDAO.getOne(User.class, "email", fs.getFriendSource().getEmail());
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", email)) {
+            if(friendship.isAccepted()){
+                User friend = userDAO.getOne(User.class, "email", friendship.getFriendSource().getEmail());
                 if(friend != null)
                     friendsDTO.add(friend.toDTO());
             }
