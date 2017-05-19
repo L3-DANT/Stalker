@@ -7,21 +7,25 @@ import java.io.Serializable;
  */
 public class MeetPointDTO implements Serializable {
 
+    public String id;
     public String name;
     public String address;
+    public int postalCode;
+    public String town;
     public double latitude;
     public double longitude;
-    public boolean favorite;
 
     public MeetPointDTO() {
     }
 
-    public MeetPointDTO(String name, String address, double latitude, double longitude, boolean favorite) {
+    public MeetPointDTO(String id, String name, String address, int postalCode, String town, double latitude, double longitude) {
+        this.id = id;
         this.name = name;
         this.address = address;
+        this.postalCode = postalCode;
+        this.town = town;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.favorite = favorite;
     }
 
 }

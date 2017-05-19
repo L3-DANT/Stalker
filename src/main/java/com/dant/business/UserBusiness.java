@@ -21,14 +21,7 @@ import java.util.List;
 public class UserBusiness {
 
     private final DAO<User> userDAO = new DAO<>();
-
-    public UserDTO getUser(String token) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if (user == null) {
-            throw new NotFoundException();
-        }
-        return user.toDTO();
-    }
+    private final DAO<Friendship> friendshipDAO = new DAO<>();
 
     public UserDTO authenticate(String email, String password) {
         User user = userDAO.getOne(User.class, "email", email);
@@ -71,28 +64,21 @@ public class UserBusiness {
         userDAO.delete(User.class, "token", token);
     }
 
-    public List<UserDTO> getFriends(String token) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if (user == null) {
-            throw new NotFoundException();
-        }
-        List<UserDTO> friends = new ArrayList<>();
-//        for (User friend : user.getFriends()) {
-//            friend.setToken(null);
-//            friends.add(friend.toDTO());
+//    public List<UserDTO> getFriends(String token) {
+//        User user = userDAO.getOne(User.class, "token", token);
+//        if (user == null) {
+//            throw new NotFoundException();
 //        }
-        return friends;
-    }
-
-    public List<MeetPointDTO> getMeetPoints(String token) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if (user == null) {
-            throw new NotFoundException();
-        }
-        List<MeetPointDTO> meetPoints = new ArrayList<>();
-        for (MeetPoint meetPoint : user.getMeetPoints()) {
-            meetPoints.add(meetPoint.toDTO());
-        }
-        return meetPoints;
-    }
+//        List<UserDTO> friendsToSend = new ArrayList<>();
+//
+//        for (Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", user)) {
+//            friendship.getFriendSource().setToken(null);
+//            friendsToSend.add(friendship.getFriendSource().toDTO());
+//        }
+//        for (Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", user)) {
+//            friendship.getFriendSource().setToken(null);
+//            friendsToSend.add(friendship.getFriendSource().toDTO());
+//        }
+//        return friendsToSend;
+//    }
 }
