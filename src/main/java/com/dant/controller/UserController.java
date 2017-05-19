@@ -1,14 +1,12 @@
 package com.dant.controller;
 
-import com.dant.app.LogFilter;
 import com.dant.business.UserBusiness;
 import com.dant.entity.User;
-import com.dant.entity.dto.MeetPointDTO;
 import com.dant.entity.dto.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by pitton on 2017-02-20.
@@ -19,11 +17,14 @@ import java.util.List;
 public class UserController {
 
     private UserBusiness userBusiness = new UserBusiness();
-    private LogFilter log = new LogFilter();
+    private static final Logger log = Logger.getLogger(UserController.class.getName());
 
     @POST
     @Path("/authenticate")
     public UserDTO authenticate(User u) {
+        log.info("request received \ncreate: " +
+                u + " " +
+                userBusiness.authenticate(u.getEmail(), u.getPassword()));
         return userBusiness.authenticate(u.getEmail(), u.getPassword());
     }
 

@@ -2,18 +2,13 @@ package com.dant.business;
 
 import com.dant.dao.DAO;
 import com.dant.entity.Friendship;
-import com.dant.entity.MeetPoint;
 import com.dant.entity.User;
-import com.dant.entity.dto.FriendshipDTO;
-import com.dant.entity.dto.MeetPointDTO;
 import com.dant.entity.dto.UserDTO;
 import com.dant.util.MongoUtil;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by 3502804 on 02/03/17.
