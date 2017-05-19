@@ -20,8 +20,6 @@
 		D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */; };
 		D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */; };
 		D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */; };
-		D684FDA01EC6246400F1BCDA /* MyItenariesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FD9F1EC6246400F1BCDA /* MyItenariesTableViewController.swift */; };
-		D684FDA21EC6265A00F1BCDA /* MyItenariesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FDA11EC6265A00F1BCDA /* MyItenariesTableViewCell.swift */; };
 		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
 		D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */; };
 		D6DBB26D1EBB7C280060756E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26C1EBB7C280060756E /* Friend.swift */; };
@@ -43,8 +41,6 @@
 		D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewController.swift; sourceTree = "<group>"; };
 		D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewCell.swift; sourceTree = "<group>"; };
 		D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionController.swift; sourceTree = "<group>"; };
-		D684FD9F1EC6246400F1BCDA /* MyItenariesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyItenariesTableViewController.swift; sourceTree = "<group>"; };
-		D684FDA11EC6265A00F1BCDA /* MyItenariesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyItenariesTableViewCell.swift; sourceTree = "<group>"; };
 		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D6DBB26C1EBB7C280060756E /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -106,8 +102,6 @@
 				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
-				D684FD9F1EC6246400F1BCDA /* MyItenariesTableViewController.swift */,
-				D684FDA11EC6265A00F1BCDA /* MyItenariesTableViewCell.swift */,
 			);
 			path = Stalker;
 			sourceTree = "<group>";
@@ -196,8 +190,6 @@
 				D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */,
 				D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */,
 				D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */,
-				D684FDA01EC6246400F1BCDA /* MyItenariesTableViewController.swift in Sources */,
-				D684FDA21EC6265A00F1BCDA /* MyItenariesTableViewCell.swift in Sources */,
 				D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
