@@ -20,4 +20,9 @@ public class UserDTO implements Serializable {
         this.token = token;
     }
 
+    public UserDTO(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
 }

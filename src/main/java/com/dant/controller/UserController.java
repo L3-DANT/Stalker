@@ -1,7 +1,10 @@
 package com.dant.controller;
 
+import com.dant.app.LogFilter;
 import com.dant.business.UserBusiness;
-import com.dant.entity.dto.*;
+import com.dant.entity.User;
+import com.dant.entity.dto.MeetPointDTO;
+import com.dant.entity.dto.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,42 +17,38 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
+
     private UserBusiness userBusiness = new UserBusiness();
+    private LogFilter log = new LogFilter();
 
     @POST
     @Path("/authenticate")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO authenticate(@FormParam("email") String email,
-                                @FormParam("password") String password) {
-        return userBusiness.authenticate(email, password);
+    public UserDTO authenticate(User u) {
+        return userBusiness.authenticate(u.getEmail(), u.getPassword());
     }
 
     @GET
     @Path("/friends")
-    public List<UserDTO> getFriends(@FormParam("token") String token) {
+    public List<UserDTO> getFriends(@HeaderParam("token") String token) {
         return userBusiness.getFriends(token);
     }
 
     @GET
     @Path("/meetpoints")
-    public List<MeetPointDTO> getMeetPoints(@FormParam("token") String token) {
+    public List<MeetPointDTO> getMeetPoints(@HeaderParam("token") String token) {
         return userBusiness.getMeetPoints(token);
     }
 
     @POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO createUser(@FormParam("name") String name,
-                              @FormParam("email") String email,
-                              @FormParam("password") String password) {
-        return userBusiness.createUser(name, email, password);
+    public UserDTO createUser(User u) {
+        return userBusiness.createUser(u.getName(), u.getEmail(), u.getPassword());
     }
 
     @PUT
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO updateUser(@FormParam("name") String name,
-                              @FormParam("email") String email,
-                              @FormParam("password") String password,
-                              @FormParam("token") String token) {
+    public UserDTO updateUser(String name,
+                              String email,
+                              String password,
+                              String token) {
         return userBusiness.updateUser(name, email, password, token);
     }
 
@@ -57,4 +56,5 @@ public class UserController {
     public void removeUser(@HeaderParam("token") String token) {
         userBusiness.removeUser(token);
     }
+
 }
