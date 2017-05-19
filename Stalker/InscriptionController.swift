@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ConnexionController: UIViewController, UITextFieldDelegate {
+class InscriptionController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+
     
     let session = Session()
     
@@ -19,12 +21,14 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setu p after loading the view, typically from a nib.
+        nameInput.delegate = self
+        nameInput.tag = 0
         emailInput.delegate = self
-        emailInput.tag = 0
+        emailInput.tag = 1
         passwordInput.delegate = self
-        passwordInput.tag = 1
+        passwordInput.tag = 2
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,7 +45,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
         // Do not add a line break
         return false
     }
-
-
+    
+    
 }
 
