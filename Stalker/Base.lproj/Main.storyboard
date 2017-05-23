@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8zy-ji-OJC">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -222,7 +221,7 @@
         <!--New Friend-->
         <scene sceneID="gjS-Mf-q6g">
             <objects>
-                <viewController title="New Friend" id="76K-eC-aO2" sceneMemberID="viewController">
+                <viewController title="New Friend" id="76K-eC-aO2" customClass="NewFriendViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="khb-oX-KJh"/>
                         <viewControllerLayoutGuide type="bottom" id="5Xl-UE-0TJ"/>
@@ -732,16 +731,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FriendIcone" width="32" height="32"/>
+        <image name="FriendIcone" width="24" height="24"/>
         <image name="FriendImage" width="112" height="112"/>
         <image name="Man" width="313" height="313"/>
-        <image name="MapIcone" width="32" height="32"/>
+        <image name="MapIcone" width="24" height="24"/>
         <image name="MeIcone" width="24" height="24"/>
         <image name="MeetpointIcone" width="24" height="24"/>
         <image name="PlaceIcone" width="313" height="313"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YYX-Ue-eO8"/>
+        <segue reference="3kt-Yx-7pn"/>
         <segue reference="MOd-eq-EJf"/>
     </inferredMetricsTieBreakers>
 </document>

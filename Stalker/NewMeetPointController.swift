@@ -25,6 +25,7 @@ class NewMeetPointController: UIViewController {
 
     @IBAction func newMeetPoint(_ sender: UIButton) {
         if addressOutlet.text != nil && cityOutlet.text != nil {
+            
             //MeetPoint(name: <#T##String#>, address: addressOutlet.text, latitude: <#T##Double#>, longitude: <#T##Double#>)
         }
     }
