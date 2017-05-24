@@ -1,0 +1,8 @@
+#Xcode
+*.xcuserstate
+Stalker.xcodeproj/xcuserdata/
+*.plist
+*.xcscmblueprint
+
+#MacOs
+.DS_Store
