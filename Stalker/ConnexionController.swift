@@ -50,6 +50,9 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                         self.defaults.synchronize()
                         if resultToken != nil {
                             OperationQueue.main.addOperation { self.performSegue(withIdentifier: "mapSegue", sender: self)}
+//                            DispatchQueue.main.async {
+//                                self.performSegue(withIdentifier: "mapSegue", sender: self)
+//                            }
                         }
                     }
                 } catch let error as NSError {
