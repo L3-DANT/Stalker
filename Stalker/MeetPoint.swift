@@ -10,30 +10,24 @@ import UIKit
 
 class MeetPoint {
     
-    var name: String
-    var address: String
-    var postalCode : String
-    var city: String
-    var latitude: Double
-    var longitude: Double
+    var id: CLong?
+    var name: String?
+    var address: String?
+    var postalCode : String?
+    var city: String?
+    var latitude: Double?
+    var longitude: Double?
     
-    init(name: String, address: String, latitude: Double, longitude: Double){
+    init(id:CLong?=nil, name:String?=nil, address:String?=nil, postalCode:String?=nil, city:String?=nil, latitude:Double?=nil, longitude:Double?=nil) {
+        self.id = id
         self.name = name
         self.address = address
-        self.postalCode = "00000"
-        self.city = "Nil"
+        self.postalCode = postalCode
+        self.city = city
         self.latitude = latitude
         self.longitude = longitude
     }
     
-    init(name: String, address: String){
-        self.name = name
-        self.address = address
-        //TO DO long lat 
-        self.postalCode = "00000"
-        self.city = "Nil"
-        self.latitude = 0.0
-        self.longitude = 0.0
-    }
+    init() {}
 
 }
