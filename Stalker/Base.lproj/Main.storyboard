@@ -40,7 +40,7 @@
                                 </constraints>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
-                                    <segue destination="bPi-mZ-eBt" kind="show" id="3kt-Yx-7pn"/>
+                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wbz-bQ-qXI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STALKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPU-yJ-aKE">
@@ -51,7 +51,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-IS-ov6">
                                 <state key="normal" title="Sign up"/>
                                 <connections>
-                                    <segue destination="2F0-fZ-9tz" kind="show" id="xba-tq-klJ"/>
+                                    <segue destination="2F0-fZ-9tz" kind="show" identifier="signUpSegue" id="xba-tq-klJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,11 +73,12 @@
                     <connections>
                         <outlet property="emailInput" destination="zNK-GY-eFD" id="WFF-5R-8MP"/>
                         <outlet property="passwordInput" destination="Ude-jA-PGA" id="9YT-Si-a8Q"/>
+                        <segue destination="bPi-mZ-eBt" kind="show" identifier="mapSegue" id="Thm-aA-J2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-423.19999999999999" y="555.47226386806597"/>
+            <point key="canvasLocation" x="-423" y="555"/>
         </scene>
         <!--Inscription Controller-->
         <scene sceneID="Kqj-5A-WdJ">
@@ -740,7 +741,7 @@
         <image name="PlaceIcone" width="313" height="313"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3kt-Yx-7pn"/>
+        <segue reference="YYX-Ue-eO8"/>
         <segue reference="MOd-eq-EJf"/>
     </inferredMetricsTieBreakers>
 </document>
