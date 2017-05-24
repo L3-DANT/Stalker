@@ -16,11 +16,13 @@ public class Position {
     private double latitude;
     private double longitude;
     private long time;
+    private String emailUser;
 
-    public Position(double latitude, double longitude, long time) {
+    public Position(double latitude, double longitude, long time, String emailUser) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
+        this.emailUser = emailUser;
     }
 
 //    public Position(double latitude, double longitude, int year, int month, int day, int hour, int minute, int second, int milli) {
@@ -29,7 +31,7 @@ public class Position {
 //        this.time = new DateTime(year, month, day, hour, minute, second, milli);
 //    }
 
-    public PositionDTO toDTO() { return new PositionDTO(latitude, longitude, time); }
+    public PositionDTO toDTO() { return new PositionDTO(latitude, longitude, time, emailUser); }
 
     public ObjectId getId() {
         return id;
@@ -45,6 +47,14 @@ public class Position {
 
     public long getTime() {
         return time;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
     public static void main(String[] args) {

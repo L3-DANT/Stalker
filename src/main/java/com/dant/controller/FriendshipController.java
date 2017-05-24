@@ -1,7 +1,9 @@
 package com.dant.controller;
 
 import com.dant.business.FriendshipBusiness;
+import com.dant.entity.Friendship;
 import com.dant.entity.dto.*;
+import org.omg.CORBA.FREE_MEM;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,14 +19,14 @@ public class FriendshipController {
     private FriendshipBusiness userBusiness = new FriendshipBusiness();
 
     @POST
-    public FriendshipDTO askFriend(@FormParam("friendSource") String friendSource, @FormParam("friendDest") String friendDest) {
-        return userBusiness.askFriend(friendSource, friendDest);
+    public FriendshipDTO askFriend(Friendship friendship) {
+        return userBusiness.askFriend(friendship);
     }
 
     @POST
     @Path("/acceptFriend")
-    public FriendshipDTO acceptFriend(@FormParam("friendSource") String friendSource, @FormParam("friendDest") String friendDest) {
-        return userBusiness.acceptFriend(friendSource, friendDest);
+    public FriendshipDTO acceptFriend(Friendship friendship) {
+        return userBusiness.acceptFriend(friendship);
     }
 
     @GET

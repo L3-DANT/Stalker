@@ -3,6 +3,8 @@ package com.dant.business;
 import com.dant.dao.DAO;
 import com.dant.entity.*;
 import com.dant.entity.dto.*;
+
+import javax.ws.rs.BadRequestException;
 import javax.ws.rs.NotFoundException;
 
 import java.util.ArrayList;
@@ -14,24 +16,21 @@ public class FriendshipBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<Friendship> friendshipDAO = new DAO<>();
 
-    public FriendshipDTO askFriend(String friendSource, String friendDest) {
-        User userSource = userDAO.getOne(User.class, "email", friendSource);
-        User userDest = userDAO.getOne(User.class, "email", friendDest);
-        // test existence amitié ?
-        if(userSource != null && userDest != null)
+    public FriendshipDTO askFriend(Friendship friendship) {
+        if(userDAO.getOne(User.class, "email", friendship.getEmailSource()) == null && userDAO.getOne(User.class, "email", friendship.getEmailDest()) == null)
             throw new NotFoundException();
-        else {
-            Friendship friendship = new Friendship(userSource, userDest);
-            return friendshipDAO.save(friendship).toDTO();
-        }
+        if(friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailSource(), "emailDest", friendship.getEmailDest()) != null && friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailDest(), "emailDest", friendship.getEmailSource()) != null)
+            throw new BadRequestException();
+        return friendshipDAO.save(friendship).toDTO();
     }
 
-    public FriendshipDTO acceptFriend(String friendSource, String friendDest) {
-        Friendship friendship = friendshipDAO.getOne(Friendship.class, "friendSource", friendSource, "friendDest", friendDest);
-        if(friendship != null)
+    public FriendshipDTO acceptFriend(Friendship f) {
+        if(userDAO.getOne(User.class, "email", f.getEmailSource()) == null && userDAO.getOne(User.class, "email", f.getEmailDest()) == null)
             throw new NotFoundException();
-        else
-            friendship.accepte();
+        Friendship friendship = friendshipDAO.getOne(Friendship.class, "emailSource", f.getEmailSource(), "emailDest", f.getEmailDest());
+        if(friendship == null)
+            throw new NotFoundException();
+        friendship.accepte();
         return friendshipDAO.save(friendship).toDTO();
     }
 
@@ -42,14 +41,14 @@ public class FriendshipBusiness {
         List<UserDTO> friendsDTO = new ArrayList<>();
         for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", email)) {
             if(friendship.isAccepted()){
-                User friend = userDAO.getOne(User.class, "email", friendship.getFriendDest().getEmail());
+                User friend = userDAO.getOne(User.class, "email", friendship.getEmailDest());
                 if(friend != null)
                     friendsDTO.add(friend.toDTO());
             }
         }
         for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", email)) {
             if(friendship.isAccepted()){
-                User friend = userDAO.getOne(User.class, "email", friendship.getFriendSource().getEmail());
+                User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
                     friendsDTO.add(friend.toDTO());
             }
@@ -61,16 +60,15 @@ public class FriendshipBusiness {
         User user = userDAO.getOne(User.class, "email", email);
         if (user == null)
             throw new NotFoundException();
-        List<UserDTO> friendsDTO = new ArrayList<>();
-        List<Friendship> friends = friendshipDAO.getAll(Friendship.class, "friendDest", email);;
-        for(Friendship fs : friends) {
-            if(!fs.isAccepted()){
-                User friend = userDAO.getOne(User.class, "email", fs.getFriendSource().getEmail());
+        List<UserDTO> friends = new ArrayList<>();
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", email)) {
+            if(!friendship.isAccepted()){
+                User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
-                    friendsDTO.add(friend.toDTO());
+                    friends.add(friend.toDTO());
             }
         }
-        return friendsDTO;
+        return friends;
     }
 
 

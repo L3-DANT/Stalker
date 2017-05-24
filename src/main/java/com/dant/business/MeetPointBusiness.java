@@ -17,52 +17,35 @@ public class MeetPointBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<MeetPoint> meetPointDAO = new DAO<>();
 
-    public MeetPointDTO createMeetPoint(String userToken, String name, String address, int postalCode, String town, double latitude, double longitude) {
-        User user = userDAO.getOne(User.class, "token", userToken);
-        if (user == null) {
+    public MeetPointDTO createMeetPoint(MeetPoint meetPoint) {
+        if (meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) != null) {
             throw new BadRequestException();
         }
-        MeetPoint meetPoint = new MeetPoint(name, address, postalCode, town, latitude, longitude);
-        user.addMeetPoint(meetPoint);
         return meetPointDAO.save(meetPoint).toDTO();
     }
 
-    public MeetPointDTO createMeetPoint(String userToken, MeetPoint meetPoint) {
-        User user = userDAO.getOne(User.class, "token", userToken);
-        if (user == null) {
-            throw new BadRequestException();
-        }
-        MeetPoint testMeetPoint = meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId());
-        if (testMeetPoint != null) {
-            throw new BadRequestException();
-        }
-        user.addMeetPoint(meetPoint);
-        return meetPointDAO.save(meetPoint).toDTO();
-    }
-
-    public List<MeetPointDTO> getMeetPoints(String token) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if (user == null) {
+    public List<MeetPointDTO> getMeetPoints(String email) {
+        if (userDAO.getOne(User.class, "email", email) == null) {
             throw new NotFoundException();
         }
         List<MeetPointDTO> meetPoints = new ArrayList<>();
-        for (MeetPoint meetPoint : user.getMeetPoints()) {
+        for (MeetPoint meetPoint : meetPointDAO.getAll(MeetPoint.class, "emailUser", email)) {
             meetPoints.add(meetPoint.toDTO());
         }
         return meetPoints;
     }
 
-    public MeetPointDTO updateMeetPoint(String id, String name, String address, int postalCode, String town, double latitude, double longitude) {
-        MeetPoint meetPoint = meetPointDAO.getOne(MeetPoint.class, "id", id);
-        if (meetPoint == null) {
-            throw new BadRequestException();
-        }
-        meetPoint.setName(name);
-        meetPoint.setAdress(address);
-        meetPoint.setPostalCode(postalCode);
-        meetPoint.setTown(town);
-        meetPoint.setLatitude(latitude);
-        meetPoint.setLongitude(longitude);
+    public MeetPointDTO updateMeetPoint(MeetPoint m) {
+        MeetPoint meetPoint = meetPointDAO.getOne(MeetPoint.class, "id", m.getOurId());
+        if (meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) == null)
+            throw new NotFoundException();
+        meetPoint.setName(m.getName());
+        meetPoint.setAdress(m.getAdress());
+        meetPoint.setPostalCode(m.getPostalCode());
+        meetPoint.setTown(m.getTown());
+        meetPoint.setLatitude(m.getLatitude());
+        meetPoint.setLongitude(m.getLongitude());
+        meetPoint.setEmailUser(m.getEmailUser());
         return meetPointDAO.save(meetPoint).toDTO();
     }
 

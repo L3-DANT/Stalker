@@ -18,37 +18,19 @@ public class MeetPointController {
 
     private MeetPointBusiness meetPointBusiness = new MeetPointBusiness();
 
-//    @POST
-//    public MeetPointDTO createMeetPoint(@FormParam("user") String token,
-//                                        @FormParam("name") String name,
-//                                        @FormParam("address") String address,
-//                                        @FormParam("postalcode") int postalCode,
-//                                        @FormParam("town") String town,
-//                                        @FormParam("latitude") double latitude,
-//                                        @FormParam("longitude") double longitude) {
-//        return meetPointBusiness.createMeetPoint(token, name, address, postalCode, town, latitude, longitude);
-//    }
-
     @POST
-    public MeetPointDTO createMeetPoint(@FormParam("user") String token,
-                                        MeetPoint meetPoint) {
-        return meetPointBusiness.createMeetPoint(token, meetPoint);
+    public MeetPointDTO createMeetPoint(MeetPoint meetPoint) {
+        return meetPointBusiness.createMeetPoint(meetPoint);
     }
 
     @PUT
-    public MeetPointDTO updateMeetPoint(@FormParam("id") String id,
-                                        @FormParam("name") String name,
-                                        @FormParam("address") String address,
-                                        @FormParam("postalCode") int postalCode,
-                                        @FormParam("town") String town,
-                                        @FormParam("latitude") double latitude,
-                                        @FormParam("town") double longitude) {
-        return meetPointBusiness.updateMeetPoint(id, name, address, postalCode, town, latitude, longitude);
+    public MeetPointDTO updateMeetPoint(MeetPoint meetPoint) {
+        return meetPointBusiness.updateMeetPoint(meetPoint);
     }
 
     @GET
-    public List<MeetPointDTO> getMeetPoints(@HeaderParam("token") String token) {
-        return meetPointBusiness.getMeetPoints(token);
+    public List<MeetPointDTO> getMeetPoints(@PathParam("email") String emailUser) {
+        return meetPointBusiness.getMeetPoints(emailUser);
     }
 
     @DELETE

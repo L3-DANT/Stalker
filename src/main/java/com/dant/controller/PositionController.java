@@ -17,21 +17,13 @@ import java.util.List;
 public class PositionController {
     private PositionBusiness positionBusiness = new PositionBusiness();
 
-//    @POST
-//    public UserDTO createPosition(@FormParam("token") String token,
-//                                  @FormParam("latitude") double latitude,
-//                                  @FormParam("longitude") double longitude,
-//                                  @FormParam("time") long time) {
-//        return positionBusiness.createPosition(token, latitude, longitude, time);
-//    }
-
     @POST
-    public PositionDTO createPosition(@FormParam("token") String token, Position position) {
-        return positionBusiness.createPosition(token, position);
+    public PositionDTO createPosition(Position position) {
+        return positionBusiness.createPosition(position);
     }
 
     @GET
-    public List<PositionDTO> getPositions(@HeaderParam("token") String token) {
-        return positionBusiness.getPositions(token);
+    public List<PositionDTO> getPositions(@PathParam("email") String emailUser) {
+        return positionBusiness.getPositions(emailUser);
     }
 }

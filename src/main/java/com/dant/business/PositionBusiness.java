@@ -6,6 +6,7 @@ import com.dant.entity.User;
 import com.dant.entity.dto.PositionDTO;
 
 import javax.ws.rs.BadRequestException;
+import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,31 +18,20 @@ public class PositionBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<Position> positionDAO = new DAO<>();
 
-    public PositionDTO createPosition(String token, double latitude, double longitude, long time) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if(user == null)
+    public PositionDTO createPosition(Position position) {
+        if(userDAO.getOne(User.class, "email", position.getEmailUser()) != null)
             throw new BadRequestException();
-        Position position = new Position(latitude, longitude, time);
-        user.addPosition(position);
-        userDAO.save(user);
         return positionDAO.save(position).toDTO();
     }
 
-    public PositionDTO createPosition(String token, Position position) {
-        User user = userDAO.getOne(User.class, "token", token);
-        if(user == null)
+    public List<PositionDTO> getPositions(String email) {
+        if (userDAO.getOne(User.class, "email", email) == null)
             throw new BadRequestException();
-        user.addPosition(position);
-        userDAO.save(user);
-        return positionDAO.save(position).toDTO();
-    }
 
-    public List<PositionDTO> getPositions(String token) {
-        User user = userDAO.getOne(User.class, "token", token);
-        List<PositionDTO> liste = new ArrayList<>();
-        for(Position position : user.getPositions()) {
-            liste.add(position.toDTO());
+        List<PositionDTO> positions = new ArrayList<>();
+        for(Position position : positionDAO.getAll(Position.class, "emailUser", email)) {
+            positions.add(position.toDTO());
         }
-        return liste;
+        return positions;
     }
 }

@@ -12,14 +12,16 @@ public class PositionDTO implements Serializable {
     public double latitude;
     public double longitude;
     private long time;
+    public String emailUser;
 
     public PositionDTO() {
     }
 
-    public PositionDTO(double latitude, double longitude, long time) {
+    public PositionDTO(double latitude, double longitude, long time, String emailUser) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
+        this.emailUser = emailUser;
     }
 
 }

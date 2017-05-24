@@ -15,15 +15,15 @@ public class MeetPoint implements Serializable {
     @Id
     private ObjectId mongoId;       // Id for mongoDb
     private String id;              // Id for
-//    private ObjectId id;
     private String name;
     private String address;
     private int postalCode;
     private String town;
     private double latitude;
     private double longitude;
+    private String emailUser;
 
-    public MeetPoint(String id, String name, String address, int postalCode, String town, double latitude, double longitude) {
+    public MeetPoint(String id, String name, String address, int postalCode, String town, double latitude, double longitude, String emailUser) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -31,16 +31,17 @@ public class MeetPoint implements Serializable {
         this.town = town;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.emailUser = emailUser;
     }
 
-    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude) {
-        this(RandomStringUtils.random(32, true, true), name, address, postalCode, town, latitude, longitude);
+    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude, String emailUser) {
+        this(RandomStringUtils.random(32, true, true), name, address, postalCode, town, latitude, longitude, emailUser);
     }
 
     public MeetPoint() {
     }
 
-    public MeetPointDTO toDTO() { return new MeetPointDTO(id, name, address, postalCode, town, latitude, longitude); }
+    public MeetPointDTO toDTO() { return new MeetPointDTO(id, name, address, postalCode, town, latitude, longitude, emailUser); }
 
     public ObjectId getId() {
         return mongoId;
@@ -96,6 +97,14 @@ public class MeetPoint implements Serializable {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 
     @Override

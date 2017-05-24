@@ -16,28 +16,28 @@ public class Friendship implements Serializable {
     private ObjectId id;
 
     @Reference
-    private User friendSource;
+    private String emailSource;
     @Reference
-    private User friendDest;
+    private String emailDest;
 
     private boolean isAccepted;
 
-    public Friendship(User friendSource, User friendDest, boolean isAccepted) {
-        this.friendSource = friendSource;
-        this.friendDest = friendDest;
+    public Friendship(String friendSource, String friendDest, boolean isAccepted) {
+        this.emailSource = friendSource;
+        this.emailDest = friendDest;
         this.isAccepted = isAccepted;
     }
 
-    public Friendship(User friendSource, User friendDest) {
+    public Friendship(String friendSource, String friendDest) {
         this(friendSource, friendDest, false);
     }
 
-    public User getFriendSource() {
-        return friendSource;
+    public String getEmailSource() {
+        return emailSource;
     }
 
-    public User getFriendDest() {
-        return friendDest;
+    public String getEmailDest() {
+        return emailDest;
     }
 
     public boolean isAccepted() {
@@ -49,6 +49,6 @@ public class Friendship implements Serializable {
     }
 
     public FriendshipDTO toDTO() {
-        return new FriendshipDTO(friendSource.getEmail(), friendDest.getEmail(), isAccepted);
+        return new FriendshipDTO(emailSource, emailDest, isAccepted);
     }
 }
