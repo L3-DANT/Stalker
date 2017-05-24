@@ -23,6 +23,7 @@ public class PositionController {
     }
 
     @GET
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public List<PositionDTO> getPositions(@PathParam("email") String emailUser) {
         return positionBusiness.getPositions(emailUser);
     }
