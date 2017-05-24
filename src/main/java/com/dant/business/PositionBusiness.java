@@ -24,14 +24,24 @@ public class PositionBusiness {
         return positionDAO.save(position).toDTO();
     }
 
-    public List<PositionDTO> getPositions(String email) {
-        if (userDAO.getOne(User.class, "email", email) == null)
-            throw new BadRequestException();
+    public List<PositionDTO> getPositions(String emailUser) {
+        if (userDAO.getOne(User.class, "email", emailUser) == null)
+            throw new NotFoundException();
 
         List<PositionDTO> positions = new ArrayList<>();
-        for(Position position : positionDAO.getAll(Position.class, "emailUser", email)) {
+        for(Position position : positionDAO.getAll(Position.class, "emailUser", emailUser)) {
             positions.add(position.toDTO());
         }
         return positions;
+    }
+
+    public PositionDTO getLastPosition(String emailUser) {
+        if (userDAO.getOne(User.class, "email", emailUser) == null)
+            throw new NotFoundException();
+        Position last = positionDAO.getOne(Position.class,"emailUser", emailUser);
+        for(Position position : positionDAO.getAll(Position.class,"emailUser", emailUser)) {
+
+        }
+        return null;
     }
 }

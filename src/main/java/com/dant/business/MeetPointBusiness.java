@@ -25,6 +25,7 @@ public class MeetPointBusiness {
     }
 
     public List<MeetPointDTO> getMeetPoints(String email) {
+        System.out.println("On est là !");
         if (userDAO.getOne(User.class, "email", email) == null) {
             throw new NotFoundException();
         }

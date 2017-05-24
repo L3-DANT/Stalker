@@ -36,9 +36,13 @@ public class UserBusiness {
     }
 
     public UserDTO createUser(User user) {
+        System.out.println("User : " + user);
+        System.out.println(userDAO.getAll(User.class));
         if (userDAO.getOne(User.class, "email", user.getEmail()) != null) {
+            System.out.println("Késsé ? : " +userDAO.getOne(User.class, "email", user.getEmail()));
             throw new BadRequestException();
         }
+        System.out.println("Normalement on vient pas ici");
         user.setToken(MongoUtil.generateToken());
         return userDAO.save(user).toDTO();
     }

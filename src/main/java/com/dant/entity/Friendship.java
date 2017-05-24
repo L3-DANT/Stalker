@@ -15,9 +15,7 @@ public class Friendship implements Serializable {
     @Id
     private ObjectId id;
 
-    @Reference
     private String emailSource;
-    @Reference
     private String emailDest;
 
     private boolean isAccepted;

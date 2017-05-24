@@ -15,13 +15,17 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
     private UserBusiness userBusiness = new UserBusiness();
+    MeetPointBusiness meetPointBusiness = new MeetPointBusiness();
+    FriendshipBusiness friendshipBusiness = new FriendshipBusiness();
+    PositionBusiness positionBusiness = new PositionBusiness();
 
-    @GET
+    @POST
     public UserDTO authenticate(User u) {
         return userBusiness.authenticate(u);
     }
 
     @POST
+    @Path("create")
     public UserDTO createUser(User user) {
         return userBusiness.createUser(user);
     }
@@ -38,14 +42,12 @@ public class UserController {
     }
 
     @POST
-    @Path("init")
-    public void init () {
-        UserBusiness userBusiness = new UserBusiness();
-        MeetPointBusiness meetPointBusiness = new MeetPointBusiness();
-        FriendshipBusiness friendshipBusiness = new FriendshipBusiness();
-        PositionBusiness positionBusiness = new PositionBusiness();
-
+    @Path("createdataset")
+    public UserDTO init () {
         userBusiness.createUser(new User("Pierre", "pierre@gmail.com", "1234"));
+
+        if(1<2)
+            return new UserDTO("Sacha", "sacha@gmail.com", "ojmfbhmosbmhbsdm");
         userBusiness.createUser(new User("Ondine", "ondine@gmail.com", "1234"));
         userBusiness.createUser(new User("Major Bob", "major.bob@gmail.com", "1234"));
         userBusiness.createUser(new User("Erika", "erika@gmail.com", "1234"));
@@ -86,5 +88,6 @@ public class UserController {
         positionBusiness.createPosition(new Position(48.890088, 2.134598, 1495527300, "ondine@gmail.com"));
         positionBusiness.createPosition(new Position(48.885221, 2.15567, 1495527450, "ondine@gmail.com"));
         positionBusiness.createPosition(new Position(48.887224, 2.171066, 1495527600, "ondine@gmail.com"));
+        return new UserDTO("Sacha", "sacha@gmail.com", "ojmfbhmosbmhbsdm");
     }
 }

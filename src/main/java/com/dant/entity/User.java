@@ -97,7 +97,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return email;
+        return "Name : " + name + ", email : " + email + ", password : " + password;
     }
 
 }

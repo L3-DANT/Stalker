@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by 3502804 on 19/05/17.
  */
-@Path("/api/meetpoint")
+@Path("/api/position")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class PositionController {
@@ -26,5 +26,12 @@ public class PositionController {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public List<PositionDTO> getPositions(@PathParam("email") String emailUser) {
         return positionBusiness.getPositions(emailUser);
+    }
+
+    @GET
+    @Path("last")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public PositionDTO getLastPosition(@PathParam("email") String emailUser) {
+        return positionBusiness.getLastPosition(emailUser);
     }
 }

@@ -31,6 +31,7 @@ public class MeetPointController {
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public List<MeetPointDTO> getMeetPoints(@PathParam("email") String emailUser) {
+        System.out.println("BOn email ? " + emailUser);
         return meetPointBusiness.getMeetPoints(emailUser);
     }
 
