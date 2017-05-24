@@ -12,7 +12,7 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
 
-    var friends = [Friend]()
+    var friends = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,11 +76,11 @@ class FriendsTableViewController: UITableViewController {
 
 
     private func loadFriends(){
-        let friend1 = Friend(name:"ally", position:"Amiens")
-        let friend2 = Friend(name: "bob", position: "Bourges")
-        let friend3 = Friend(name: "claude", position: "Caen")
-        let friend4 = Friend(name: "eliott", position: "Epinay")
-        let friend5 = Friend(name: "fred", position: "Fontainebleau")
+        let friend1 = User(id: 0, name:"ally", email: "ally@gmail.com", position:"Amiens")
+        let friend2 = User(id: 1, name: "bob", email: "bob@gmail.com", position: "Bourges")
+        let friend3 = User(id: 2, name: "claude", email: "claude@gmail.com", position: "Caen")
+        let friend4 = User(id: 3, name: "eliott", email: "eliott@gmail.com", position: "Epinay")
+        let friend5 = User(id: 4, name: "fred", email: "fred@gmail.com", position: "Fontainebleau")
         
         friends += [friend1, friend2, friend3, friend4, friend5]
     }

@@ -8,14 +8,18 @@
 
 import UIKit
 
-class Friend {
+class User {
 
+    var id: CLong
     var name: String
+    var email: String
     var position: String
     
     
-    init(name: String, position: String){
+    init(id: CLong, name: String, email: String, position: String){
+        self.id = id
         self.name = name
+        self.email = email
         self.position = position
     }
 }
