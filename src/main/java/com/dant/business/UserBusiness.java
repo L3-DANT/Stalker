@@ -23,12 +23,25 @@ public class UserBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<Friendship> friendshipDAO = new DAO<>();
 
-    public UserDTO authenticate(String email, String password) {
-        User user = userDAO.getOne(User.class, "email", email);
+//    public UserDTO authenticate(String email, String password) {
+//        User user = userDAO.getOne(User.class, "email", email);
+//        if (user == null) {
+//            throw new NotFoundException();
+//        }
+//        boolean validPassword = user.getPassword().equals(password);
+//        if (!validPassword) {
+//            throw new ForbiddenException();
+//        }
+//        user.setToken(MongoUtil.generateToken());
+//        return userDAO.save(user).toDTO();
+//    }
+
+    public UserDTO authenticate(User u) {
+        User user = userDAO.getOne(User.class, "email", u.getEmail());
         if (user == null) {
             throw new NotFoundException();
         }
-        boolean validPassword = user.getPassword().equals(password);
+        boolean validPassword = user.getPassword().equals(u.getPassword());
         if (!validPassword) {
             throw new ForbiddenException();
         }
@@ -36,12 +49,19 @@ public class UserBusiness {
         return userDAO.save(user).toDTO();
     }
 
-    public UserDTO createUser(String name, String email, String password) {
-        User user = userDAO.getOne(User.class, "email", email);
-        if (user != null) {
+//    public UserDTO createUser(String name, String email, String password) {
+//        User user = userDAO.getOne(User.class, "email", email);
+//        if (user != null) {
+//            throw new BadRequestException();
+//        }
+//        user = new User(name, email, password);
+//        user.setToken(MongoUtil.generateToken());
+//        return userDAO.save(user).toDTO();
+//    }
+    public UserDTO createUser(User user) {
+        if (userDAO.getOne(User.class, "email", user.getEmail()) != null) {
             throw new BadRequestException();
         }
-        user = new User(name, email, password);
         user.setToken(MongoUtil.generateToken());
         return userDAO.save(user).toDTO();
     }

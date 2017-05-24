@@ -23,14 +23,18 @@ public class MeetPoint implements Serializable {
     private double latitude;
     private double longitude;
 
-    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude) {
+    public MeetPoint(String id, String name, String address, int postalCode, String town, double latitude, double longitude) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.postalCode = postalCode;
         this.town = town;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.id = RandomStringUtils.random(32, true, true);
+    }
+
+    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude) {
+        this(RandomStringUtils.random(32, true, true), name, address, postalCode, town, latitude, longitude);
     }
 
     public MeetPoint() {

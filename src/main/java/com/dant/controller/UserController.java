@@ -1,11 +1,12 @@
 package com.dant.controller;
 
 import com.dant.business.UserBusiness;
+import com.dant.entity.User;
 import com.dant.entity.dto.*;
+import com.mongodb.util.JSON;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 /**
  * Created by pitton on 2017-02-20.
@@ -16,24 +17,31 @@ import java.util.List;
 public class UserController {
     private UserBusiness userBusiness = new UserBusiness();
 
-    @POST
+//    @POST
+//    @Path("/authenticate")
+//    public UserDTO authenticate(@FormParam("email") String email,
+//                                @FormParam("password") String password) {
+//        return userBusiness.authenticate(email, password);
+//    }
+
+    @GET
     @Path("/authenticate")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO authenticate(@FormParam("email") String email,
-                                @FormParam("password") String password) {
-        return userBusiness.authenticate(email, password);
+    public UserDTO authenticate(User u) {
+        return userBusiness.authenticate(u);
     }
 
+//    @POST
+//    public UserDTO createUser(@PathParam("name") String name,
+//                              @FormParam("email") String email,
+//                              @FormParam("password") String password) {
+//        return userBusiness.createUser(name, email, password);
+//    }
     @POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public UserDTO createUser(@FormParam("name") String name,
-                              @FormParam("email") String email,
-                              @FormParam("password") String password) {
-        return userBusiness.createUser(name, email, password);
+    public UserDTO createUser(User user) {
+        return userBusiness.createUser(user);
     }
 
     @PUT
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public UserDTO updateUser(@FormParam("name") String name,
                               @FormParam("email") String email,
                               @FormParam("password") String password,
@@ -42,13 +50,8 @@ public class UserController {
     }
 
     @DELETE
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public void removeUser(@HeaderParam("token") String token) {
         userBusiness.removeUser(token);
     }
-
-//    @GET
-//    @Path("/friends")
-//    public List<UserDTO> getFriends(@FormParam("token") String token) {
-//        return userBusiness.getFriends(token);
-//    }
 }

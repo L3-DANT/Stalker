@@ -1,6 +1,8 @@
 package com.dant.entity;
 
+import com.dant.entity.dto.PositionDTO;
 import org.bson.types.ObjectId;
+import org.joda.time.DateTime;
 import org.mongodb.morphia.annotations.*;
 
 /**
@@ -13,17 +15,21 @@ public class Position {
     private ObjectId id;
     private double latitude;
     private double longitude;
-    //jodatime
     private long time;
-    @Reference
-    private User user;
 
-    public Position(double latitude, double longitude, long time, User user) {
+    public Position(double latitude, double longitude, long time) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
-        this.user = user;
     }
+
+//    public Position(double latitude, double longitude, int year, int month, int day, int hour, int minute, int second, int milli) {
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//        this.time = new DateTime(year, month, day, hour, minute, second, milli);
+//    }
+
+    public PositionDTO toDTO() { return new PositionDTO(latitude, longitude, time); }
 
     public ObjectId getId() {
         return id;
@@ -41,8 +47,12 @@ public class Position {
         return time;
     }
 
-    public User getUser() {
-        return user;
+    public static void main(String[] args) {
+        DateTime testTime = new DateTime(1000000);
+        System.out.println(testTime.toString("E MM/dd/yyyy HH:mm:ss.SSS"));
+        System.out.println(testTime.getMillis());
+        System.out.println(DateTime.now().toString("E MM/dd/yyyy HH:mm:ss.SSS"));
+        System.out.println(DateTime.now().getMillis());
     }
 
 }

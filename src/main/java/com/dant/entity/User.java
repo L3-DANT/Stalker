@@ -37,7 +37,7 @@ public class User implements Serializable {
         this.meetPoints = meetPoints;
         this.positions = positions;
     }
-
+    
     public User(String name, String email, String password) {
         this(name, email, password, "", new ArrayList<MeetPoint>(), new ArrayList<Position>());
         this.email = email;
@@ -92,7 +92,7 @@ public class User implements Serializable {
         return meetPoints;
     }
 
-    public void addFMeetPoint(MeetPoint meetPoint) {
+    public void addMeetPoint(MeetPoint meetPoint) {
         meetPoints.add(meetPoint);
     }
 

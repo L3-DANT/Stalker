@@ -22,11 +22,22 @@ public class MeetPointBusiness {
         if (user == null) {
             throw new BadRequestException();
         }
-        MeetPoint meetPoint = meetPointDAO.getOne(MeetPoint.class, "address", address, "user", user);
-        if (meetPoint != null) {
+        MeetPoint meetPoint = new MeetPoint(name, address, postalCode, town, latitude, longitude);
+        user.addMeetPoint(meetPoint);
+        return meetPointDAO.save(meetPoint).toDTO();
+    }
+
+    public MeetPointDTO createMeetPoint(String userToken, MeetPoint meetPoint) {
+        User user = userDAO.getOne(User.class, "token", userToken);
+        if (user == null) {
             throw new BadRequestException();
         }
-        return meetPointDAO.save(new MeetPoint(name, address, postalCode, town, latitude, longitude)).toDTO();
+        MeetPoint testMeetPoint = meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId());
+        if (testMeetPoint != null) {
+            throw new BadRequestException();
+        }
+        user.addMeetPoint(meetPoint);
+        return meetPointDAO.save(meetPoint).toDTO();
     }
 
     public List<MeetPointDTO> getMeetPoints(String token) {
@@ -57,16 +68,5 @@ public class MeetPointBusiness {
 
     public void removeMeetPoint(String id) {
         meetPointDAO.delete(MeetPoint.class, "id", id);
-    }
-
-    // Pas utilisé
-    public MeetPoint getMeetPoint(String address, String userToken) {
-        User user = userDAO.getOne(User.class, "token", userToken);
-        if (user == null) {
-            throw new BadRequestException();
-        }
-        // TODO: get meetPoint
-        // Comment identifier un meetPoint
-        return new MeetPoint();
     }
 }

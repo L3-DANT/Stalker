@@ -26,8 +26,8 @@ public class FriendshipBusiness {
         }
     }
 
-    public FriendshipDTO acceptFriend(String friendsource, String friendDest) {
-        Friendship friendship = friendshipDAO.getOne(Friendship.class, "friendSource", friendsource, "friendDest", friendDest);
+    public FriendshipDTO acceptFriend(String friendSource, String friendDest) {
+        Friendship friendship = friendshipDAO.getOne(Friendship.class, "friendSource", friendSource, "friendDest", friendDest);
         if(friendship != null)
             throw new NotFoundException();
         else
