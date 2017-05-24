@@ -23,6 +23,7 @@
 		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
 		D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */; };
 		D6DBB26D1EBB7C280060756E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26C1EBB7C280060756E /* Friend.swift */; };
+		D6E37BE61ED4BA1C00C931B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D6DBB26C1EBB7C280060756E /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E37BE61ED4BA1C00C931B2 /* CoreLocation.framework in Frameworks */,
 				D60736181EB235B800703459 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +64,7 @@
 		D60736161EB235B800703459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */,
 				D60736171EB235B800703459 /* MapKit.framework */,
 			);
 			name = Frameworks;
