@@ -41,7 +41,6 @@
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wbz-bQ-qXI"/>
-                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GXt-Oq-0V6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STALKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPU-yJ-aKE">
@@ -74,7 +73,7 @@
                     <connections>
                         <outlet property="emailInput" destination="zNK-GY-eFD" id="WFF-5R-8MP"/>
                         <outlet property="passwordInput" destination="Ude-jA-PGA" id="9YT-Si-a8Q"/>
-                        <segue destination="bPi-mZ-eBt" kind="show" identifier="signInToMap" id="Thm-aA-J2Y"/>
+                        <segue destination="bPi-mZ-eBt" kind="show" identifier="mapSegue" id="Thm-aA-J2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,9 +125,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="gpD-4v-kOq"/>
                                 </constraints>
-                                <state key="normal" title="Sign up"/>
+                                <state key="normal" title="Sign in"/>
                                 <connections>
-                                    <action selector="signUp:" destination="2F0-fZ-9tz" eventType="touchUpInside" id="Mxr-ki-aAQ"/>
+                                    <segue destination="bPi-mZ-eBt" kind="show" id="YYX-Ue-eO8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9E-44-8wj">
@@ -162,7 +161,6 @@
                         <outlet property="emailInput" destination="yf0-e5-iqh" id="zj7-cZ-wDA"/>
                         <outlet property="nameInput" destination="W2B-g6-zth" id="5cA-sk-DlV"/>
                         <outlet property="passwordInput" destination="i6V-Fl-J95" id="165-co-v8t"/>
-                        <segue destination="bPi-mZ-eBt" kind="show" identifier="signUpToMap" id="8S7-bd-nzx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHm-E3-F7D" userLabel="First Responder" sceneMemberID="firstResponder"/>

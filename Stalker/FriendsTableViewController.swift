@@ -87,7 +87,8 @@ class FriendsTableViewController: UITableViewController {
         let friend3 = User(name: "claude", lastPosition: Position(latitude: 48.844807, longitude: 2.354718))
         let friend4 = User(name: "eliott", lastPosition: Position(latitude: 48.845852, longitude: 2.354933))
         let friend5 = User(name: "fred", lastPosition: Position(latitude: 48.847666, longitude: 2.356778))
-              
+        
+        
         friends += [friend1, friend2, friend3, friend4, friend5]
     }
 }

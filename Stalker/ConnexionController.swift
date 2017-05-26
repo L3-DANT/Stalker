@@ -13,6 +13,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
+    var token:String?
     let userToken = "token"
     let userEmail = "email"
     let userIsConnected = "isConnected"
@@ -33,19 +34,10 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                 if error != nil{
                     print(error?.localizedDescription)
                     return
-                }              
+                }
                 
-                let url = NSURL(string: "http://35.187.15.102:8080/api/user/authenticate")!
-                let request = NSMutableURLRequest(url: url as URL)
-                request.httpMethod = "POST"
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                request.httpBody = jsonData
-                
-                let task = URLSession.shared.dataTask(with: request as URLRequest){ data,response,error in
-                    if error != nil{
-                        print(error?.localizedDescription)
-                        return
-                    }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                     
                     if let parseJSON = json {
                         let resultToken: String? = parseJSON["token"] as? String
@@ -61,12 +53,12 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                                 self.performSegue(withIdentifier: "mapSegue", sender: self)
                             }
                         }
-                    } catch let error as NSError {
-                        print(error)
-                    }        
-                }          
-                task.resume()
-            }
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }        
+            }          
+            task.resume()
         }
     }
     
