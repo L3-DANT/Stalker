@@ -73,9 +73,9 @@
 		D640C5C81EB21E23006F0C0F = {
 			isa = PBXGroup;
 			children = (
-				D640C5D31EB21E24006F0C0F /* Stalker */,
-				D640C5D21EB21E24006F0C0F /* Products */,
 				D60736161EB235B800703459 /* Frameworks */,
+				D640C5D21EB21E24006F0C0F /* Products */,
+				D640C5D31EB21E24006F0C0F /* Stalker */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,22 +90,22 @@
 		D640C5D31EB21E24006F0C0F /* Stalker */ = {
 			isa = PBXGroup;
 			children = (
+				D640C5E01EB21E24006F0C0F /* Info.plist */,
 				D640C5D41EB21E24006F0C0F /* AppDelegate.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
-				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
-				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
-				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
-				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
-				D640C5E01EB21E24006F0C0F /* Info.plist */,
-				D60736121EB2315600703459 /* MapViewController.swift */,
-				D627E6EF1EBA145200FEDEEA /* Session.swift */,
+				D6DBB26C1EBB7C280060756E /* Friend.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
-				D6DBB26C1EBB7C280060756E /* Friend.swift */,
+				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
+				D60736121EB2315600703459 /* MapViewController.swift */,
 				D67193011EC306B100A42E5C /* MeetPoint.swift */,
-				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
+				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
+				D627E6EF1EBA145200FEDEEA /* Session.swift */,
+				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
+				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
+				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
 			);
 			path = Stalker;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = m2sar;
 				TargetAttributes = {
 					D640C5D01EB21E23006F0C0F = {
@@ -238,6 +238,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -287,6 +288,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
