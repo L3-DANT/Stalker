@@ -13,7 +13,7 @@ import MapKit
 
 class FriendsTableViewController: UITableViewController {
 
-    var friends = [Friend]()
+    var friends = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,11 +81,12 @@ class FriendsTableViewController: UITableViewController {
 
 
     private func loadFriends(){
-        let friend1 = Friend(name:"ally", position: CLLocationCoordinate2D (latitude : 48.846395, longitude : 2.351457))
-        let friend2 = Friend(name: "bob", position: CLLocationCoordinate2D (latitude : 48.844793, longitude : 2.356940))
-        let friend3 = Friend(name: "claude", position: CLLocationCoordinate2D (latitude : 48.844807, longitude : 2.354718))
-        let friend4 = Friend(name: "eliott", position: CLLocationCoordinate2D (latitude : 48.845852, longitude : 2.354933))
-        let friend5 = Friend(name: "fred", position: CLLocationCoordinate2D (latitude : 48.847666, longitude : 2.356778))
+        
+        let friend1 = User(name:"ally", lastPosition:"Amiens")
+        let friend2 = User(name: "bob", lastPosition: "Bourges")
+        let friend3 = User(name: "claude", lastPosition: "Caen")
+        let friend4 = User(name: "eliott", lastPosition: "Epinay")
+        let friend5 = User(name: "fred", lastPosition: "Fontainebleau")
         
         friends += [friend1, friend2, friend3, friend4, friend5]
     }
