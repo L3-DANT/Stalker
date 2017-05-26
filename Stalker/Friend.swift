@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 class Friend {
 
     var name: String
-    var position: String
+    var position: CLLocationCoordinate2D
     
     
-    init(name: String, position: String){
+    init(name: String, position: CLLocationCoordinate2D){
         self.name = name
         self.position = position
     }
