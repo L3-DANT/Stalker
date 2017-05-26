@@ -20,9 +20,9 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     
     @IBAction func loginButton(_ sender: UIButton) {
-        let dict: [String: String] = ["email": emailInput.text!, "password": passwordInput.text!]
-        if let jsonData = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) {
-            
+        
+        let user = User(email: emailInput.text!, password: passwordInput.text!)
+        if let jsonData = try? JSONSerialization.data(withJSONObject: user.toDictionary(), options: .prettyPrinted) {
             
             let url = NSURL(string: "http://35.187.15.102:8080/api/user/authenticate")!
             let request = NSMutableURLRequest(url: url as URL)
@@ -49,10 +49,9 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                         self.defaults.set(resultEmail, forKey: self.userEmail)
                         self.defaults.synchronize()
                         if resultToken != nil {
-                            OperationQueue.main.addOperation { self.performSegue(withIdentifier: "mapSegue", sender: self)}
-//                            DispatchQueue.main.async {
-//                                self.performSegue(withIdentifier: "mapSegue", sender: self)
-//                            }
+                            DispatchQueue.main.async {
+                                self.performSegue(withIdentifier: "mapSegue", sender: self)
+                            }
                         }
                     }
                 } catch let error as NSError {
