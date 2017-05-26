@@ -18,6 +18,7 @@ public class MeetPointBusiness {
     private final DAO<MeetPoint> meetPointDAO = new DAO<>();
 
     public MeetPointDTO createMeetPoint(MeetPoint meetPoint) {
+        System.out.println("MeetPoint : " + meetPoint);
         if (meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) != null) {
             throw new BadRequestException();
         }
@@ -42,7 +43,7 @@ public class MeetPointBusiness {
             throw new NotFoundException();
         meetPoint.setName(m.getName());
         meetPoint.setAdress(m.getAdress());
-        meetPoint.setPostalCode(m.getPostalCode());
+        meetPoint.setZipCode(m.getZipCode());
         meetPoint.setTown(m.getTown());
         meetPoint.setLatitude(m.getLatitude());
         meetPoint.setLongitude(m.getLongitude());

@@ -47,7 +47,12 @@ public class DAO<T> {
     }
 
     public List<T> getAll(Class<T> clazz) {
-        return ds.createQuery(clazz).asList();
+//        System.out.println("Dans le getAll");
+        Query<T> truc = ds.createQuery(clazz);
+//        System.out.println("Nombre : ");
+//        System.out.println("Qyery : " + ds.createQuery(clazz).count());
+//        System.out.println("Nombre : " + truc.asList().toString());
+        return truc.asList();
     }
 
 }

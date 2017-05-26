@@ -20,6 +20,9 @@ public class Friendship implements Serializable {
 
     private boolean isAccepted;
 
+    public Friendship() {
+    }
+
     public Friendship(String friendSource, String friendDest, boolean isAccepted) {
         this.emailSource = friendSource;
         this.emailDest = friendDest;
@@ -48,5 +51,10 @@ public class Friendship implements Serializable {
 
     public FriendshipDTO toDTO() {
         return new FriendshipDTO(emailSource, emailDest, isAccepted);
+    }
+
+    @Override
+    public String toString() {
+        return "emailSource : " + emailSource + ", emailDest : " + emailDest + ", isAccepted : " + isAccepted;
     }
 }

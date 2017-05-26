@@ -17,6 +17,7 @@ public class FriendshipBusiness {
     private final DAO<Friendship> friendshipDAO = new DAO<>();
 
     public FriendshipDTO askFriend(Friendship friendship) {
+        System.out.println("Friendship : " + friendship);
         if(userDAO.getOne(User.class, "email", friendship.getEmailSource()) == null && userDAO.getOne(User.class, "email", friendship.getEmailDest()) == null)
             throw new NotFoundException();
         if(friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailSource(), "emailDest", friendship.getEmailDest()) != null && friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailDest(), "emailDest", friendship.getEmailSource()) != null)
@@ -25,6 +26,7 @@ public class FriendshipBusiness {
     }
 
     public FriendshipDTO acceptFriend(Friendship f) {
+        System.out.println("Friendship : " + f);
         if(userDAO.getOne(User.class, "email", f.getEmailSource()) == null && userDAO.getOne(User.class, "email", f.getEmailDest()) == null)
             throw new NotFoundException();
         Friendship friendship = friendshipDAO.getOne(Friendship.class, "emailSource", f.getEmailSource(), "emailDest", f.getEmailDest());

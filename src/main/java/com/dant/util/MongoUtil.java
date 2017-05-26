@@ -24,14 +24,19 @@ public class MongoUtil {
         private static final Datastore ds = getDatastore();
 
         private static Datastore getDatastore() {
-            MongoClient client = new MongoClient();
+            try {
+                MongoClient client = new MongoClient();
+                client.dropDatabase("StalkerDb");
 
-            Set<Class> set = new HashSet<>(1);
-            set.add(User.class);
-            set.add(Position.class);
-            set.add(MeetPoint.class);
-            set.add(Friendship.class);
-            return new Morphia(set).createDatastore(client, "StalkerDb");
+                Set<Class> set = new HashSet<>(1);
+                set.add(User.class);
+                set.add(Position.class);
+                set.add(MeetPoint.class);
+                set.add(Friendship.class);
+                return new Morphia(set).createDatastore(client, "StalkerDb");
+            } catch(Exception e) {
+                return null;
+            }
         }
 
     }

@@ -25,6 +25,10 @@ public class Position {
         this.emailUser = emailUser;
     }
 
+    public Position() {
+
+    }
+
 //    public Position(double latitude, double longitude, int year, int month, int day, int hour, int minute, int second, int milli) {
 //        this.latitude = latitude;
 //        this.longitude = longitude;
@@ -55,6 +59,11 @@ public class Position {
 
     public void setEmailUser(String emailUser) {
         this.emailUser = emailUser;
+    }
+
+    @Override
+    public String toString() {
+        return "Latitude : " + latitude + ", longitude : " + longitude + ", time : " + time + ", emailUser : " + emailUser;
     }
 
     public static void main(String[] args) {

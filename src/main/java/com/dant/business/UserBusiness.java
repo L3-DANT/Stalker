@@ -3,6 +3,7 @@ package com.dant.business;
 import com.dant.dao.DAO;
 import com.dant.entity.Friendship;
 import com.dant.entity.MeetPoint;
+import com.dant.entity.Position;
 import com.dant.entity.User;
 import com.dant.entity.dto.FriendshipDTO;
 import com.dant.entity.dto.MeetPointDTO;
@@ -21,8 +22,13 @@ import java.util.List;
 public class UserBusiness {
 
     private final DAO<User> userDAO = new DAO<>();
+//    private final DAO<Friendship> friendshipDAO= new DAO<>();
+//    private final DAO<MeetPoint> meetPointDAO = new DAO<>();
+//    private final DAO<Position> positionDAO = new DAO<>();
 
     public UserDTO authenticate(User u) {
+        System.out.println(u);
+        System.out.println("Users : " +  userDAO.getAll(User.class));
         User user = userDAO.getOne(User.class, "email", u.getEmail());
         if (user == null) {
             throw new NotFoundException();
@@ -37,12 +43,9 @@ public class UserBusiness {
 
     public UserDTO createUser(User user) {
         System.out.println("User : " + user);
-        System.out.println(userDAO.getAll(User.class));
         if (userDAO.getOne(User.class, "email", user.getEmail()) != null) {
-            System.out.println("Késsé ? : " +userDAO.getOne(User.class, "email", user.getEmail()));
             throw new BadRequestException();
         }
-        System.out.println("Normalement on vient pas ici");
         user.setToken(MongoUtil.generateToken());
         return userDAO.save(user).toDTO();
     }
@@ -57,7 +60,7 @@ public class UserBusiness {
         return userDAO.save(user).toDTO();
     }
 
-    public void removeUser(String email) {
-        userDAO.delete(User.class, "email", email);
+    public void removeUser(String token) {
+        userDAO.delete(User.class, "token", token);
     }
 }

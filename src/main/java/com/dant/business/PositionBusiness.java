@@ -19,8 +19,9 @@ public class PositionBusiness {
     private final DAO<Position> positionDAO = new DAO<>();
 
     public PositionDTO createPosition(Position position) {
-        if(userDAO.getOne(User.class, "email", position.getEmailUser()) != null)
-            throw new BadRequestException();
+        System.out.println("Position : " + position);
+        if(userDAO.getOne(User.class, "email", position.getEmailUser()) == null)
+            throw new NotFoundException();
         return positionDAO.save(position).toDTO();
     }
 
