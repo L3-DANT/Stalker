@@ -17,7 +17,7 @@ class MeetPointsTableViewCell: UITableViewCell {
     func getMeetPoints() throws -> [MeetPoint] {
         var result = [MeetPoint]()
         
-        let user = User(name: "alice", lastPosition: "0.0")
+        let user = User(name: "alice", lastPosition: Position(latitude:0.0, longitude:0.0))
         let json = try? JSONSerialization.data(withJSONObject: user)
         
         // set up session

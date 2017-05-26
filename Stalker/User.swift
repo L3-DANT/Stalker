@@ -17,11 +17,11 @@ class User: NSObject {
     var email: String?
     var password: String?
     var token: String?
-    var lastPosition: String?
+    var lastPosition: Position?
     
     // MARK: Initialization
     
-    init(id: String? = nil, name: String? = nil, email: String? = nil, password: String? = nil, token: String? = nil, lastPosition: String? = nil) {
+    init(id: String? = nil, name: String? = nil, email: String? = nil, password: String? = nil, token: String? = nil, lastPosition: Position? = nil) {
         self.id = id
         self.name = name
         self.email = email

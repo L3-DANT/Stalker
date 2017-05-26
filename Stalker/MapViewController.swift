@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var MapOutlet: MKMapView!
     
     let locationManager = CLLocationManager()
-    var friends: [Friend] = []
+    var friends: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class MapViewController: UIViewController {
         
         //ADD friends  pins
         for f in friends {
-            let friendPin = Pin(coordinate: f.position, title: f.name)
+            let friendPin = Pin(coordinate: CLLocationCoordinate2D(latitude: (f.lastPosition?.latitude!)!, longitude: (f.lastPosition?.longitude!)!), title: f.name!)
             MapOutlet.addAnnotation(friendPin)
         }
         
@@ -49,11 +49,14 @@ class MapViewController: UIViewController {
     }
     
     private func loadFriends(){
-        let friend1 = Friend(name:"ally", position: CLLocationCoordinate2D (latitude: 48.846395, longitude: 2.356940))
-        let friend2 = Friend(name: "bob", position: CLLocationCoordinate2D (latitude: 48.844793, longitude: 2.356940))
-        let friend3 = Friend(name: "claude", position: CLLocationCoordinate2D (latitude: 48.844807, longitude: 2.354718))
-        let friend4 = Friend(name: "eliott", position: CLLocationCoordinate2D (latitude: 48.845852, longitude: 2.354933))
-        let friend5 = Friend(name: "fred", position: CLLocationCoordinate2D (latitude: 48.847666, longitude: 2.356778))
+        
+        //TO MODIFY class USER
+        let friend1 = User(name:"ally", lastPosition: Position(latitude: 48.846395, longitude: 2.356940))
+        let friend2 = User(name: "bob", lastPosition: Position(latitude: 48.844793, longitude: 2.356940))
+        let friend3 = User(name: "claude", lastPosition: Position(latitude: 48.844807, longitude: 2.354718))
+        let friend4 = User(name: "eliott", lastPosition: Position(latitude: 48.845852, longitude: 2.354933))
+        let friend5 = User(name: "fred", lastPosition: Position(latitude: 48.847666, longitude: 2.356778))
+        
         
         friends += [friend1, friend2, friend3, friend4, friend5]
     }
