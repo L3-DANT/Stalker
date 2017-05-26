@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import MapKit
 
 class FriendsTableViewController: UITableViewController {
 
@@ -73,15 +74,20 @@ class FriendsTableViewController: UITableViewController {
             
         })]
     }
+    
+    public func getAllFriends() -> [User] {
+        return self.friends
+    }
 
 
     private func loadFriends(){
-        let friend1 = User(id: 0, name:"ally", email: "ally@gmail.com", position:"Amiens")
-        let friend2 = User(id: 1, name: "bob", email: "bob@gmail.com", position: "Bourges")
-        let friend3 = User(id: 2, name: "claude", email: "claude@gmail.com", position: "Caen")
-        let friend4 = User(id: 3, name: "eliott", email: "eliott@gmail.com", position: "Epinay")
-        let friend5 = User(id: 4, name: "fred", email: "fred@gmail.com", position: "Fontainebleau")
         
+        let friend1 = User(name:"ally", lastPosition: Position(latitude: 48.846395, longitude: 2.356940))
+        let friend2 = User(name: "bob", lastPosition: Position(latitude: 48.844793, longitude: 2.356940))
+        let friend3 = User(name: "claude", lastPosition: Position(latitude: 48.844807, longitude: 2.354718))
+        let friend4 = User(name: "eliott", lastPosition: Position(latitude: 48.845852, longitude: 2.354933))
+        let friend5 = User(name: "fred", lastPosition: Position(latitude: 48.847666, longitude: 2.356778))
+              
         friends += [friend1, friend2, friend3, friend4, friend5]
     }
 }
