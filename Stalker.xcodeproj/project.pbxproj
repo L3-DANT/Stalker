@@ -16,10 +16,10 @@
 		D640C5DA1EB21E24006F0C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5D81EB21E24006F0C0F /* Main.storyboard */; };
 		D640C5DC1EB21E24006F0C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DB1EB21E24006F0C0F /* Assets.xcassets */; };
 		D640C5DF1EB21E24006F0C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */; };
-		D64983681ED6094B007FF373 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64983671ED6094B007FF373 /* Pin.swift */; };
 		D645C4C91ED833A4008AE921 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4C81ED833A4008AE921 /* SerializationError.swift */; };
-		D645C4CB1ED84680008AE921 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CA1ED84680008AE921 /* Service.swift */; };
+		D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CA1ED84680008AE921 /* MeetPointService.swift */; };
 		D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CC1ED85ABB008AE921 /* Position.swift */; };
+		D64983681ED6094B007FF373 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64983671ED6094B007FF373 /* Pin.swift */; };
 		D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193011EC306B100A42E5C /* MeetPoint.swift */; };
 		D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */; };
 		D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */; };
@@ -42,10 +42,10 @@
 		D640C5DB1EB21E24006F0C0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D640C5DE1EB21E24006F0C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D640C5E01EB21E24006F0C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D64983671ED6094B007FF373 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		D645C4C81ED833A4008AE921 /* SerializationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
-		D645C4CA1ED84680008AE921 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D645C4CA1ED84680008AE921 /* MeetPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointService.swift; sourceTree = "<group>"; };
 		D645C4CC1ED85ABB008AE921 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		D64983671ED6094B007FF373 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		D67193011EC306B100A42E5C /* MeetPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPoint.swift; sourceTree = "<group>"; };
 		D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewController.swift; sourceTree = "<group>"; };
 		D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 				D64983671ED6094B007FF373 /* Pin.swift */,
 				D645C4CC1ED85ABB008AE921 /* Position.swift */,
 				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
-				D645C4CA1ED84680008AE921 /* Service.swift */,
+				D645C4CA1ED84680008AE921 /* MeetPointService.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
 				D6DBB26C1EBB7C280060756E /* User.swift */,
 				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */,
-				D645C4CB1ED84680008AE921 /* Service.swift in Sources */,
+				D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
