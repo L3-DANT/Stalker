@@ -9,7 +9,7 @@
 import UIKit
 
 class MeetPointsTableViewController: UITableViewController {
-
+    
     // MARK: Properties
     var meetpoints = [MeetPoint]()
     
@@ -59,7 +59,7 @@ class MeetPointsTableViewController: UITableViewController {
             func myHandler(alert: UIAlertAction){
                 self.meetpoints.remove(at: indexPath.row)
                 tableView.reloadData()
-                print("You tapped: \(alert.title)")
+                //                print("You tapped: \(alert.title)")
             }
             
             let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "your meetpoint will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -88,6 +88,40 @@ class MeetPointsTableViewController: UITableViewController {
         
         meetpoints += [meetpoint1, meetpoint2, meetpoint3]
     }
- 
-
+    
+    // MARK: Requests
+    
+    private func getMeetPoints() {
+        let user = User(token: "token")
+        
+        let session = URLSession.shared
+        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/meetpoint/all")!)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        
+        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
+            guard error == nil else {
+                print("ERROR: POST on /todos/1")
+                print(error!)
+                return
+            }
+            guard let data = data else {
+                print("ERROR: did not receive data")
+                return
+            }
+            do {
+                if let result = try JSONSerialization.jsonObject(with: data) as? [[String : Any]] {
+                    for meetpoint in result {
+                        self.meetpoints.append(MeetPoint(json: meetpoint))
+                    }
+                }
+            }
+            catch let error as NSError {
+                print(error)
+            }
+        })
+        task.resume()
+    }
+    
 }
