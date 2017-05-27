@@ -15,14 +15,14 @@ struct MeetPoint {
     var id: String?
     var name: String?
     var address: String?
-    var zipCode: String?
+    var zipCode: Int?
     var town: String?
     var latitude: Double?
     var longitude: Double?
     
     // MARK: Initializers
     
-    init(id: String? = nil, name: String? = nil, address: String? = nil, zipCode: String? = nil, town: String? = nil, latitude: Double? = nil, longitude: Double? = nil) {
+    init(id: String? = nil, name: String? = nil, address: String? = nil, zipCode: Int? = nil, town: String? = nil, latitude: Double? = nil, longitude: Double? = nil) {
         self.id = id
         self.name = name
         self.address = address
@@ -36,7 +36,7 @@ struct MeetPoint {
         self.init(id: json["id"] as? String,
                   name: json["name"] as? String,
                   address: json["address"] as? String,
-                  zipCode: json["zipCode"] as? String,
+                  zipCode: json["postalCode"] as? Int,
                   town: json["town"] as? String,
                   latitude: json["latitude"] as? Double,
                   longitude: json["longitude"] as? Double)

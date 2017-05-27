@@ -67,10 +67,10 @@ final class MeetPointService {
     //                for meetpoint in result {
     //                    meetpoints.append(MeetPoint(json: meetpoint))
     //                }
-    //                completionHandler(meetpoints, <#Error?#>)
+    //                completionHandler(meetpoints, Error?)
     //            }
     //            catch {
-    //                print("ERROR: trying to convert data to JSON")
+    //                print("ERROR: trying to converËt data to JSON")
     //            }
     //        })
     //        task.resume()

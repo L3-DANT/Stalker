@@ -15,8 +15,8 @@ class MeetPointsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadMeetPoints()
+        //        loadMeetPoints()
+        getMeetPoints()
         self.tableView.reloadData()
     }
     
@@ -95,8 +95,8 @@ class MeetPointsTableViewController: UITableViewController {
         let user = User(token: "token")
         
         let session = URLSession.shared
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/meetpoint/all")!)
-        request.httpMethod = "POST"
+        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/test/all")!)
+        request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(user.token!, forHTTPHeaderField: "Token")
         
@@ -115,6 +115,8 @@ class MeetPointsTableViewController: UITableViewController {
                     for meetpoint in result {
                         self.meetpoints.append(MeetPoint(json: meetpoint))
                     }
+                    print(self.meetpoints)
+                    self.tableView.reloadData()
                 }
             }
             catch let error as NSError {
