@@ -8,7 +8,7 @@
 
 import UIKit
 
-class User: NSObject {
+struct User {
     
     // MARK: Properties
     
@@ -29,6 +29,15 @@ class User: NSObject {
         self.token = token
         self.lastPosition = lastPosition
     }
+    
+    init(json: [String: Any]) {
+        self.init(id: json["id"] as? String,
+                  name: json["name"] as? String,
+                  email: json["email"] as? String,
+                  token: json["token"] as? String)
+    }
+
+    // MARK: Methods
     
     func toDictionary() -> [String: Any] {
         var dictionary = [String: Any]()
