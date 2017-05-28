@@ -11,10 +11,10 @@ import UIKit
 class MeetPointsTableViewCell: UITableViewCell {
     
     // MARK: Properties
+    
     @IBOutlet weak var meetpointLabel: UILabel!
     
-    // MARK: Methods
-    
+    // MARK: Methods    
     
     override func awakeFromNib() {
         super.awakeFromNib()

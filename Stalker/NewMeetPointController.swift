@@ -11,8 +11,12 @@ import UIKit
 
 class NewMeetPointController: UIViewController {
     
+    // MARK: Properties
+    
     @IBOutlet weak var addressOutlet: UITextField!
     @IBOutlet weak var cityOutlet: UITextField!
+    
+    // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,7 +11,10 @@ import UIKit
 class MeetPointsTableViewController: UITableViewController {
     
     // MARK: Properties
+    
     var meetpoints = [MeetPoint]()
+    
+    // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
