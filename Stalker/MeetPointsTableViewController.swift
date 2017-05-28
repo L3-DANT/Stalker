@@ -15,23 +15,19 @@ class MeetPointsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        do {
-            try MeetPointService.getAll(completionHandler: { (result, error) in
-                guard error == nil else {
-                    print("ERROR: MeetPointService.getAll")
-                    return
-                }
-                self.meetpoints = result
+        
+        MeetPointService.getAll(completion: { (inner: () throws -> [MeetPoint]) in
+            do {
+                self.meetpoints = try inner()
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            })
-        }
-        catch let error as NSError {
-            print(error)
-        }
+            }
+            catch let error {
+                print("Async error while fetching MeetPoints: \(error)")
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
