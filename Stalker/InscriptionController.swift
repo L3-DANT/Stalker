@@ -14,10 +14,10 @@ class InscriptionController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-    let userToken = "token"
-    let userEmail = "email"
-    let userIsConnected = "isConnected"
-    let defaults = UserDefaults.standard
+//    let userToken = "token"
+//    let userEmail = "email"
+//    let userIsConnected = "isConnected"
+//    let defaults = UserDefaults.standard
     
     @IBAction func signUp(_ sender: UIButton) {
         if emailInput.text != "" && passwordInput.text != "" && nameInput.text != "" {
@@ -46,10 +46,10 @@ class InscriptionController: UIViewController, UITextFieldDelegate {
                         
                         if let parseJSON = json {
                             let userConnected = User(json: parseJSON as! [String : Any])
-                            self.defaults.set(true, forKey: self.userIsConnected)
-                            self.defaults.set(userConnected.token, forKey: self.userToken)
-                            self.defaults.set(userConnected.email, forKey: self.userEmail)
-                            self.defaults.synchronize()
+                            Defaults.standard.set(true, forKey: Defaults.userIsConnected)
+                            Defaults.standard.set(userConnected.token, forKey: Defaults.userToken)
+                            Defaults.standard.set(userConnected.email, forKey: Defaults.userEmail)
+                            Defaults.standard.synchronize()
                             if userConnected.token != nil {
                                 DispatchQueue.main.async {
                                     self.performSegue(withIdentifier: "signUpToMap", sender: self)

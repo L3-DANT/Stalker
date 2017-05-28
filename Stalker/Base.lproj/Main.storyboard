@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8zy-ji-OJC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8zy-ji-OJC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -512,7 +512,7 @@
         <!--Me-->
         <scene sceneID="uXs-Ya-pMD">
             <objects>
-                <viewController title="Me" id="oGM-0C-fs6" sceneMemberID="viewController">
+                <viewController title="Me" id="oGM-0C-fs6" customClass="MeController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9XE-h6-NR5"/>
                         <viewControllerLayoutGuide type="bottom" id="Dgu-3U-oE1"/>
@@ -559,6 +559,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R74-tp-bxm">
                                                 <rect key="frame" x="287.5" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="shareMyPosition:" destination="oGM-0C-fs6" eventType="valueChanged" id="tL2-es-m7G"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -569,17 +572,26 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="30"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Buy Premium"/>
+                                                <connections>
+                                                    <action selector="buyPremium:" destination="oGM-0C-fs6" eventType="touchUpInside" id="ZxJ-k1-jLh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-DQ-NT5">
                                                 <rect key="frame" x="0.0" y="38" width="323" height="30"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="My Itineraries"/>
+                                                <connections>
+                                                    <action selector="myItineraris:" destination="oGM-0C-fs6" eventType="touchUpInside" id="Wy4-OE-aC9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-kS-GnZ">
                                                 <rect key="frame" x="0.0" y="76" width="323" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Log out"/>
+                                                <connections>
+                                                    <action selector="logOut:" destination="oGM-0C-fs6" eventType="touchUpInside" id="fYN-fh-3uj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -608,6 +620,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Me" id="PF5-f3-Rmu"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="logOutToSignIn" id="qUk-sK-MWG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yv7-Cd-isw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -829,6 +844,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Thm-aA-J2Y"/>
-        <segue reference="MOd-eq-EJf"/>
+        <segue reference="qUk-sK-MWG"/>
     </inferredMetricsTieBreakers>
 </document>
