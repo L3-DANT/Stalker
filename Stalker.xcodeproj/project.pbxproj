@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
+				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
 				D67193011EC306B100A42E5C /* MeetPoint.swift */,
@@ -197,6 +200,7 @@
 			files = (
 				D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */,
 				D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */,
+				0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,

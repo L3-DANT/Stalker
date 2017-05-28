@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SerializationError.swift
 //  Stalker
 //
 //  Created by m2sar on 26/05/17.

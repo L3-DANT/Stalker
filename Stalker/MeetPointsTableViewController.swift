@@ -15,9 +15,23 @@ class MeetPointsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        loadMeetPoints()
-        getMeetPoints()
-        self.tableView.reloadData()
+
+        do {
+            try MeetPointService.getAll(completionHandler: { (result, error) in
+                guard error == nil else {
+                    print("ERROR: MeetPointService.getAll")
+                    return
+                }
+                self.meetpoints = result
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+        }
+        catch let error as NSError {
+            print(error)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,43 +101,6 @@ class MeetPointsTableViewController: UITableViewController {
         let meetpoint3 = MeetPoint(name: "Notre Dame", address: "ave de Notre Dame", latitude: 45.02, longitude: 46.25)
         
         meetpoints += [meetpoint1, meetpoint2, meetpoint3]
-    }
-    
-    // MARK: Requests
-    
-    private func getMeetPoints() {
-        let user = User(token: "token")
-        
-        let session = URLSession.shared
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/test/all")!)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
-        
-        let task = session.dataTask(with: request, completionHandler: {(data, response, error) in
-            guard error == nil else {
-                print("ERROR: POST on /todos/1")
-                print(error!)
-                return
-            }
-            guard let data = data else {
-                print("ERROR: did not receive data")
-                return
-            }
-            do {
-                if let result = try JSONSerialization.jsonObject(with: data) as? [[String : Any]] {
-                    for meetpoint in result {
-                        self.meetpoints.append(MeetPoint(json: meetpoint))
-                    }
-                    print(self.meetpoints)
-                    self.tableView.reloadData()
-                }
-            }
-            catch let error as NSError {
-                print(error)
-            }
-        })
-        task.resume()
     }
     
 }
