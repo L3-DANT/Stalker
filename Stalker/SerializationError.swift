@@ -9,7 +9,7 @@
 import Foundation
 
 enum SerializationError: Error {
-    case Data(Error)
+    case Data
     case JSONObject(Error)
 //    case Missing(String)
 //    case Invalid(String, Any)
