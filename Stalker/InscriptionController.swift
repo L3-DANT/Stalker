@@ -14,11 +14,6 @@ class InscriptionController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-//    let userToken = "token"
-//    let userEmail = "email"
-//    let userIsConnected = "isConnected"
-//    let defaults = UserDefaults.standard
-    
     @IBAction func signUp(_ sender: UIButton) {
         if emailInput.text != "" && passwordInput.text != "" && nameInput.text != "" {
             

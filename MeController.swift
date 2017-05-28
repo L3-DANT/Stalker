@@ -10,12 +10,6 @@ import UIKit
 
 class MeController: UIViewController {
     
-//    let userToken = "token"
-//    let userEmail = "email"
-//    let userIsConnected = "isConnected"
-//    let userSharingPosition = "isSharingPosition"
-//    let defaults = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

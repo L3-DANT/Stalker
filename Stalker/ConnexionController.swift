@@ -13,11 +13,6 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-//    let userToken = "token"
-//    let userEmail = "email"
-//    let userIsConnected = "isConnected"
-//    let defaults = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailInput.delegate = self
