@@ -25,6 +25,7 @@ public class MongoUtil {
 
         private static Datastore getDatastore() {
             MongoClient client = new MongoClient();
+
             Set<Class> set = new HashSet<>(1);
             set.add(User.class);
             set.add(Position.class);

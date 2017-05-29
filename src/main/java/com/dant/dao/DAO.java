@@ -46,4 +46,8 @@ public class DAO<T> {
         return ds.createQuery(clazz).filter(field, value).asList();
     }
 
+    public List<T> getAll(Class<T> clazz) {
+        return ds.createQuery(clazz).asList();
+    }
+
 }
