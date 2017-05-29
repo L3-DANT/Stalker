@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
-		85929E2F1EDB1075001B5F0E /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85929E2E1EDB1075001B5F0E /* MeController.swift */; };
-		85929E311EDB297A001B5F0E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85929E301EDB297A001B5F0E /* Defaults.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
@@ -27,6 +25,8 @@
 		D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */; };
 		D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */; };
 		D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */; };
+		D6B6AD361EDC33E80093DB07 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD341EDC33E80093DB07 /* Defaults.swift */; };
+		D6B6AD371EDC33E80093DB07 /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD351EDC33E80093DB07 /* MeController.swift */; };
 		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
 		D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */; };
 		D6DBB26D1EBB7C280060756E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26C1EBB7C280060756E /* User.swift */; };
@@ -35,8 +35,6 @@
 
 /* Begin PBXFileReference section */
 		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
-		85929E2E1EDB1075001B5F0E /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeController.swift; path = ../MeController.swift; sourceTree = "<group>"; };
-		85929E301EDB297A001B5F0E /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defaults.swift; path = ../Defaults.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
@@ -56,6 +54,8 @@
 		D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewController.swift; sourceTree = "<group>"; };
 		D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewCell.swift; sourceTree = "<group>"; };
 		D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionController.swift; sourceTree = "<group>"; };
+		D6B6AD341EDC33E80093DB07 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		D6B6AD351EDC33E80093DB07 /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeController.swift; sourceTree = "<group>"; };
 		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D6DBB26C1EBB7C280060756E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -107,13 +107,13 @@
 				D640C5E01EB21E24006F0C0F /* Info.plist */,
 				D640C5D41EB21E24006F0C0F /* AppDelegate.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
-				85929E301EDB297A001B5F0E /* Defaults.swift */,
+				D6B6AD341EDC33E80093DB07 /* Defaults.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
 				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
-				85929E2E1EDB1075001B5F0E /* MeController.swift */,
+				D6B6AD351EDC33E80093DB07 /* MeController.swift */,
 				D67193011EC306B100A42E5C /* MeetPoint.swift */,
 				D645C4CA1ED84680008AE921 /* MeetPointService.swift */,
 				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
@@ -209,18 +209,18 @@
 				0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
-				85929E2F1EDB1075001B5F0E /* MeController.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
 				D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */,
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
 				D64983681ED6094B007FF373 /* Pin.swift in Sources */,
-				85929E311EDB297A001B5F0E /* Defaults.swift in Sources */,
+				D6B6AD361EDC33E80093DB07 /* Defaults.swift in Sources */,
 				D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */,
 				D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */,
 				D640C5D51EB21E24006F0C0F /* AppDelegate.swift in Sources */,
 				D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */,
 				D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */,
 				D645C4C91ED833A4008AE921 /* SerializationError.swift in Sources */,
+				D6B6AD371EDC33E80093DB07 /* MeController.swift in Sources */,
 				D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */,
 				D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */,
 			);
