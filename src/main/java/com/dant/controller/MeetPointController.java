@@ -15,29 +15,27 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MeetPointController {
-
     private MeetPointBusiness meetPointBusiness = new MeetPointBusiness();
 
     @POST
-    public MeetPointDTO createMeetPoint(MeetPoint meetPoint) {
-        return meetPointBusiness.createMeetPoint(meetPoint);
+    public MeetPointDTO createMeetPoint(@HeaderParam("Token") String token, MeetPoint meetPoint) {
+        return meetPointBusiness.createMeetPoint(token, meetPoint);
     }
 
     @PUT
-    public MeetPointDTO updateMeetPoint(MeetPoint meetPoint) {
-        return meetPointBusiness.updateMeetPoint(meetPoint);
+    public MeetPointDTO updateMeetPoint(@HeaderParam("Token") String token, MeetPoint meetPoint) {
+        return meetPointBusiness.updateMeetPoint(token, meetPoint);
     }
 
     @GET
-    @Path("/{email}")
-    public List<MeetPointDTO> getMeetPoints(@PathParam("email") String emailUser) {
-        System.out.println("BOn email ? " + emailUser);
-        return meetPointBusiness.getMeetPoints(emailUser);
+//    @Path("/{email}")
+    public List<MeetPointDTO> getMeetPoints(@HeaderParam("Token") String token) {
+        return meetPointBusiness.getMeetPoints(token);
     }
 
     @DELETE
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void removeMeetPoint(@PathParam("id") String id) {
-        meetPointBusiness.removeMeetPoint(id);
+    public void removeMeetPoint(@HeaderParam("Token") String token, @PathParam("id") String id) {
+        meetPointBusiness.removeMeetPoint(token, id);
     }
 }

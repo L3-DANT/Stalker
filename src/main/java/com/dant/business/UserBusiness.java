@@ -22,13 +22,8 @@ import java.util.List;
 public class UserBusiness {
 
     private final DAO<User> userDAO = new DAO<>();
-//    private final DAO<Friendship> friendshipDAO= new DAO<>();
-//    private final DAO<MeetPoint> meetPointDAO = new DAO<>();
-//    private final DAO<Position> positionDAO = new DAO<>();
 
     public UserDTO authenticate(User u) {
-        System.out.println(u);
-        System.out.println("Users : " +  userDAO.getAll(User.class));
         User user = userDAO.getOne(User.class, "email", u.getEmail());
         if (user == null) {
             throw new NotFoundException();
@@ -42,7 +37,6 @@ public class UserBusiness {
     }
 
     public UserDTO createUser(User user) {
-        System.out.println("User : " + user);
         if (userDAO.getOne(User.class, "email", user.getEmail()) != null) {
             throw new BadRequestException();
         }
@@ -51,7 +45,7 @@ public class UserBusiness {
     }
 
     public UserDTO updateUser(User u) {
-        User user = userDAO.getOne(User.class, "email", u.getEmail());
+        User user = UtilBusiness.checkToken(u.getToken());
         if (user == null) {
             throw new NotFoundException();
         }
@@ -61,6 +55,7 @@ public class UserBusiness {
     }
 
     public void removeUser(String token) {
+        UtilBusiness.checkToken(token);
         userDAO.delete(User.class, "token", token);
     }
 }

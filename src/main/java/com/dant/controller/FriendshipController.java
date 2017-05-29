@@ -7,6 +7,7 @@ import org.omg.CORBA.FREE_MEM;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,32 +20,35 @@ public class FriendshipController {
     private FriendshipBusiness userBusiness = new FriendshipBusiness();
 
     @POST
-    public FriendshipDTO askFriend(Friendship friendship) {
-        return userBusiness.askFriend(friendship);
+    public FriendshipDTO askFriend(@HeaderParam("Token") String token, Friendship friendship) {
+        return userBusiness.askFriend(token, friendship);
     }
 
     @POST
-    @Path("/acceptFriend")
-    public FriendshipDTO acceptFriend(Friendship friendship) {
-        return userBusiness.acceptFriend(friendship);
+    @Path("/acceptfriend")
+    public FriendshipDTO acceptFriend(@HeaderParam("Token") String token, Friendship friendship) {
+        return userBusiness.acceptFriend(token, friendship);
     }
 
     @GET
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public List<UserDTO> getFriends(@PathParam("email") String email) {
-        return userBusiness.getFriends(email);
+    public List<UserDTO> getFriendships(@HeaderParam("Token") String token) {
+        return userBusiness.getFriendShips(token);
     }
 
     @GET
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("/getFriends")
+    public List<UserDTO> getFriends(@HeaderParam("Token") String token) {
+        return userBusiness.getFriends(token);
+    }
+
+    @GET
     @Path("/getDemands")
-    public List<UserDTO> getDemands(@PathParam("email") String email) {
-        return userBusiness.getDemands(email);
+    public List<UserDTO> getDemands(@HeaderParam("Token") String token) {
+        return userBusiness.getDemands(token);
     }
 
     @DELETE
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public void removeFriendship(@PathParam("friendSource") String friendSource, @PathParam("friendDest") String friendDest) {
-        userBusiness.removeFriendship(friendSource, friendDest);
+    public void removeFriendship(@HeaderParam("Token") String token, Friendship friendship) {
+        userBusiness.removeFriendship(token, friendship);
     }
 }

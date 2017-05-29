@@ -1,7 +1,6 @@
 package com.dant.controller;
 
 import com.dant.business.*;
-import com.dant.dao.DAO;
 import com.dant.entity.dto.*;
 import com.dant.entity.*;
 
@@ -18,14 +17,14 @@ public class UserController {
     private UserBusiness userBusiness = new UserBusiness();
 
     @POST
-    public UserDTO authenticate(User u) {
-        return userBusiness.authenticate(u);
+    public UserDTO createUser(User user) {
+        return userBusiness.createUser(user);
     }
 
     @POST
-    @Path("create")
-    public UserDTO createUser(User user) {
-        return userBusiness.createUser(user);
+    @Path("me")
+    public UserDTO authenticate(User u) {
+        return userBusiness.authenticate(u);
     }
 
     @PUT
@@ -37,13 +36,5 @@ public class UserController {
     @Consumes()
     public void removeUser(@HeaderParam("Token") String token) {
         userBusiness.removeUser(token);
-    }
-
-    @POST
-    @Path("test")
-    public String test(User u, @HeaderParam("Token") String token) {
-        System.out.println("Token : " + token);
-        System.out.println("User : " + u);
-        return "bouh";
     }
 }
