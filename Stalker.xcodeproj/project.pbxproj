@@ -10,6 +10,8 @@
 		0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B01EDCAF1100EB5EC3 /* Server.swift */; };
 		0E1140B31EDCB32200EB5EC3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B21EDCB32200EB5EC3 /* Collection.swift */; };
 		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
+		0EAFC4101EDCB55B00B353D6 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFC40F1EDCB55A00B353D6 /* Friendship.swift */; };
+		0EAFC4121EDCBCA400B353D6 /* FriendshipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
@@ -39,6 +41,8 @@
 		0E1140B01EDCAF1100EB5EC3 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		0E1140B21EDCB32200EB5EC3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
+		0EAFC40F1EDCB55A00B353D6 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
+		0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipService.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				0E1140B21EDCB32200EB5EC3 /* Collection.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
 				D6B6AD341EDC33E80093DB07 /* Defaults.swift */,
+				0EAFC40F1EDCB55A00B353D6 /* Friendship.swift */,
+				0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
 				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
@@ -213,7 +219,9 @@
 				D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */,
 				D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */,
 				0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */,
+				0EAFC4101EDCB55B00B353D6 /* Friendship.swift in Sources */,
 				0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */,
+				0EAFC4121EDCBCA400B353D6 /* FriendshipService.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
