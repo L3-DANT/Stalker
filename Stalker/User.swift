@@ -1,5 +1,5 @@
 //
-//  Friend.swift
+//  User.swift
 //  Stalker
 //
 //  Created by m2sar on 04/05/17.
