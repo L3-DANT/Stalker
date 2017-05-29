@@ -9,8 +9,8 @@
 import Foundation
 
 enum SerializationError: Error {
-    case Data
-    case JSONObject(Error)
+    case data
+    case jsonObject(Error)
 //    case Missing(String)
 //    case Invalid(String, Any)
 }

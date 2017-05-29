@@ -3,6 +3,7 @@
 Stalker.xcodeproj/xcuserdata/
 *.plist
 *.xcscmblueprint
+Stalker.xcodeproj/project.xcworkspace/xcuserdata/kvin.xcuserdatad/
 
 #MacOs
 .DS_Store
