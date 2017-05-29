@@ -6,10 +6,10 @@
 * Serveur
 * Méthodes
 * Collections
-	* Collection: /friends/
-	* Collection: /u/
-	* Collection: /pos/
-	* Collection: /config/
+	* Collection: /friendship/
+	* Collection: /user/
+	* Collection: /position/
+	* Collection: /meetpoint/
 
 # Résumé
 * Les messages envoyé à l'API sera sous:
@@ -51,12 +51,11 @@ Les méthodes HTTP utilisé seront:
 * `PUT`		: (créer|met à jour) un fichier.
 
 # Collections
->>> Note:
-* **/friendship/**	: collection des relations d'amis.<br>
-* **/user/**		: collection des utilisateurs.<br>
-* **/position/**	: collection des positions.<br>
-* **/meetpoint/**	: collection de lieux.
->>>
+> Note:
+> * **/friendship/**	: collection des relations d'amis.<br>
+> * **/user/**		: collection des utilisateurs.<br>
+> * **/position/**	: collection des positions.<br>
+> * **/meetpoint/**	: collection de lieux.
 
 ## Collection: /friends/
 * **GET** :
