@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
 		85929E2F1EDB1075001B5F0E /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85929E2E1EDB1075001B5F0E /* MeController.swift */; };
 		85929E311EDB297A001B5F0E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85929E301EDB297A001B5F0E /* Defaults.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
@@ -19,7 +20,7 @@
 		D640C5DC1EB21E24006F0C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DB1EB21E24006F0C0F /* Assets.xcassets */; };
 		D640C5DF1EB21E24006F0C0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */; };
 		D645C4C91ED833A4008AE921 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4C81ED833A4008AE921 /* SerializationError.swift */; };
-		D645C4CB1ED84680008AE921 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CA1ED84680008AE921 /* UserService.swift */; };
+		D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CA1ED84680008AE921 /* MeetPointService.swift */; };
 		D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CC1ED85ABB008AE921 /* Position.swift */; };
 		D64983681ED6094B007FF373 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64983671ED6094B007FF373 /* Pin.swift */; };
 		D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193011EC306B100A42E5C /* MeetPoint.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
 		85929E2E1EDB1075001B5F0E /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeController.swift; path = ../MeController.swift; sourceTree = "<group>"; };
 		85929E301EDB297A001B5F0E /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Defaults.swift; path = ../Defaults.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +49,7 @@
 		D640C5DE1EB21E24006F0C0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D640C5E01EB21E24006F0C0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D645C4C81ED833A4008AE921 /* SerializationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
-		D645C4CA1ED84680008AE921 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		D645C4CA1ED84680008AE921 /* MeetPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointService.swift; sourceTree = "<group>"; };
 		D645C4CC1ED85ABB008AE921 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D64983671ED6094B007FF373 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		D67193011EC306B100A42E5C /* MeetPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPoint.swift; sourceTree = "<group>"; };
@@ -108,17 +110,18 @@
 				85929E301EDB297A001B5F0E /* Defaults.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
+				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
 				85929E2E1EDB1075001B5F0E /* MeController.swift */,
 				D67193011EC306B100A42E5C /* MeetPoint.swift */,
+				D645C4CA1ED84680008AE921 /* MeetPointService.swift */,
 				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
 				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
 				D64983671ED6094B007FF373 /* Pin.swift */,
 				D645C4CC1ED85ABB008AE921 /* Position.swift */,
 				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
-				D645C4CA1ED84680008AE921 /* UserService.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
 				D6DBB26C1EBB7C280060756E /* User.swift */,
 				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
@@ -202,7 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */,
-				D645C4CB1ED84680008AE921 /* UserService.swift in Sources */,
+				D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */,
+				0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				85929E2F1EDB1075001B5F0E /* MeController.swift in Sources */,

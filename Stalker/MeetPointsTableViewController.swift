@@ -9,15 +9,28 @@
 import UIKit
 
 class MeetPointsTableViewController: UITableViewController {
-
+    
     // MARK: Properties
+    
     var meetpoints = [MeetPoint]()
+    
+    // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMeetPoints()
-        self.tableView.reloadData()
+        MeetPointService.getAll(completion: { (inner: () throws -> [MeetPoint]) in
+            do {
+                self.meetpoints = try inner()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch let error {
+                print("Async error while fetching MeetPoints: \(error)")
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +72,7 @@ class MeetPointsTableViewController: UITableViewController {
             func myHandler(alert: UIAlertAction){
                 self.meetpoints.remove(at: indexPath.row)
                 tableView.reloadData()
-                print("You tapped: \(alert.title)")
+                //                print("You tapped: \(alert.title)")
             }
             
             let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "your meetpoint will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -88,6 +101,5 @@ class MeetPointsTableViewController: UITableViewController {
         
         meetpoints += [meetpoint1, meetpoint2, meetpoint3]
     }
- 
-
+    
 }

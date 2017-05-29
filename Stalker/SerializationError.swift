@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SerializationError.swift
 //  Stalker
 //
 //  Created by m2sar on 26/05/17.
@@ -9,6 +9,8 @@
 import Foundation
 
 enum SerializationError: Error {
-    case missing(String)
-    case invalid(String, Any)
+    case Data
+    case JSONObject(Error)
+//    case Missing(String)
+//    case Invalid(String, Any)
 }
