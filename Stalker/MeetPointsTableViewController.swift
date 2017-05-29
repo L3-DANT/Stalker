@@ -13,6 +13,7 @@ class MeetPointsTableViewController: UITableViewController {
     // MARK: Properties
     
     var meetpoints = [MeetPoint]()
+    var meetpoint = MeetPoint()
     
     // MARK: Methods
     
@@ -56,11 +57,25 @@ class MeetPointsTableViewController: UITableViewController {
             fatalError("The dequeue cell is not an instance of MeetPointTableViewCell")
         }
         
+        // TODO: set meetpoint
+        
         //Fetches the appropriate friend for the data source layout
-        let meetpoint = meetpoints[indexPath.row]
+        self.meetpoint = meetpoints[indexPath.row]
+        
         cell.meetpointLabel.text = meetpoint.name
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "meetPointCellSegue" {
+            
+            let viewController = segue.destination as! AMeetPointController
+            viewController.meetpoint = self.meetpoint
+            
+        }
+        
     }
     
     //Delete Button
@@ -93,13 +108,6 @@ class MeetPointsTableViewController: UITableViewController {
         })]
     }
     
-    
-    private func loadMeetPoints(){
-        let meetpoint1 = MeetPoint(name: "Tour Eiffel", address: "ave de la Tour Eiffel", latitude: 45.02, longitude: 46.25)
-        let meetpoint2 = MeetPoint(name: "Arc de Triomphe", address: "ave de l'Arc de Triomphe", latitude: 45.02, longitude: 46.25)
-        let meetpoint3 = MeetPoint(name: "Notre Dame", address: "ave de Notre Dame", latitude: 45.02, longitude: 46.25)
-        
-        meetpoints += [meetpoint1, meetpoint2, meetpoint3]
-    }
+    //Test for pass
     
 }
