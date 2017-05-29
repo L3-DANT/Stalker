@@ -17,13 +17,13 @@ public class MeetPoint implements Serializable {
     private String id;              // Id for
     private String name;
     private String address;
-    private String zipCode;
+    private int zipCode;
     private String town;
     private double latitude;
     private double longitude;
     private String emailUser;
 
-    public MeetPoint(String id, String name, String address, String zipCode, String town, double latitude, double longitude, String emailUser) {
+    public MeetPoint(String id, String name, String address, int zipCode, String town, double latitude, double longitude, String emailUser) {
         if(id == null)
             RandomStringUtils.random(32, true, true);
         else
@@ -37,7 +37,7 @@ public class MeetPoint implements Serializable {
         this.emailUser = emailUser;
     }
 
-    public MeetPoint(String name, String address, String zipCode, String town, double latitude, double longitude, String emailUser) {
+    public MeetPoint(String name, String address, int zipCode, String town, double latitude, double longitude, String emailUser) {
         this(RandomStringUtils.random(32, true, true), name, address, zipCode, town, latitude, longitude, emailUser);
     }
 
@@ -70,11 +70,11 @@ public class MeetPoint implements Serializable {
         return address;
     }
 
-    public String getZipCode() {
+    public int getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
+    public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
 

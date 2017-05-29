@@ -25,6 +25,7 @@ public class App extends Application {
 		sets.add(new MeetPointController());
 		sets.add(new FriendshipController());
 		sets.add(new PositionController());
+		sets.add(new DataSetController());
 		return sets;
 	}
 
