@@ -4,5 +4,9 @@ Stalker.xcodeproj/xcuserdata/
 *.plist
 *.xcscmblueprint
 
+Stalker.xcworkspace
+
+build/
+
 #MacOs
 .DS_Store

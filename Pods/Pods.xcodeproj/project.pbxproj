@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01473DC5CAEDD010C69BE45B04D10BEC /* PusherSwift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE012CD8FD70753FD52E587549E8140E /* PusherSwift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AC32F9EB6217C7E8D1FB5437CD42798 /* PusherWebsocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560B4934C8EA8F2F5C1454F1EF945F1F /* PusherWebsocketDelegate.swift */; };
+		5087282AFB93BEBABF9A5DFD02526141 /* PusherChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67112AE47677D3604B8417FCE22ADF72 /* PusherChannels.swift */; };
+		618FE76FF2C8A13DE70539FB69683049 /* Pods-Stalker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C6EE0CDF85F95ED48D17591951B88E /* Pods-Stalker-dummy.m */; };
+		6BC0682DF23A648DE5BFF3B0FB35C1E9 /* CryptoSwiftHMACModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11BFC9C0348DE4A00CE6FBEDFAFA956 /* CryptoSwiftHMACModule.swift */; };
+		7154BD79EE55C9EBBECC711DA914F348 /* PusherPresenceChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE4BA8925C80C6518B7FC6595EF0B70 /* PusherPresenceChannel.swift */; };
+		71B990064036E1751D38AA3DD3C19B2B /* PusherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520C6581044568021198D5D8F08DAC06 /* PusherDelegate.swift */; };
+		830B942F47520B61AEC1EF451CF7E27C /* PusherSwift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B48728C6B18A655D23F7D56DA36D671 /* PusherSwift-dummy.m */; };
+		86D5A0452A504E6501AB0BE14C3DC97C /* NativePusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC28B056E66CED0690095968A3FC46 /* NativePusher.swift */; };
+		B1B567EE269DA00E8EB7A222249C394E /* Pods-Stalker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC80A76BC57A5A1D0F822EBA19E0873A /* Pods-Stalker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3C3809868FE9BDB72BC2644C604DDE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B558881F04F43F00971F1B6D7DF4923E /* PusherGlobalChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B758DCC76BA0E7E38E186B2B1084450B /* PusherGlobalChannel.swift */; };
+		C0C9D2B5B1C62ACC6F62CA1340366A7E /* Starscream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B220B536E624CBCE406FD769F0F69F /* Starscream.swift */; };
+		C6699F8768EE5B493F80EB072D379DE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D26911475B64F4990D2B816E0C195719 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07975EB083E212C0D63A2C5B4FE9666A /* Reachability.swift */; };
+		D671A3AF166DB3559F98B2C61178E764 /* ObjectiveC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B944EFDE4B14D6869F2D8355573401 /* ObjectiveC.swift */; };
+		DE14B3127D980F91D8F214220F67FE92 /* PusherClientOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B62A15D82C4A2A51783AFBC38AF5E /* PusherClientOptions.swift */; };
+		E1E5D3FCFFE920A23372FE00EC3F4BC2 /* PusherSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BBDD2E06F8D2C65E487ABB83DEFC6C /* PusherSwift.swift */; };
+		F677BFA5C6DF4CBA772A5BF6CF325760 /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9FFFDAD4E96B0145BE2669943FA9E /* TaskQueue.swift */; };
+		FD50EB4D5066FBEFA16110CA1AC032BB /* PusherChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60B85CCE2A182CFDB3C1FF22F7E5950 /* PusherChannel.swift */; };
+		FF9F0082DEEE2B7B134ED7F7E3ABB769 /* PusherConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9463AD92E0ADFA413D96F575A37A22 /* PusherConnection.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0DDE43F685157C699D2F8EA9D31C2EE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 479C6553B27A8812051242247C584D8F;
+			remoteInfo = PusherSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07975EB083E212C0D63A2C5B4FE9666A /* Reachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Source/Reachability.swift; sourceTree = "<group>"; };
+		0DFA78ECC9095451A0B69C0EC185865C /* Pods-Stalker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Stalker.debug.xcconfig"; sourceTree = "<group>"; };
+		0F52FFEDFF1F7F348851B439BDE48118 /* PusherSwift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PusherSwift.xcconfig; sourceTree = "<group>"; };
+		12203ACD758762B558D5471C0F033132 /* Pods-Stalker-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Stalker-frameworks.sh"; sourceTree = "<group>"; };
+		2B48728C6B18A655D23F7D56DA36D671 /* PusherSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PusherSwift-dummy.m"; sourceTree = "<group>"; };
+		2FE35B7DCF998F07BA0FF82F28BFF8D2 /* Pods-Stalker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Stalker.release.xcconfig"; sourceTree = "<group>"; };
+		520C6581044568021198D5D8F08DAC06 /* PusherDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherDelegate.swift; path = Source/PusherDelegate.swift; sourceTree = "<group>"; };
+		53BBDD2E06F8D2C65E487ABB83DEFC6C /* PusherSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherSwift.swift; path = Source/PusherSwift.swift; sourceTree = "<group>"; };
+		560B4934C8EA8F2F5C1454F1EF945F1F /* PusherWebsocketDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherWebsocketDelegate.swift; path = Source/PusherWebsocketDelegate.swift; sourceTree = "<group>"; };
+		57C6EE0CDF85F95ED48D17591951B88E /* Pods-Stalker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Stalker-dummy.m"; sourceTree = "<group>"; };
+		59F92F3777D6A5E5CB3AB9BBE76312E2 /* Pods_Stalker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Stalker.framework; path = "Pods-Stalker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF3EB4BC1ADA392B9802C7E943CA53D /* Pods-Stalker-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Stalker-acknowledgements.markdown"; sourceTree = "<group>"; };
+		64B220B536E624CBCE406FD769F0F69F /* Starscream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Starscream.swift; path = Source/Starscream.swift; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		66C18A1B45772FA0F35AFEB6CAEF5524 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67112AE47677D3604B8417FCE22ADF72 /* PusherChannels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherChannels.swift; path = Source/PusherChannels.swift; sourceTree = "<group>"; };
+		7BBC28B056E66CED0690095968A3FC46 /* NativePusher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativePusher.swift; path = Source/NativePusher.swift; sourceTree = "<group>"; };
+		7C9463AD92E0ADFA413D96F575A37A22 /* PusherConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherConnection.swift; path = Source/PusherConnection.swift; sourceTree = "<group>"; };
+		7D7E000513EBE061EB303C959DA1169A /* PusherSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PusherSwift.modulemap; sourceTree = "<group>"; };
+		7FE4BA8925C80C6518B7FC6595EF0B70 /* PusherPresenceChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherPresenceChannel.swift; path = Source/PusherPresenceChannel.swift; sourceTree = "<group>"; };
+		91FA712B1E665B72D2A63B2D808DD58A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		979659D277909C5FE86A93350B67001F /* Pods-Stalker-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Stalker-resources.sh"; sourceTree = "<group>"; };
+		AE012CD8FD70753FD52E587549E8140E /* PusherSwift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PusherSwift-umbrella.h"; sourceTree = "<group>"; };
+		B11BFC9C0348DE4A00CE6FBEDFAFA956 /* CryptoSwiftHMACModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CryptoSwiftHMACModule.swift; path = Source/CryptoSwiftHMACModule.swift; sourceTree = "<group>"; };
+		B758DCC76BA0E7E38E186B2B1084450B /* PusherGlobalChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherGlobalChannel.swift; path = Source/PusherGlobalChannel.swift; sourceTree = "<group>"; };
+		B93E86E9071A0E4EB95F5F313C58CE56 /* Pods-Stalker-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Stalker-acknowledgements.plist"; sourceTree = "<group>"; };
+		BFF55E99C77C15131908AFAEF6541C7D /* PusherSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PusherSwift.framework; path = PusherSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93B62A15D82C4A2A51783AFBC38AF5E /* PusherClientOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherClientOptions.swift; path = Source/PusherClientOptions.swift; sourceTree = "<group>"; };
+		D1DD3DC77668158CFDD258FA6B20CE78 /* Pods-Stalker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Stalker.modulemap"; sourceTree = "<group>"; };
+		D5B944EFDE4B14D6869F2D8355573401 /* ObjectiveC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectiveC.swift; path = Source/ObjectiveC.swift; sourceTree = "<group>"; };
+		EC80A76BC57A5A1D0F822EBA19E0873A /* Pods-Stalker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Stalker-umbrella.h"; sourceTree = "<group>"; };
+		F0A9FFFDAD4E96B0145BE2669943FA9E /* TaskQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskQueue.swift; path = Source/TaskQueue.swift; sourceTree = "<group>"; };
+		F60B85CCE2A182CFDB3C1FF22F7E5950 /* PusherChannel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PusherChannel.swift; path = Source/PusherChannel.swift; sourceTree = "<group>"; };
+		F6ECE4E688B7809DFFF0757B0F0418CC /* PusherSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PusherSwift-prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39AFCD1F40144EFDF4F9E4B78F6597AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6699F8768EE5B493F80EB072D379DE2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B565618ADB5FA7101C895060DA92711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3C3809868FE9BDB72BC2644C604DDE0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CF89217173CBE1FBFF4F331F7221FC8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				91FA712B1E665B72D2A63B2D808DD58A /* Info.plist */,
+				7D7E000513EBE061EB303C959DA1169A /* PusherSwift.modulemap */,
+				0F52FFEDFF1F7F348851B439BDE48118 /* PusherSwift.xcconfig */,
+				2B48728C6B18A655D23F7D56DA36D671 /* PusherSwift-dummy.m */,
+				F6ECE4E688B7809DFFF0757B0F0418CC /* PusherSwift-prefix.pch */,
+				AE012CD8FD70753FD52E587549E8140E /* PusherSwift-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PusherSwift";
+			sourceTree = "<group>";
+		};
+		36EEE9BB2F02CD1A271FA46C740E85D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				59F92F3777D6A5E5CB3AB9BBE76312E2 /* Pods_Stalker.framework */,
+				BFF55E99C77C15131908AFAEF6541C7D /* PusherSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A9DE2DEDBFBEB820F3C3C9602DE5E77 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E8AAEEDC24DCD759A64CEA98BEAE0C4 /* Pods-Stalker */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7FE271583D49B40292C1066A7080206A /* Pods */,
+				36EEE9BB2F02CD1A271FA46C740E85D8 /* Products */,
+				6A9DE2DEDBFBEB820F3C3C9602DE5E77 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7FE271583D49B40292C1066A7080206A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D9C3140D6D685F6978B111053234C4D /* PusherSwift */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D9C3140D6D685F6978B111053234C4D /* PusherSwift */ = {
+			isa = PBXGroup;
+			children = (
+				B11BFC9C0348DE4A00CE6FBEDFAFA956 /* CryptoSwiftHMACModule.swift */,
+				7BBC28B056E66CED0690095968A3FC46 /* NativePusher.swift */,
+				D5B944EFDE4B14D6869F2D8355573401 /* ObjectiveC.swift */,
+				F60B85CCE2A182CFDB3C1FF22F7E5950 /* PusherChannel.swift */,
+				67112AE47677D3604B8417FCE22ADF72 /* PusherChannels.swift */,
+				C93B62A15D82C4A2A51783AFBC38AF5E /* PusherClientOptions.swift */,
+				7C9463AD92E0ADFA413D96F575A37A22 /* PusherConnection.swift */,
+				520C6581044568021198D5D8F08DAC06 /* PusherDelegate.swift */,
+				B758DCC76BA0E7E38E186B2B1084450B /* PusherGlobalChannel.swift */,
+				7FE4BA8925C80C6518B7FC6595EF0B70 /* PusherPresenceChannel.swift */,
+				53BBDD2E06F8D2C65E487ABB83DEFC6C /* PusherSwift.swift */,
+				560B4934C8EA8F2F5C1454F1EF945F1F /* PusherWebsocketDelegate.swift */,
+				07975EB083E212C0D63A2C5B4FE9666A /* Reachability.swift */,
+				64B220B536E624CBCE406FD769F0F69F /* Starscream.swift */,
+				F0A9FFFDAD4E96B0145BE2669943FA9E /* TaskQueue.swift */,
+				2CF89217173CBE1FBFF4F331F7221FC8 /* Support Files */,
+			);
+			name = PusherSwift;
+			path = PusherSwift;
+			sourceTree = "<group>";
+		};
+		9E8AAEEDC24DCD759A64CEA98BEAE0C4 /* Pods-Stalker */ = {
+			isa = PBXGroup;
+			children = (
+				66C18A1B45772FA0F35AFEB6CAEF5524 /* Info.plist */,
+				D1DD3DC77668158CFDD258FA6B20CE78 /* Pods-Stalker.modulemap */,
+				5CF3EB4BC1ADA392B9802C7E943CA53D /* Pods-Stalker-acknowledgements.markdown */,
+				B93E86E9071A0E4EB95F5F313C58CE56 /* Pods-Stalker-acknowledgements.plist */,
+				57C6EE0CDF85F95ED48D17591951B88E /* Pods-Stalker-dummy.m */,
+				12203ACD758762B558D5471C0F033132 /* Pods-Stalker-frameworks.sh */,
+				979659D277909C5FE86A93350B67001F /* Pods-Stalker-resources.sh */,
+				EC80A76BC57A5A1D0F822EBA19E0873A /* Pods-Stalker-umbrella.h */,
+				0DFA78ECC9095451A0B69C0EC185865C /* Pods-Stalker.debug.xcconfig */,
+				2FE35B7DCF998F07BA0FF82F28BFF8D2 /* Pods-Stalker.release.xcconfig */,
+			);
+			name = "Pods-Stalker";
+			path = "Target Support Files/Pods-Stalker";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9BED4956A76541FFEEE55DD8369FD2E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1B567EE269DA00E8EB7A222249C394E /* Pods-Stalker-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD6B3D5698BE0C8696684FF3581BB4A4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01473DC5CAEDD010C69BE45B04D10BEC /* PusherSwift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1328B82E0F7C4A839A9B3DA68D15CF71 /* Pods-Stalker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E38F0E377D58AD347A16ADCA06021DF7 /* Build configuration list for PBXNativeTarget "Pods-Stalker" */;
+			buildPhases = (
+				977D6735A66BA739858DF6CFB4EC5D49 /* Sources */,
+				39AFCD1F40144EFDF4F9E4B78F6597AE /* Frameworks */,
+				9BED4956A76541FFEEE55DD8369FD2E3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACBCAA5297B154930A46697F9241CB0E /* PBXTargetDependency */,
+			);
+			name = "Pods-Stalker";
+			productName = "Pods-Stalker";
+			productReference = 59F92F3777D6A5E5CB3AB9BBE76312E2 /* Pods_Stalker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		479C6553B27A8812051242247C584D8F /* PusherSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2E2ECD41B213725B4821D0A3E2D4374 /* Build configuration list for PBXNativeTarget "PusherSwift" */;
+			buildPhases = (
+				E685C6747753307412B3681DB2C93250 /* Sources */,
+				5B565618ADB5FA7101C895060DA92711 /* Frameworks */,
+				FD6B3D5698BE0C8696684FF3581BB4A4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PusherSwift;
+			productName = PusherSwift;
+			productReference = BFF55E99C77C15131908AFAEF6541C7D /* PusherSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 36EEE9BB2F02CD1A271FA46C740E85D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1328B82E0F7C4A839A9B3DA68D15CF71 /* Pods-Stalker */,
+				479C6553B27A8812051242247C584D8F /* PusherSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		977D6735A66BA739858DF6CFB4EC5D49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				618FE76FF2C8A13DE70539FB69683049 /* Pods-Stalker-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E685C6747753307412B3681DB2C93250 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BC0682DF23A648DE5BFF3B0FB35C1E9 /* CryptoSwiftHMACModule.swift in Sources */,
+				86D5A0452A504E6501AB0BE14C3DC97C /* NativePusher.swift in Sources */,
+				D671A3AF166DB3559F98B2C61178E764 /* ObjectiveC.swift in Sources */,
+				FD50EB4D5066FBEFA16110CA1AC032BB /* PusherChannel.swift in Sources */,
+				5087282AFB93BEBABF9A5DFD02526141 /* PusherChannels.swift in Sources */,
+				DE14B3127D980F91D8F214220F67FE92 /* PusherClientOptions.swift in Sources */,
+				FF9F0082DEEE2B7B134ED7F7E3ABB769 /* PusherConnection.swift in Sources */,
+				71B990064036E1751D38AA3DD3C19B2B /* PusherDelegate.swift in Sources */,
+				B558881F04F43F00971F1B6D7DF4923E /* PusherGlobalChannel.swift in Sources */,
+				7154BD79EE55C9EBBECC711DA914F348 /* PusherPresenceChannel.swift in Sources */,
+				830B942F47520B61AEC1EF451CF7E27C /* PusherSwift-dummy.m in Sources */,
+				E1E5D3FCFFE920A23372FE00EC3F4BC2 /* PusherSwift.swift in Sources */,
+				1AC32F9EB6217C7E8D1FB5437CD42798 /* PusherWebsocketDelegate.swift in Sources */,
+				D26911475B64F4990D2B816E0C195719 /* Reachability.swift in Sources */,
+				C0C9D2B5B1C62ACC6F62CA1340366A7E /* Starscream.swift in Sources */,
+				F677BFA5C6DF4CBA772A5BF6CF325760 /* TaskQueue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACBCAA5297B154930A46697F9241CB0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PusherSwift;
+			target = 479C6553B27A8812051242247C584D8F /* PusherSwift */;
+			targetProxy = 0DDE43F685157C699D2F8EA9D31C2EE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26203965BBB7E517933E77A440BE0237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F52FFEDFF1F7F348851B439BDE48118 /* PusherSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PusherSwift/PusherSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PusherSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PusherSwift/PusherSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PusherSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4E487F173E6C9664F4E9E26B9635D23C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		578F580AA52E808F53F5C2D3FC6FCDBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DFA78ECC9095451A0B69C0EC185865C /* Pods-Stalker.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Stalker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Stalker/Pods-Stalker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Stalker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		589602361C3B8CD42FF9D959AA2E3BE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FE35B7DCF998F07BA0FF82F28BFF8D2 /* Pods-Stalker.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Stalker/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Stalker/Pods-Stalker.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Stalker;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BDD0139D6EB93FA375F887ABD62DAB2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1C41A44D87940F9CD9BE5C91D43AC49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F52FFEDFF1F7F348851B439BDE48118 /* PusherSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PusherSwift/PusherSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PusherSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PusherSwift/PusherSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PusherSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E487F173E6C9664F4E9E26B9635D23C /* Debug */,
+				BDD0139D6EB93FA375F887ABD62DAB2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2E2ECD41B213725B4821D0A3E2D4374 /* Build configuration list for PBXNativeTarget "PusherSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C41A44D87940F9CD9BE5C91D43AC49 /* Debug */,
+				26203965BBB7E517933E77A440BE0237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E38F0E377D58AD347A16ADCA06021DF7 /* Build configuration list for PBXNativeTarget "Pods-Stalker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				578F580AA52E808F53F5C2D3FC6FCDBA /* Debug */,
+				589602361C3B8CD42FF9D959AA2E3BE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
+		430D166D90AD339C21B020AB /* Pods_Stalker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8712DD8F383F7E2B29E999C8 /* Pods_Stalker.framework */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
@@ -35,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
+		8712DD8F383F7E2B29E999C8 /* Pods_Stalker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stalker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C881912D69939DB7BF3C2EA /* Pods-Stalker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stalker/Pods-Stalker.release.xcconfig"; sourceTree = "<group>"; };
+		A64AED0E05C5D664A4629883 /* Pods-Stalker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stalker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stalker/Pods-Stalker.debug.xcconfig"; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
@@ -69,17 +73,28 @@
 			files = (
 				D6E37BE61ED4BA1C00C931B2 /* CoreLocation.framework in Frameworks */,
 				D60736181EB235B800703459 /* MapKit.framework in Frameworks */,
+				430D166D90AD339C21B020AB /* Pods_Stalker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79E022ADA2BC422A5CDE7B59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A64AED0E05C5D664A4629883 /* Pods-Stalker.debug.xcconfig */,
+				9C881912D69939DB7BF3C2EA /* Pods-Stalker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D60736161EB235B800703459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */,
 				D60736171EB235B800703459 /* MapKit.framework */,
+				8712DD8F383F7E2B29E999C8 /* Pods_Stalker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,6 +105,7 @@
 				D60736161EB235B800703459 /* Frameworks */,
 				D640C5D21EB21E24006F0C0F /* Products */,
 				D640C5D31EB21E24006F0C0F /* Stalker */,
+				79E022ADA2BC422A5CDE7B59 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,14 +120,17 @@
 		D640C5D31EB21E24006F0C0F /* Stalker */ = {
 			isa = PBXGroup;
 			children = (
-				D640C5E01EB21E24006F0C0F /* Info.plist */,
 				D640C5D41EB21E24006F0C0F /* AppDelegate.swift */,
+				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
 				D6B6AD341EDC33E80093DB07 /* Defaults.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
 				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
+				D640C5E01EB21E24006F0C0F /* Info.plist */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
+				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
+				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
 				D6B6AD351EDC33E80093DB07 /* MeController.swift */,
 				D67193011EC306B100A42E5C /* MeetPoint.swift */,
@@ -124,9 +143,6 @@
 				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
 				D6DBB26C1EBB7C280060756E /* User.swift */,
-				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
-				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
-				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
 			);
 			path = Stalker;
 			sourceTree = "<group>";
@@ -138,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D640C5E31EB21E24006F0C0F /* Build configuration list for PBXNativeTarget "Stalker" */;
 			buildPhases = (
+				6699B1BF6EB73FD59CBBAC39 /* [CP] Check Pods Manifest.lock */,
 				D640C5CD1EB21E23006F0C0F /* Sources */,
 				D640C5CE1EB21E23006F0C0F /* Frameworks */,
 				D640C5CF1EB21E23006F0C0F /* Resources */,
+				53C85242CA92BFA60E3A5C4C /* [CP] Embed Pods Frameworks */,
+				F7EFAB9D24E4DC6C4F3B6026 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,6 +217,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53C85242CA92BFA60E3A5C4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stalker/Pods-Stalker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6699B1BF6EB73FD59CBBAC39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7EFAB9D24E4DC6C4F3B6026 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stalker/Pods-Stalker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D640C5CD1EB21E23006F0C0F /* Sources */ = {
@@ -343,6 +410,7 @@
 		};
 		D640C5E41EB21E24006F0C0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A64AED0E05C5D664A4629883 /* Pods-Stalker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -359,6 +427,7 @@
 		};
 		D640C5E51EB21E24006F0C0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C881912D69939DB7BF3C2EA /* Pods-Stalker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
