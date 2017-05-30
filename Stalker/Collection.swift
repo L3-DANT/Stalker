@@ -10,6 +10,7 @@ import Foundation
 
 enum Collection: String {
     case user = "user"
+    case friend = "friend"
     case friendship = "friendship"
     case meetpoint = "meetpoint"
 }

@@ -38,6 +38,7 @@
 		D6DBB26B1EBB79450060756E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */; };
 		D6DBB26D1EBB7C280060756E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB26C1EBB7C280060756E /* User.swift */; };
 		D6E37BE61ED4BA1C00C931B2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */; };
+		D6F3C0021EDDA462000DA0D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3C0011EDDA462000DA0D6 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		D6DBB26C1EBB7C280060756E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D6E37BE51ED4BA1C00C931B2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D6F3C0011EDDA462000DA0D6 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				0E1140B01EDCAF1100EB5EC3 /* Server.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
 				D6DBB26C1EBB7C280060756E /* User.swift */,
+				D6F3C0011EDDA462000DA0D6 /* UserService.swift */,
 				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
 				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
 				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
@@ -232,6 +235,7 @@
 				0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
+				D6F3C0021EDDA462000DA0D6 /* UserService.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
 				D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */,
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
