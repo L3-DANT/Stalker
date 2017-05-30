@@ -14,7 +14,6 @@
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
 		D6182A461EDD696C005F7431 /* AFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6182A451EDD696C005F7431 /* AFriendController.swift */; };
-		D627E6F01EBA145200FEDEEA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627E6EF1EBA145200FEDEEA /* Session.swift */; };
 		D640C5D51EB21E24006F0C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640C5D41EB21E24006F0C0F /* AppDelegate.swift */; };
 		D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640C5D61EB21E24006F0C0F /* ConnexionController.swift */; };
 		D640C5DA1EB21E24006F0C0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D640C5D81EB21E24006F0C0F /* Main.storyboard */; };
@@ -32,7 +31,7 @@
 		D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */; };
 		D6B34B641EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */; };
 		D6B34B661EDDB3CC0046EDCA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B34B651EDDB3CC0046EDCA /* Builder.swift */; };
-		D6B6AD361EDC33E80093DB07 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD341EDC33E80093DB07 /* Profile.swift */; };
+		D6B6AD361EDC33E80093DB07 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD341EDC33E80093DB07 /* Session.swift */; };
 		D6B6AD371EDC33E80093DB07 /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD351EDC33E80093DB07 /* MeController.swift */; };
 		D6CC71A51EDD751E00B61F32 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC71A41EDD751E00B61F32 /* Friendship.swift */; };
 		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
@@ -50,7 +49,6 @@
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
 		D6182A451EDD696C005F7431 /* AFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFriendController.swift; sourceTree = "<group>"; };
-		D627E6EF1EBA145200FEDEEA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D640C5D11EB21E24006F0C0F /* Stalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D640C5D41EB21E24006F0C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D640C5D61EB21E24006F0C0F /* ConnexionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionController.swift; sourceTree = "<group>"; };
@@ -70,7 +68,7 @@
 		D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionController.swift; sourceTree = "<group>"; };
 		D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		D6B34B651EDDB3CC0046EDCA /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		D6B6AD341EDC33E80093DB07 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D6B6AD341EDC33E80093DB07 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D6B6AD351EDC33E80093DB07 /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeController.swift; sourceTree = "<group>"; };
 		D6CC71A41EDD751E00B61F32 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
 		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +91,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E032D1F1EDE0AEB000C836C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D659C4B81EDD783A00B32E7D /* FriendshipService.swift */,
+				D645C4CA1ED84680008AE921 /* MeetPointService.swift */,
+				D6F3C0011EDDA462000DA0D6 /* UserService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		0E032D201EDE0B08000C836C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6B34B651EDDB3CC0046EDCA /* Builder.swift */,
+				0E1140B21EDCB32200EB5EC3 /* Collection.swift */,
+				D6CC71A41EDD751E00B61F32 /* Friendship.swift */,
+				D67193011EC306B100A42E5C /* MeetPoint.swift */,
+				D64983671ED6094B007FF373 /* Pin.swift */,
+				D645C4CC1ED85ABB008AE921 /* Position.swift */,
+				0E1140B01EDCAF1100EB5EC3 /* Server.swift */,
+				D6B6AD341EDC33E80093DB07 /* Session.swift */,
+				D6DBB26C1EBB7C280060756E /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0E032D211EDE0BC7000C836C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
+				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
 		D60736161EB235B800703459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,34 +159,22 @@
 				D6182A451EDD696C005F7431 /* AFriendController.swift */,
 				D6607F781EDC9F260066D8BC /* AMeetPointController.swift */,
 				D640C5D41EB21E24006F0C0F /* AppDelegate.swift */,
-				D6B34B651EDDB3CC0046EDCA /* Builder.swift */,
-				0E1140B21EDCB32200EB5EC3 /* Collection.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
 				D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */,
-				D6CC71A41EDD751E00B61F32 /* Friendship.swift */,
-				D659C4B81EDD783A00B32E7D /* FriendshipService.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
-				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
 				D6B6AD351EDC33E80093DB07 /* MeController.swift */,
-				D67193011EC306B100A42E5C /* MeetPoint.swift */,
-				D645C4CA1ED84680008AE921 /* MeetPointService.swift */,
 				D67193051EC30A8F00A42E5C /* MeetPointsTableViewCell.swift */,
 				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
-				D64983671ED6094B007FF373 /* Pin.swift */,
-				D645C4CC1ED85ABB008AE921 /* Position.swift */,
-				D6B6AD341EDC33E80093DB07 /* Profile.swift */,
-				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
-				0E1140B01EDCAF1100EB5EC3 /* Server.swift */,
-				D627E6EF1EBA145200FEDEEA /* Session.swift */,
-				D6DBB26C1EBB7C280060756E /* User.swift */,
-				D6F3C0011EDDA462000DA0D6 /* UserService.swift */,
 				D640C5DB1EB21E24006F0C0F /* Assets.xcassets */,
+				0E032D211EDE0BC7000C836C /* Error */,
 				D640C5DD1EB21E24006F0C0F /* LaunchScreen.storyboard */,
 				D640C5D81EB21E24006F0C0F /* Main.storyboard */,
+				0E032D201EDE0B08000C836C /* Models */,
+				0E032D1F1EDE0AEB000C836C /* Services */,
 			);
 			path = Stalker;
 			sourceTree = "<group>";
@@ -239,12 +260,11 @@
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				D6F3C0021EDDA462000DA0D6 /* UserService.swift in Sources */,
-				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
 				D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */,
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
 				D6182A461EDD696C005F7431 /* AFriendController.swift in Sources */,
 				D64983681ED6094B007FF373 /* Pin.swift in Sources */,
-				D6B6AD361EDC33E80093DB07 /* Profile.swift in Sources */,
+				D6B6AD361EDC33E80093DB07 /* Session.swift in Sources */,
 				D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */,
 				0E1140B31EDCB32200EB5EC3 /* Collection.swift in Sources */,
 				D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */,

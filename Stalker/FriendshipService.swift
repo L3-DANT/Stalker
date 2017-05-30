@@ -25,8 +25,7 @@ final class FriendshipService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -56,53 +55,59 @@ final class FriendshipService {
         task.resume()
     }
     
-    static func get(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
-        
-        let session = URLSession.shared
-        
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            completion({ FriendshipBuilder in
-                if let error = error {
-                    throw HttpRequestError.error(error)
-                }
-                if let httpResponse = response as? HTTPURLResponse {
-                    guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.statusCode(httpResponse.statusCode)
-                    }
-                }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return Friendship(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return Friendship()
-            })
-        })
-        task.resume()
-    }
+    //    static func get(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
+    //
+    //        let session = URLSession.shared
+    //
+    //        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
+    //        request.httpMethod = "GET"
+    //        request.addValue("application/json", forHTTPHeaderField: "Accept")
+    //        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
+    //
+    //        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+    //            completion({ FriendshipBuilder in
+    //                if let error = error {
+    //                    throw HttpRequestError.error(error)
+    //                }
+    //                if let httpResponse = response as? HTTPURLResponse {
+    //                    guard httpResponse.statusCode == 200 else {
+    //                        throw HttpRequestError.statusCode(httpResponse.statusCode)
+    //                    }
+    //                }
+    //                guard let data = data else {
+    //                    throw HttpRequestError.emptyData
+    //                }
+    //                do {
+    //                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
+    //                        return Friendship(json: json)
+    //                    }
+    //                }
+    //                catch let error {
+    //                    throw SerializationError.jsonObject(error)
+    //                }
+    //                return Friendship()
+    //            })
+    //        })
+    //        task.resume()
+    //    }
     
-    static func getAll(completion: @escaping (FriendshipsBuilder) -> Void) {
+    static func getAll(isAccepted: Bool? = nil, completion: @escaping (UsersBuilder) -> Void) {
+        
+        var url = "\(Server.address)/\(Collection.friend)"
+        
+        if let isAccepted = isAccepted {
+            url += "/?isAccepted=\(isAccepted)"
+        }
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)")!)
+        var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            completion({ FriendshipsBuilder in
+            completion({ UsersBuilder in
                 if let error = error {
                     throw HttpRequestError.error(error)
                 }
@@ -114,24 +119,24 @@ final class FriendshipService {
                 guard let data = data else {
                     throw HttpRequestError.emptyData
                 }
-                var friendships = [Friendship]()
+                var friends = [User]()
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [[String : Any]] {
-                        for friendship in json {
-                            friendships.append(Friendship(json: friendship))
+                        for friend in json {
+                            friends.append(User(json: friend))
                         }
                     }
                 }
                 catch let error {
                     throw SerializationError.jsonObject(error)
                 }
-                return friendships
+                return friends
             })
         })
         task.resume()
     }
     
-    static func update(friendship: Friendship, completion: @escaping (EmptyBuilder) -> Void) {
+    static func update(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
         
         let json = try? JSONSerialization.data(withJSONObject: friendship.toDictionary())
         
@@ -141,8 +146,7 @@ final class FriendshipService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -155,6 +159,18 @@ final class FriendshipService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
+                guard let data = data else {
+                    throw HttpRequestError.emptyData
+                }
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
+                        return Friendship(json: json)
+                    }
+                }
+                catch let error {
+                    throw SerializationError.jsonObject(error)
+                }
+                return Friendship()
             })
         })
         task.resume()
@@ -162,12 +178,16 @@ final class FriendshipService {
     
     static func delete(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
         
+        let json = try? JSONSerialization.data(withJSONObject: friendship.toDictionary())
+        
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
+        request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ FriendshipBuilder in

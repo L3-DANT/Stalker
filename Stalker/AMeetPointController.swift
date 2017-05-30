@@ -25,7 +25,7 @@ class AMeetPointController: UIViewController {
         if (self.meetpoint != nil){
             nameLabel.text = self.meetpoint?.name
             addressLabel.text = self.meetpoint?.address
-            pcLabel.text = "\(self.meetpoint?.zipCode)"
+            pcLabel.text = "\(String(describing: self.meetpoint?.zipCode))"
             cityLabel.text = self.meetpoint?.town
         }
     }

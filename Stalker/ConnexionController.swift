@@ -20,7 +20,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
         emailInput.tag = 0
         passwordInput.delegate = self
         passwordInput.tag = 1
-        if Profile.getToken() != nil && Profile.getIsConnected()! {
+        if Session.getToken() != nil && Session.getIsConnected()! {
             let TabBarControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController
             self.navigationController?.pushViewController(TabBarControllerObj!, animated: false)
         }
@@ -55,10 +55,10 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                         
                         if let parseJSON = json {
                             let userConnected = User(json: parseJSON as! [String : Any])
-                            Profile.setIsConnected(true)
-                            Profile.setToken(userConnected.token!)
-                            Profile.setEmail(userConnected.email!)
-                            Profile.standard.synchronize()
+                            Session.setIsConnected(true)
+                            Session.setToken(userConnected.token!)
+                            Session.setEmail(userConnected.email!)
+                            Session.standard.synchronize()
                             if userConnected.token != nil {
                                 DispatchQueue.main.async {
                                     self.performSegue(withIdentifier: "signInToMap", sender: self)

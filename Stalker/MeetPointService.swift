@@ -26,8 +26,7 @@ final class MeetPointService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -64,7 +63,7 @@ final class MeetPointService {
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
@@ -100,7 +99,7 @@ final class MeetPointService {
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             completion({ MeetPointsBuilder in
@@ -142,8 +141,7 @@ final class MeetPointService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -173,14 +171,14 @@ final class MeetPointService {
         task.resume()
     }
     
-    static func delete(meetpoint: MeetPoint, completion: @escaping (EmptyBuilder) -> Void) {
+    static func delete(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
         
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
@@ -192,6 +190,18 @@ final class MeetPointService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
+                guard let data = data else {
+                    throw HttpRequestError.emptyData
+                }
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
+                        return MeetPoint(json: json)
+                    }
+                }
+                catch let error {
+                    throw SerializationError.jsonObject(error)
+                }
+                return MeetPoint()
             })
         })
         task.resume()

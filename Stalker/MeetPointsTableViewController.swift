@@ -89,9 +89,9 @@ class MeetPointsTableViewController: UITableViewController {
             func myHandler(alert: UIAlertAction){
                 
                 //Delete meetpoint
-                MeetPointService.delete(meetpoint: self.selectedMeetpoint, completion: { (inner: EmptyBuilder) in
+                MeetPointService.delete(meetpoint: self.selectedMeetpoint, completion: { (inner: MeetPointBuilder) in
                     do {
-                        try inner()
+                        _ = try inner()
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()

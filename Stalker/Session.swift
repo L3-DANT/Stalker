@@ -1,66 +1,57 @@
-//
-//  Session.swift
-//  Stalker
-//
-//  Created by m2sar on 03/05/17.
-//  Copyright © 2017 m2sar. All rights reserved.
-//
-
-import Foundation
-
-class Session {
-    private let email: String?
-    private let password: String?
-    private var token: String?
+ //
+ //  Session.swift
+ //  Stalker
+ //
+ //  Created by Agnès Herrera on 28/05/2017.
+ //  Copyright © 2017 m2sar. All rights reserved.
+ //
+ 
+ import Foundation
+ 
+ final class Session: UserDefaults {
     
-    init() {
-        self.email = "bob@gsdmail.com"
-        self.password = "1234"
+    // MARK: Initializers
+    
+    private convenience init() {
+        self.init()
+        Session.standard.setNilValueForKey("token")
+        Session.standard.setNilValueForKey("email")
+        Session.standard.setNilValueForKey("isConnected")
+        Session.standard.setNilValueForKey("isSharingPosition")
     }
     
-    init(email: String, password: String){
-        self.email=email
-        self.password=password
+    // MARK: Methods
+    
+    static func getToken() -> String? {
+        return Session.standard.value(forKey: "token") as? String
     }
     
-    func connexion() -> Bool {
-        if (self.email != nil && self.password != nil){
-            
-            let json: [String: Any] = ["email": self.email,
-                                       "password": self.password]
-            
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            
-            // create post request
-            let url = URL(string: "http://35.187.122.195:8080/api/user/")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            
-            // insert json data to the request
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
-                    return
-                }
-                if let responseJSON = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary {
-                    self.token = responseJSON?.value(forKeyPath: "token") as? String
-                }
-            }
-            
-            task.resume()
-        }
-        if (self.token != nil) { return true }
-        else { return false }
+    static func getEmail() -> String? {
+        return Session.standard.value(forKey: "email") as? String
     }
     
-    func inscription() -> Bool {
-        return true
+    static func getIsConnected() -> Bool? {
+        return Session.standard.value(forKey: "isConnected") as? Bool
     }
     
-    func getToken() -> String {
-        return self.token!
+    static func getIsSharingPosition() -> Bool? {
+        return Session.standard.value(forKey: "isSharingPosition") as? Bool
     }
     
-}
+    static func setToken(_ token: String?) {
+        Session.standard.set(token, forKey: "token")
+    }
+    
+    static func setEmail(_ email: String?) {
+        Session.standard.set(email, forKey: "email")
+    }
+    
+    static func setIsConnected(_ isConnected: Bool?) {
+        Session.standard.set(isConnected, forKey: "isConnected")
+    }
+    
+    static func setIsSharingPosition(_ isSharingPosition: Bool?) {
+        Session.standard.set(isSharingPosition, forKey: "isSharingPosition")
+    }    
+    
+ }

@@ -20,4 +20,3 @@ typealias FriendshipsBuilder = () throws -> [Friendship]
 
 typealias MeetPointBuilder = () throws -> MeetPoint
 typealias MeetPointsBuilder = () throws -> [MeetPoint]
-

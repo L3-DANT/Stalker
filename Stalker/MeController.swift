@@ -20,8 +20,8 @@ class MeController: UIViewController {
     }
     
     @IBAction func shareMyPosition(_ sender: UISwitch) {
-        Profile.setIsSharingPosition(sender.isOn)
-        Profile.standard.synchronize()
+        Session.setIsSharingPosition(sender.isOn)
+        Session.standard.synchronize()
     }
     
     @IBAction func buyPremium(_ sender: UIButton) {
@@ -32,9 +32,9 @@ class MeController: UIViewController {
         self.messageError(title: "My Itineraries", message: "Available soon")
     }
     @IBAction func logOut(_ sender: UIButton) {
-        Profile.setIsConnected(false)
-        Profile.setNilValueForKey("token")
-        Profile.standard.synchronize()
+        Session.setIsConnected(false)
+        Session.setNilValueForKey("token")
+        Session.standard.synchronize()
         exit(0)
     }
     

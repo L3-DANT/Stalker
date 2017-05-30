@@ -19,7 +19,7 @@ struct User {
     var token: String?
     var lastPosition: Position?
     
-    // MARK: Initialization
+    // MARK: Initializers
     
     init(id: String? = nil, name: String? = nil, email: String? = nil, password: String? = nil, token: String? = nil, lastPosition: Position? = nil) {
         self.id = id

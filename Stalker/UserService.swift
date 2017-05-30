@@ -25,7 +25,6 @@ final class UserService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -59,10 +58,10 @@ final class UserService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.email!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ UserBuilder in
@@ -91,51 +90,6 @@ final class UserService {
         task.resume()
     }
     
-    static func getFriends(isAccepted: Bool? = nil, completion: @escaping (UsersBuilder) -> Void) {
-        
-        let session = URLSession.shared
-    
-        var url = "\(Server.address)/\(Collection.friend)"
-        
-        if let isAccepted = isAccepted {
-            url += "/?isAccepted=\(isAccepted)"
-        }
-        
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
-        let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            completion({ UsersBuilder in
-                if let error = error {
-                    throw HttpRequestError.error(error)
-                }
-                if let httpResponse = response as? HTTPURLResponse {
-                    guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.statusCode(httpResponse.statusCode)
-                    }
-                }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                var users = [User]()
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [[String : Any]] {
-                        for user in json {
-                            users.append(User(json: user))
-                        }
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return users
-            })
-        })
-        task.resume()
-    }
-    
     static func update(user: User, completion: @escaping (UserBuilder) -> Void) {
         
         let json = try? JSONSerialization.data(withJSONObject: user.toDictionary())
@@ -146,8 +100,7 @@ final class UserService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
-        
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")        
         request.httpBody = json
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -177,17 +130,17 @@ final class UserService {
         task.resume()
     }
     
-    static func delete(user: User, completion: @escaping (EmptyBuilder) -> Void) {
+    static func delete(completion: @escaping (EmptyBuilder) -> Void) {
         
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
+        request.addValue(Session.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
-            completion({ UserBuilder in
+            completion({ EmptyBuilder in
                 if let error = error {
                     throw HttpRequestError.error(error)
                 }

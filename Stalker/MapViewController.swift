@@ -12,11 +12,15 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    // MARK: Properties
     
     @IBOutlet weak var MapOutlet: MKMapView!
     
     let locationManager = CLLocationManager()
+    
     var friends: [User] = []
+    
+    // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

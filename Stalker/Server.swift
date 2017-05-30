@@ -10,7 +10,7 @@ import Foundation
 
 struct Server {
     
-    // MARK: Initialization
+    // MARK: Initializers
     
     private init() { }
     

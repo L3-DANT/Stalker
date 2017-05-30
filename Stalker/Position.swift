@@ -17,9 +17,9 @@ struct Position {
     var longitude: Double?
     var userId: String?
     
-    // MARK: Initialization
+    // MARK: Initializers
     
-    init() {}
+    init() { }
     
     init(id: String? = nil, latitude: Double? = nil, longitude: Double? = nil, userId: String? = nil) {
         self.id = id
@@ -33,6 +33,27 @@ struct Position {
                   latitude: json["latitude"] as? Double,
                   longitude: json["longitude"] as? Double,
                   userId: json["userId"] as? String)
+    }
+    
+    // MARK: Methods
+    
+    func toDictionary() -> [String: Any] {
+        var dictionary = [String: Any]()
+        
+        if self.id != nil {
+            dictionary["id"] = self.id
+        }
+        if self.latitude != nil {
+            dictionary["latitude"] = self.latitude
+        }
+        if self.longitude != nil {
+            dictionary["longitude"] = self.longitude
+        }
+        if self.userId != nil {
+            dictionary["userId"] = self.userId
+        }
+        
+        return dictionary
     }
     
 }

@@ -11,6 +11,6 @@ import Foundation
 enum SerializationError: Error {
     case data
     case jsonObject(Error)
-//    case Missing(String)
-//    case Invalid(String, Any)
+    //    case missing(String)
+    //    case invalid(String, Any)
 }

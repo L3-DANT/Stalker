@@ -21,7 +21,7 @@ class AFriendController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = self.friend?.name
-        positionLabel.text = "\(self.friend?.lastPosition)"
+        positionLabel.text = "\(String(describing: self.friend?.lastPosition))"
         
     }
     

@@ -23,7 +23,7 @@ class FriendRequestsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserService.getFriends(isAccepted: false, completion: { (inner: () throws -> [User]) in
+        FriendshipService.getAll(isAccepted: false, completion: { (inner: () throws -> [User]) in
             do {
                 self.maybeFriends = try inner()
                 
@@ -65,20 +65,20 @@ class FriendRequestsTableViewController: UITableViewController {
         return cell
     }
     
-    //Accept Button
+    // Accept Button
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .default, title: "Add", handler: { (action, indexPath) in
             
-            self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Profile.getEmail()!, isAccepted: true)
+            self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Session.getEmail()!, isAccepted: true)
             
-            // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
+            // The UIAlertControllerStyle ActionSheet is used when there are more than one button
             
             func myHandler(alert: UIAlertAction){
                 
-                //Update isAccepted : true
-                FriendshipService.update(friendship: self.maybeFriendship, completion: { (inner: EmptyBuilder) in
+                // Update isAccepted : true
+                FriendshipService.update(friendship: self.maybeFriendship, completion: { (inner: FriendshipBuilder) in
                     do {
-                        try inner()
+                        _ = try inner()
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -112,7 +112,7 @@ class FriendRequestsTableViewController: UITableViewController {
                     
                     // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
                     
-                    self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Profile.getEmail(), isAccepted: false)
+                    self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Session.getEmail(), isAccepted: false)
                     
                     func myHandler(alert: UIAlertAction){
                         
