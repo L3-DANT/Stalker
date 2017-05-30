@@ -32,7 +32,7 @@
 		D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */; };
 		D6B34B641EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */; };
 		D6B34B661EDDB3CC0046EDCA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B34B651EDDB3CC0046EDCA /* Builder.swift */; };
-		D6B6AD361EDC33E80093DB07 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD341EDC33E80093DB07 /* Defaults.swift */; };
+		D6B6AD361EDC33E80093DB07 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD341EDC33E80093DB07 /* Profile.swift */; };
 		D6B6AD371EDC33E80093DB07 /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6AD351EDC33E80093DB07 /* MeController.swift */; };
 		D6CC71A51EDD751E00B61F32 /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC71A41EDD751E00B61F32 /* Friendship.swift */; };
 		D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */; };
@@ -70,7 +70,7 @@
 		D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionController.swift; sourceTree = "<group>"; };
 		D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		D6B34B651EDDB3CC0046EDCA /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		D6B6AD341EDC33E80093DB07 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		D6B6AD341EDC33E80093DB07 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D6B6AD351EDC33E80093DB07 /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeController.swift; sourceTree = "<group>"; };
 		D6CC71A41EDD751E00B61F32 /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
 		D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,7 +129,6 @@
 				D6B34B651EDDB3CC0046EDCA /* Builder.swift */,
 				0E1140B21EDCB32200EB5EC3 /* Collection.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
-				D6B6AD341EDC33E80093DB07 /* Defaults.swift */,
 				D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */,
 				D6CC71A41EDD751E00B61F32 /* Friendship.swift */,
 				D659C4B81EDD783A00B32E7D /* FriendshipService.swift */,
@@ -146,6 +145,7 @@
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
 				D64983671ED6094B007FF373 /* Pin.swift */,
 				D645C4CC1ED85ABB008AE921 /* Position.swift */,
+				D6B6AD341EDC33E80093DB07 /* Profile.swift */,
 				D645C4C81ED833A4008AE921 /* SerializationError.swift */,
 				0E1140B01EDCAF1100EB5EC3 /* Server.swift */,
 				D627E6EF1EBA145200FEDEEA /* Session.swift */,
@@ -244,7 +244,7 @@
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
 				D6182A461EDD696C005F7431 /* AFriendController.swift in Sources */,
 				D64983681ED6094B007FF373 /* Pin.swift in Sources */,
-				D6B6AD361EDC33E80093DB07 /* Defaults.swift in Sources */,
+				D6B6AD361EDC33E80093DB07 /* Profile.swift in Sources */,
 				D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */,
 				0E1140B31EDCB32200EB5EC3 /* Collection.swift in Sources */,
 				D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */,

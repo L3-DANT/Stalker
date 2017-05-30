@@ -32,6 +32,8 @@ class MeetPointsTableViewController: UITableViewController {
                 print("Async error while fetching MeetPoints: \(error)")
             }
         })
+        
+        print("meetpoints : " + "\(self.meetpoints)")
     }
     
     override func didReceiveMemoryWarning() {

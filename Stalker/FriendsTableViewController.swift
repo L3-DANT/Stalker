@@ -31,6 +31,8 @@ class FriendsTableViewController: UITableViewController {
                 print("Async error while fetching MeetPoints: \(error)")
             }
         })
+        
+        print("friends : " + "\(self.friends)")
        
     }
 

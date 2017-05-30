@@ -20,8 +20,8 @@ class MeController: UIViewController {
     }
     
     @IBAction func shareMyPosition(_ sender: UISwitch) {
-        Defaults.standard.set(sender.isOn, forKey: Defaults.userSharingPosition)
-        Defaults.standard.synchronize()
+        Profile.setIsSharingPosition(sender.isOn)
+        Profile.standard.synchronize()
     }
     
     @IBAction func buyPremium(_ sender: UIButton) {
@@ -32,9 +32,9 @@ class MeController: UIViewController {
         self.messageError(title: "My Itineraries", message: "Available soon")
     }
     @IBAction func logOut(_ sender: UIButton) {
-        Defaults.standard.set(false, forKey: Defaults.userIsConnected)
-        Defaults.standard.set(nil, forKey: Defaults.userToken)
-        Defaults.standard.synchronize()
+        Profile.setIsConnected(false)
+        Profile.setNilValueForKey("token")
+        Profile.standard.synchronize()
         exit(0)
 //        DispatchQueue.main.async {
 //            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)

@@ -69,7 +69,7 @@ class FriendRequestsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .default, title: "Add", handler: { (action, indexPath) in
             
-            self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Defaults.userEmail, isAccepted: true)
+            self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Profile.getEmail()!, isAccepted: true)
             
             // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
             
@@ -112,7 +112,7 @@ class FriendRequestsTableViewController: UITableViewController {
                     
                 // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
                 
-                self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Defaults.userEmail, isAccepted: false)
+                self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Profile.getEmail(), isAccepted: false)
                     
                 func myHandler(alert: UIAlertAction){
                     
