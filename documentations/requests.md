@@ -75,8 +75,10 @@ Les méthodes HTTP utilisé seront:
 ## Collection: /friend/
 * **GET** :
 	* /friend		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
-	* /friend/?isAccepted=true	: récupère la liste des amis de l'utilisateur actuellement connecté.
-	* /friend/?isAccepted=false	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
+	* /friend/getfriends		: récupère la liste des amis de l'utilisateur actuellement connecté. (actuellement)
+	* /friend/getdemands		: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté. (actuellement)
+	* /friend/?isAccepted=true	: récupère la liste des amis de l'utilisateur actuellement connecté. (objectif)
+	* /friend/?isAccepted=false	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté. (objectif)
 * **POST** :
 	* /friend/		: créé une demande d'ami.
 * **PUT** :
