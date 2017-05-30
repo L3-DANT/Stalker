@@ -78,7 +78,7 @@ Les méthodes HTTP utilisé seront:
 	* /friend/?isAccepted=true	: récupère la liste des amis de l'utilisateur actuellement connecté.
 	* /friend/?isAccepted=false	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
 * **POST** :
-	* /friend/		: créer une demande d'ami.
+	* /friend/		: créé une demande d'ami.
 * **PUT** :
 	* /friend/			: accepte une demande d'ami.
 * **DELETE** :
@@ -86,8 +86,8 @@ Les méthodes HTTP utilisé seront:
 
 ## Collection: /user/
 * **POST** :
-	* /user/			: créer l'utilisateur.
-	* /user/me/			: connectecréer un utilisateur.
+	* /user/			: créé l'utilisateur.
+	* /user/me/			: connecte un utilisateur.
 * **PUT** :
 	* /user/			: met à jour les données de l'utilisateur actuellement connecté.
 * **DELETE** :
@@ -95,8 +95,8 @@ Les méthodes HTTP utilisé seront:
 
 ## Collection: /position/
 * **GET** :
-	* /position/*[id-user]*			: récupère les positions de l'utilisateur `[id-user]`.
-	* /position/last/*[id-user]*		: récupère la plus récente position de l'utilisateur `[id-user]`.
+	* /position/*[email-user]*			: récupère les positions de l'utilisateur `[email-user]`.
+	* /position/last/*[email-user]*		: récupère la plus récente position de l'utilisateur `[email-user]`.
 * **POST** :
 	* /position/				: ajoute une position de l'utilisateur actuellement connecté.
 
