@@ -6,7 +6,7 @@
 * Serveur
 * Méthodes
 * Collections
-	* Collection: /friendship/
+	* Collection: /friend/
 	* Collection: /user/
 	* Collection: /position/
 	* Collection: /meetpoint/
@@ -51,21 +51,21 @@ Les méthodes HTTP utilisé seront:
 
 # Collections
 > Note:
-> * **/friendship/**	: collection des relations d'amis.<br>
+> * **/friend/**	: collection des relations d'amis.<br>
 > * **/user/**		: collection des utilisateurs.<br>
 > * **/position/**	: collection des positions.<br>
 > * **/meetpoint/**	: collection de lieux.
 
-## Collection: /friends/
+## Collection: /friend/
 * **GET** :
-	* /friends		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
-	* /friends/getfriends	: récupère la liste des amis de l'utilisateur actuellement connecté.
-	* /friends/getdemands	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
+	* /friend		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
+	* /friend/getfriends	: récupère la liste des amis de l'utilisateur actuellement connecté.
+	* /friend/getdemands	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
 * **POST** :
-	* /friends/		: créer une demande d'ami.
-	* /friends/acceptfriend	: accepte une demande d'ami.
+	* /friend/		: créer une demande d'ami.
+	* /friend/acceptfriend	: accepte une demande d'ami.
 * **DELETE** :
-	* /friends/		: supprime la relations.
+	* /friend/		: supprime la relations.
 
 ## Collection: /user/
 * **POST** :
