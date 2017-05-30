@@ -30,7 +30,7 @@ final class FriendshipService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friendship)")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -76,7 +76,7 @@ final class FriendshipService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friendship)/\(friendship.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -124,7 +124,7 @@ final class FriendshipService {
         
         // TODO: update url
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friendship)")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)")!)
         //        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -173,7 +173,7 @@ final class FriendshipService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friendship)")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)")!)
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -219,7 +219,7 @@ final class FriendshipService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friendship)/\(friendship.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         

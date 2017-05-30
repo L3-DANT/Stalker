@@ -18,7 +18,7 @@ final class Collection {
     
     static let user = "user"
     static let friend = "friend"
-    static let friendship = "friendship"
     static let meetpoint = "meetpoint"
+    static let position = "position"
     
 }

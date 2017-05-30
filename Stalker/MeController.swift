@@ -35,9 +35,26 @@ class MeController: UIViewController {
         Defaults.standard.set(false, forKey: Defaults.userIsConnected)
         Defaults.standard.set(nil, forKey: Defaults.userToken)
         Defaults.standard.synchronize()
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)
-        }
+        exit(0)
+//        DispatchQueue.main.async {
+//            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)
+//            if let tabBarController = self.tabBarController {
+        
+                //                var viewControllers = tabBarController.viewControllers
+                //                viewControllers?.removeLast()
+                //                if indexToRemove < tabBarController.viewControllers?.count {
+                //                    var viewControllers = tabBarController.viewControllers
+                //                    viewControllers?.remove(at: indexToRemove)
+                //                    tabBarController.viewControllers = viewControllers
+                //                }
+                //                    self.navigationController?.setNavigationBarHidden(true, animated: true)
+                //                    let signInController = (self.storyboard?.instantiateViewController(withIdentifier: "signInController"))! as UIViewController
+                //                    self.navigationController?.setViewControllers([signInController], animated: true)
+                //            }
+                
+//            }
+        
+//        }
     }
     
     func messageError(title: String, message: String) {

@@ -16,6 +16,6 @@ struct Server {
     
     // MARK: Properties
     
-    static let address = "http://35.187.15.105:8080/api"
+    static let address = "http://35.187.15.102:8080/api"
     
 }
