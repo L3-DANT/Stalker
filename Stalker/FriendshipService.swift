@@ -11,20 +11,11 @@ final class FriendshipService {
     
     // MARK: Initializers
     
-    private init() {}
-    
-    // MARK: Builders
-    
-    typealias FriendshipBuilder = (Friendship) throws -> Friendship
-    typealias FriendshipsBuilder = () throws -> [Friendship]
+    private init() { }
     
     // MARK: Methods
     
     static func create(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
-        
-        // TODO: remove user
-        
-        let user = User(token: "0")
         
         let json = try? JSONSerialization.data(withJSONObject: friendship.toDictionary())
         
@@ -34,10 +25,7 @@ final class FriendshipService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -70,19 +58,12 @@ final class FriendshipService {
     
     static func get(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ FriendshipBuilder in
@@ -113,25 +94,12 @@ final class FriendshipService {
     
     static func getAll(completion: @escaping (FriendshipsBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
-        // set up session
-        //        let config = URLSessionConfiguration.default
-        //        let session = URLSession(configuration: config)
         let session = URLSession.shared
         
-        // TODO: update url
-        
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)")!)
-        //        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             completion({ FriendshipsBuilder in
@@ -163,11 +131,7 @@ final class FriendshipService {
         task.resume()
     }
     
-    static func update(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
-        
-        // TODO: remove user
-        
-        let user = User(token: "0")
+    static func update(friendship: Friendship, completion: @escaping (EmptyBuilder) -> Void) {
         
         let json = try? JSONSerialization.data(withJSONObject: friendship.toDictionary())
         
@@ -177,10 +141,7 @@ final class FriendshipService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -194,18 +155,6 @@ final class FriendshipService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return Friendship(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return Friendship()
             })
         })
         task.resume()
@@ -213,19 +162,12 @@ final class FriendshipService {
     
     static func delete(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.friend)/\(friendship.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ FriendshipBuilder in

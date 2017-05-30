@@ -19,8 +19,21 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadFriends()
-        self.tableView.reloadData()
+        UserService.getFriends(isAccepted: true, completion: { (inner: () throws -> [User]) in
+            do {
+                self.friends = try inner()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch let error {
+                print("Async error while fetching MeetPoints: \(error)")
+            }
+        })
+        
+        print("friends : " + "\(self.friends)")
+       
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,9 +76,22 @@ class FriendsTableViewController: UITableViewController {
             // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
             
             func myHandler(alert: UIAlertAction){
-                self.friends.remove(at: indexPath.row)
-                tableView.reloadData()
-                print("You tapped: \(alert.title)")
+                //Delete user
+                UserService.delete(user: self.friend, completion: { (inner: EmptyBuilder) in
+                    do {
+                        try inner()
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    catch let error {
+                        print("Async error while fetching MeetPoints: \(error)")
+                    }
+                })
+                
+                //self.friends.remove(at: indexPath.row)
+                //tableView.reloadData()
             }
             
             let otherAlert = UIAlertController(title: "Do you want to delete this friend?", message: "your friend will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
@@ -86,12 +112,12 @@ class FriendsTableViewController: UITableViewController {
         })]
     }
     
-    public func getAllFriends() -> [User] {
+   /* public func getAllFriends() -> [User] {
         return self.friends
-    }
+    }*/
 
 
-    private func loadFriends(){
+   /* private func loadFriends(){
         
         let friend1 = User(name:"ally", lastPosition: Position(latitude: 48.846395, longitude: 2.356940))
         let friend2 = User(name: "bob", lastPosition: Position(latitude: 48.844793, longitude: 2.356940))
@@ -101,5 +127,5 @@ class FriendsTableViewController: UITableViewController {
         
         
         friends += [friend1, friend2, friend3, friend4, friend5]
-    }
+    }*/
 }

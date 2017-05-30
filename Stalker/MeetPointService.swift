@@ -12,20 +12,11 @@ final class MeetPointService {
     
     // MARK: Initializers
     
-    private init() {}
-    
-    // MARK: Builders
-    
-    typealias MeetPointBuilder = (MeetPoint) throws -> MeetPoint
-    typealias MeetPointsBuilder = () throws -> [MeetPoint]
+    private init() { }
     
     // MARK: Methods
     
     static func create(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
-        
-        // TODO: remove user
-        
-        let user = User(token: "0")
         
         let json = try? JSONSerialization.data(withJSONObject: meetpoint.toDictionary())
         
@@ -35,10 +26,7 @@ final class MeetPointService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -71,19 +59,12 @@ final class MeetPointService {
     
     static func get(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
@@ -114,25 +95,12 @@ final class MeetPointService {
     
     static func getAll(completion: @escaping (MeetPointsBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
-        // set up session
-        //        let config = URLSessionConfiguration.default
-        //        let session = URLSession(configuration: config)
         let session = URLSession.shared
         
-        // TODO: update url
-        
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)")!)
-        //        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             completion({ MeetPointsBuilder in
@@ -166,10 +134,6 @@ final class MeetPointService {
     
     static func update(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
         
-        // TODO: remove user
-        
-        let user = User(token: "0")
-        
         let json = try? JSONSerialization.data(withJSONObject: meetpoint.toDictionary())
         
         let session = URLSession.shared
@@ -178,10 +142,7 @@ final class MeetPointService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -212,21 +173,14 @@ final class MeetPointService {
         task.resume()
     }
     
-    static func delete(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
-        
-        // TODO: remove user
-        
-        let user = User(token: "0")
+    static func delete(meetpoint: MeetPoint, completion: @escaping (EmptyBuilder) -> Void) {
         
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
-        request.addValue(user.token!, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
@@ -238,18 +192,6 @@ final class MeetPointService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return MeetPoint(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return MeetPoint()
             })
         })
         task.resume()

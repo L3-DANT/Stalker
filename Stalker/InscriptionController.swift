@@ -41,10 +41,10 @@ class InscriptionController: UIViewController, UITextFieldDelegate {
                         
                         if let parseJSON = json {
                             let userConnected = User(json: parseJSON as! [String : Any])
-                            Defaults.standard.set(true, forKey: Defaults.userIsConnected)
-                            Defaults.standard.set(userConnected.token, forKey: Defaults.userToken)
-                            Defaults.standard.set(userConnected.email, forKey: Defaults.userEmail)
-                            Defaults.standard.synchronize()
+                            Profile.setIsConnected(true)
+                            Profile.setEmail(userConnected.token!)
+                            Profile.setToken(userConnected.token!)
+                            Profile.standard.synchronize()
                             if userConnected.token != nil {
                                 DispatchQueue.main.async {
                                     self.performSegue(withIdentifier: "signUpToMap", sender: self)

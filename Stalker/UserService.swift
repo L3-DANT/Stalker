@@ -12,12 +12,7 @@ final class UserService {
     // MARK: Initializers
     
     private init() {}
-    
-    // MARK: Builders
-    
-    typealias UserBuilder = (User) throws -> User
-    typealias UsersBuilder = () throws -> [User]
-    
+
     // MARK: Methods
     
     static func create(user: User, completion: @escaping (UserBuilder) -> Void) {
@@ -198,7 +193,7 @@ final class UserService {
         task.resume()
     }
     
-    static func delete(user: User, completion: @escaping (UserBuilder) -> Void) {
+    static func delete(user: User, completion: @escaping (EmptyBuilder) -> Void) {
         
         // TODO: set token
         
@@ -221,18 +216,6 @@ final class UserService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return User(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return User()
             })
         })
         task.resume()
