@@ -1,7 +1,6 @@
 package com.dant.app;
 
-import com.dant.controller.MeetPointController;
-import com.dant.controller.UserController;
+import com.dant.controller.*;
 import com.dant.exception.BadRequestExceptionMapper;
 import com.dant.exception.ForbiddenExceptionMapper;
 import com.dant.exception.NotFoundExceptionMapper;
@@ -24,6 +23,9 @@ public class App extends Application {
 		Set<Object> sets = new HashSet<>();
 		sets.add(new UserController());
 		sets.add(new MeetPointController());
+		sets.add(new FriendshipController());
+		sets.add(new PositionController());
+		sets.add(new DataSetController());
 		return sets;
 	}
 

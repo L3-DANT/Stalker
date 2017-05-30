@@ -1,5 +1,7 @@
 package com.dant.entity.dto;
 
+import org.joda.time.DateTime;
+
 import java.io.Serializable;
 
 /**
@@ -9,18 +11,17 @@ public class PositionDTO implements Serializable {
 
     public double latitude;
     public double longitude;
-    //jodatime
-    public long time;
-    public String token;
+    private long time;
+    public String emailUser;
 
     public PositionDTO() {
     }
 
-    public PositionDTO(double latitude, double longitude, long time, String token) {
+    public PositionDTO(double latitude, double longitude, long time, String emailUser) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.time = time;
-        this.token = token;
+        this.emailUser = emailUser;
     }
 
 }

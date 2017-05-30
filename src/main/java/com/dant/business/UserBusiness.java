@@ -16,14 +16,13 @@ import javax.ws.rs.NotFoundException;
 public class UserBusiness {
 
     private final DAO<User> userDAO = new DAO<>();
-    private final DAO<Friendship> friendshipDAO = new DAO<>();
 
-    public UserDTO authenticate(String email, String password) {
-        User user = userDAO.getOne(User.class, "email", email);
+    public UserDTO authenticate(User u) {
+        User user = userDAO.getOne(User.class, "email", u.getEmail());
         if (user == null) {
             throw new NotFoundException();
         }
-        boolean validPassword = user.getPassword().equals(password);
+        boolean validPassword = user.getPassword().equals(u.getPassword());
         if (!validPassword) {
             throw new ForbiddenException();
         }
@@ -31,49 +30,26 @@ public class UserBusiness {
         return userDAO.save(user).toDTO();
     }
 
-    public UserDTO createUser(String name, String email, String password) {
-        User user = userDAO.getOne(User.class, "email", email);
-        if (user != null) {
+    public UserDTO createUser(User user) {
+        if (userDAO.getOne(User.class, "email", user.getEmail()) != null) {
             throw new BadRequestException();
         }
-        user = new User(name, email, password);
         user.setToken(MongoUtil.generateToken());
         return userDAO.save(user).toDTO();
     }
 
-    public UserDTO updateUser(String name, String email, String password, String token) {
-        User user = userDAO.getOne(User.class, "token", token);
+    public UserDTO updateUser(User u) {
+        User user = UtilBusiness.checkToken(u.getToken());
         if (user == null) {
             throw new NotFoundException();
         }
-        if (userDAO.getOne(User.class, "email", email) != null) {
-            throw new BadRequestException();
-        }
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password);
+        user.setName(u.getName());
+        user.setPassword(u.getPassword());
         return userDAO.save(user).toDTO();
     }
 
     public void removeUser(String token) {
+        UtilBusiness.checkToken(token);
         userDAO.delete(User.class, "token", token);
     }
-
-//    public List<UserDTO> getFriends(String token) {
-//        User user = userDAO.getOne(User.class, "token", token);
-//        if (user == null) {
-//            throw new NotFoundException();
-//        }
-//        List<UserDTO> friendsToSend = new ArrayList<>();
-//
-//        for (Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", user)) {
-//            friendship.getFriendSource().setToken(null);
-//            friendsToSend.add(friendship.getFriendSource().toDTO());
-//        }
-//        for (Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", user)) {
-//            friendship.getFriendSource().setToken(null);
-//            friendsToSend.add(friendship.getFriendSource().toDTO());
-//        }
-//        return friendsToSend;
-//    }
 }

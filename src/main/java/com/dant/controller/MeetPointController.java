@@ -1,6 +1,7 @@
 package com.dant.controller;
 
 import com.dant.business.MeetPointBusiness;
+import com.dant.entity.MeetPoint;
 import com.dant.entity.dto.MeetPointDTO;
 
 import javax.ws.rs.*;
@@ -15,19 +16,11 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class MeetPointController {
-
     private MeetPointBusiness meetPointBusiness = new MeetPointBusiness();
 
     @POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public MeetPointDTO createMeetPoint(@FormParam("user") String token,
-                                        @FormParam("name") String name,
-                                        @FormParam("address") String address,
-                                        @FormParam("postalcode") int postalCode,
-                                        @FormParam("town") String town,
-                                        @FormParam("latitude") double latitude,
-                                        @FormParam("longitude") double longitude) {
-        return meetPointBusiness.createMeetPoint(token, name, address, postalCode, town, latitude, longitude);
+    public MeetPointDTO createMeetPoint(@HeaderParam("Token") String token, MeetPoint meetPoint) {
+        return meetPointBusiness.createMeetPoint(token, meetPoint);
     }
 
     @GET
@@ -40,25 +33,20 @@ public class MeetPointController {
         return meetpoints;
     }
 
+    @PUT
+    public MeetPointDTO updateMeetPoint(@HeaderParam("Token") String token, MeetPoint meetPoint) {
+        return meetPointBusiness.updateMeetPoint(token, meetPoint);
+    }
+
     @GET
-    public List<MeetPointDTO> getMeetPoints(@FormParam("token") String token) {
+//    @Path("/{email}")
+    public List<MeetPointDTO> getMeetPoints(@HeaderParam("Token") String token) {
         return meetPointBusiness.getMeetPoints(token);
     }
 
-    @PUT
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public MeetPointDTO updateMeetPoint(@FormParam("id") String id,
-                                        @FormParam("name") String name,
-                                        @FormParam("address") String address,
-                                        @FormParam("postalCode") int postalCode,
-                                        @FormParam("town") String town,
-                                        @FormParam("latitude") double latitude,
-                                        @FormParam("town") double longitude) {
-        return meetPointBusiness.updateMeetPoint(id, name, address, postalCode, town, latitude, longitude);
-    }
-
     @DELETE
-    public void removeMeetPoint(@HeaderParam("token") String id) {
-        meetPointBusiness.removeMeetPoint(id);
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public void removeMeetPoint(@HeaderParam("Token") String token, @PathParam("id") String id) {
+        meetPointBusiness.removeMeetPoint(token, id);
     }
 }
