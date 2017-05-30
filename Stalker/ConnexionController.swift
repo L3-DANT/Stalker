@@ -33,7 +33,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
             
             if let jsonData = try? JSONSerialization.data(withJSONObject: user.toDictionary(), options: .prettyPrinted) {
                 
-                let url = URL(string: "http://35.187.15.102:8080/api/user/authenticate")!
+                let url = URL(string: "\(Server.address)/\(Collection.user)")!
                 let request = NSMutableURLRequest(url: url)
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -8,9 +8,17 @@
 
 import Foundation
 
-enum Collection: String {
-    case user = "user"
-    case friend = "friend"
-    case friendship = "friendship"
-    case meetpoint = "meetpoint"
+final class Collection {
+    
+    // MARK: Initialization
+    
+    private init() { }
+    
+    // MARK: Properties
+    
+    static let user = "user"
+    static let friend = "friend"
+    static let friendship = "friendship"
+    static let meetpoint = "meetpoint"
+    
 }

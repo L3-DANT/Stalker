@@ -8,6 +8,14 @@
 
 import Foundation
 
-enum Server: String {
-    case address = "http://35.187.15.102:8080/api"
+struct Server {
+    
+    // MARK: Initialization
+    
+    private init() { }
+    
+    // MARK: Properties
+    
+    static let address = "http://35.187.15.105:8080/api"
+    
 }
