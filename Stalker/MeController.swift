@@ -35,7 +35,6 @@ class MeController: UIViewController {
         Profile.setIsConnected(false)
         Profile.setNilValueForKey("token")
         Profile.standard.synchronize()
-        self.tabBarController?.tabBar.isHidden = true
         exit(0)
     }
     
