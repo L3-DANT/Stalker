@@ -22,7 +22,7 @@ final class UserService {
     
     static func create(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: remove user
+        // TODO: set token
         
         let token = User(token: "0").token!
         
@@ -34,9 +34,6 @@ final class UserService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
         request.addValue(token, forHTTPHeaderField: "Token")
         
         request.httpBody = json
@@ -70,7 +67,7 @@ final class UserService {
     
     static func get(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: remove user
+        // TODO: set token
         
         let token = User(token: "0").token!
         
@@ -79,9 +76,6 @@ final class UserService {
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
         request.addValue(token, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -111,26 +105,22 @@ final class UserService {
         task.resume()
     }
     
-    static func getAll(completion: @escaping (UsersBuilder) -> Void) {
-        
-        // TODO: remove user
-        
-        let token = User(token: "0").token!
-        
-        // set up session
-        //        let config = URLSessionConfiguration.default
-        //        let session = URLSession(configuration: config)
-        let session = URLSession.shared
-        
-        // TODO: update url
-        
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)")!)
-        //        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+    static func getFriends(isAccepted: Bool? = nil, completion: @escaping (UsersBuilder) -> Void) {
         
         // TODO: set token
         
+        let token = User(token: "0").token!
+        let session = URLSession.shared
+    
+        var url = "\(Server.address)/\(Collection.friend)"
+        
+        if let isAccepted = isAccepted {
+            url += "/?isAccepted=\(isAccepted)"
+        }
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue(token, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
@@ -165,7 +155,7 @@ final class UserService {
     
     static func update(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: remove user
+        // TODO: set token
         
         let token = User(token: "0").token!
         
@@ -177,9 +167,6 @@ final class UserService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // TODO: set token
-        
         request.addValue(token, forHTTPHeaderField: "Token")
         
         request.httpBody = json
@@ -213,7 +200,7 @@ final class UserService {
     
     static func delete(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: remove user
+        // TODO: set token
         
         let token = User(token: "0").token!
         
@@ -222,9 +209,6 @@ final class UserService {
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        // TODO: set token
-        
         request.addValue(token, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
