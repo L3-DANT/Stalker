@@ -14,6 +14,7 @@ import MapKit
 class FriendsTableViewController: UITableViewController {
 
     var friends = [User]()
+    var friend = User()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,16 @@ class FriendsTableViewController: UITableViewController {
         cell.friendLabel.text = friend.name
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "friendCellSegue" {
+            
+            let viewController = segue.destination as! AFriendController
+            viewController.friend = self.friend
+            
+        }
     }
     
     //Delete Button

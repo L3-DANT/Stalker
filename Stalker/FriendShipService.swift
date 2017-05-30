@@ -164,13 +164,13 @@ final class FriendShipService {
         task.resume()
     }
     
-    static func update(meetpoint: FriendShip, completion: @escaping (FriendShipBuilder) -> Void) {
+    static func update(friendship: FriendShip, completion: @escaping (FriendShipBuilder) -> Void) {
         
         // TODO: remove user
         
         let user = User(token: "0")
         
-        let json = try? JSONSerialization.data(withJSONObject: meetpoint.toDictionary())
+        let json = try? JSONSerialization.data(withJSONObject: friendship.toDictionary())
         
         let session = URLSession.shared
         

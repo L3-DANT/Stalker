@@ -11,6 +11,7 @@
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
+		D6182A461EDD696C005F7431 /* AFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6182A451EDD696C005F7431 /* AFriendController.swift */; };
 		D627E6F01EBA145200FEDEEA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D627E6EF1EBA145200FEDEEA /* Session.swift */; };
 		D640C5D51EB21E24006F0C0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640C5D41EB21E24006F0C0F /* AppDelegate.swift */; };
 		D640C5D71EB21E24006F0C0F /* ConnexionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D640C5D61EB21E24006F0C0F /* ConnexionController.swift */; };
@@ -41,6 +42,7 @@
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
+		D6182A451EDD696C005F7431 /* AFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AFriendController.swift; sourceTree = "<group>"; };
 		D627E6EF1EBA145200FEDEEA /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		D640C5D11EB21E24006F0C0F /* Stalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stalker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D640C5D41EB21E24006F0C0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				D640C5E01EB21E24006F0C0F /* Info.plist */,
+				D6182A451EDD696C005F7431 /* AFriendController.swift */,
 				D6607F781EDC9F260066D8BC /* AMeetPointController.swift */,
 				D640C5D41EB21E24006F0C0F /* AppDelegate.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
@@ -222,6 +225,7 @@
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
 				D684FD9E1EC6159D00F1BCDA /* InscriptionController.swift in Sources */,
 				D60736131EB2315600703459 /* MapViewController.swift in Sources */,
+				D6182A461EDD696C005F7431 /* AFriendController.swift in Sources */,
 				D64983681ED6094B007FF373 /* Pin.swift in Sources */,
 				D6B6AD361EDC33E80093DB07 /* Defaults.swift in Sources */,
 				D6DBB2691EBB75D00060756E /* FriendsTableViewCell.swift in Sources */,

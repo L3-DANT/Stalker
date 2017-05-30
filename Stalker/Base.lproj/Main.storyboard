@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -178,7 +179,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FriendsTableViewCell" rowHeight="50" id="44M-qh-Zbb" customClass="FriendsTableViewCell" customModule="Stalker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44M-qh-Zbb" id="MY0-st-kja">
                                     <frame key="frameInset" width="342" height="50"/>
@@ -199,7 +200,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="friendLabel" destination="mc0-O7-18n" id="PmO-nP-ki6"/>
-                                    <segue destination="AhU-5q-eVz" kind="show" id="22k-kL-v67"/>
+                                    <segue destination="AhU-5q-eVz" kind="show" identifier="friendCellSegue" id="22k-kL-v67"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -208,13 +209,18 @@
                             <outlet property="delegate" destination="Arz-cF-OhM" id="LXl-0H-XtQ"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Friends" id="L9e-3T-7a4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="miY-kx-VU0">
-                            <connections>
-                                <segue destination="76K-eC-aO2" kind="show" id="BnK-aj-mhk"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="miY-kx-VU0">
+                                <connections>
+                                    <segue destination="76K-eC-aO2" kind="show" id="BnK-aj-mhk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Request" id="rUc-uJ-Zfn"/>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwB-wa-Aqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,7 +275,7 @@
         <!--AFriend-->
         <scene sceneID="76V-RP-INt">
             <objects>
-                <viewController title="AFriend" id="AhU-5q-eVz" sceneMemberID="viewController">
+                <viewController title="AFriend" id="AhU-5q-eVz" customClass="AFriendController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O0X-D7-0d6"/>
                         <viewControllerLayoutGuide type="bottom" id="nnd-Gb-2Rt"/>
@@ -338,6 +344,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MyFriend" id="CmK-t2-Opu"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="wUD-xD-bb5" id="rnT-7i-4Ue"/>
+                        <outlet property="positionLabel" destination="lbf-YD-Ll3" id="3Vp-qG-C94"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmB-MD-msQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -415,6 +425,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My MeetPoint" id="6jW-ml-osJ"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="4ck-KS-rPa" id="JH8-MM-LDX"/>
+                        <outlet property="cityLabel" destination="KHN-2P-iaz" id="qJd-Jc-plP"/>
+                        <outlet property="nameLabel" destination="sFf-S1-SmH" id="6rn-VE-I11"/>
+                        <outlet property="pcLabel" destination="kCA-ki-jKq" id="9os-cu-Pa8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx0-Y7-elv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

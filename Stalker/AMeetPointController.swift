@@ -13,8 +13,21 @@ class AMeetPointController: UIViewController {
     
     var meetpoint: MeetPoint?
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var pcLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (self.meetpoint != nil){
+            nameLabel.text = self.meetpoint?.name
+            addressLabel.text = self.meetpoint?.address
+            pcLabel.text = "\(self.meetpoint?.zipCode)"
+            cityLabel.text = self.meetpoint?.town
+        }
     }
     
     override func didReceiveMemoryWarning() {

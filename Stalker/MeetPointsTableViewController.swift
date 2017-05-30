@@ -75,7 +75,6 @@ class MeetPointsTableViewController: UITableViewController {
             viewController.meetpoint = self.meetpoint
             
         }
-        
     }
     
     //Delete Button
@@ -108,6 +107,5 @@ class MeetPointsTableViewController: UITableViewController {
         })]
     }
     
-    //Test for pass
     
 }
