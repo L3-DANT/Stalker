@@ -6,7 +6,7 @@
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct MeetPoint {
     

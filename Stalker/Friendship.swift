@@ -1,14 +1,14 @@
 //
-//  FriendShip.swift
+//  Friendship.swift
 //  Stalker
 //
-//  Created by m2sar on 29/05/17.
+//  Created by kvin on 29/05/2017.
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
 import Foundation
 
-struct FriendShip {
+struct Friendship {
     
     // MARK: Properties
     
@@ -17,7 +17,7 @@ struct FriendShip {
     var emailDest: String?
     var isAccepted: Bool?
     
-    // MARK: Initialization
+    // MARK: Initializers
     
     init(id: String? = nil, emailSource: String? = nil, emailDest: String? = nil, isAccepted: Bool? = nil) {
         self.id = id
@@ -53,5 +53,5 @@ struct FriendShip {
         
         return dictionary
     }
-
+    
 }

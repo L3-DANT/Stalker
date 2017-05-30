@@ -9,7 +9,7 @@
 import Foundation
 
 enum HttpRequestError: Error {
-    case Default(Error)
-    case EmptyData
-    case StatusCode(Int)
+    case error(Error)
+    case emptyData
+    case statusCode(Int)
 }

@@ -31,7 +31,7 @@ final class MeetPointService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -45,15 +45,15 @@ final class MeetPointService {
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
                 if let error = error {
-                    throw HttpRequestError.Default(error)
+                    throw HttpRequestError.error(error)
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.StatusCode(httpResponse.statusCode)
+                        throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
                 guard let data = data else {
-                    throw HttpRequestError.EmptyData
+                    throw HttpRequestError.emptyData
                 }
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
@@ -61,7 +61,7 @@ final class MeetPointService {
                     }
                 }
                 catch let error {
-                    throw SerializationError.JSONObject(error)
+                    throw SerializationError.jsonObject(error)
                 }
                 return MeetPoint()
             })
@@ -77,7 +77,7 @@ final class MeetPointService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/\(meetpoint.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -88,15 +88,15 @@ final class MeetPointService {
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
                 if let error = error {
-                    throw HttpRequestError.Default(error)
+                    throw HttpRequestError.error(error)
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.StatusCode(httpResponse.statusCode)
+                        throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
                 guard let data = data else {
-                    throw HttpRequestError.EmptyData
+                    throw HttpRequestError.emptyData
                 }
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
@@ -104,7 +104,7 @@ final class MeetPointService {
                     }
                 }
                 catch let error {
-                    throw SerializationError.JSONObject(error)
+                    throw SerializationError.jsonObject(error)
                 }
                 return MeetPoint()
             })
@@ -125,7 +125,7 @@ final class MeetPointService {
         
         // TODO: update url
         
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/test/all")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)")!)
         //        request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -137,15 +137,15 @@ final class MeetPointService {
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             completion({ MeetPointsBuilder in
                 if let error = error {
-                    throw HttpRequestError.Default(error)
+                    throw HttpRequestError.error(error)
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.StatusCode(httpResponse.statusCode)
+                        throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
                 guard let data = data else {
-                    throw HttpRequestError.EmptyData
+                    throw HttpRequestError.emptyData
                 }
                 var meetpoints = [MeetPoint]()
                 do {
@@ -156,7 +156,7 @@ final class MeetPointService {
                     }
                 }
                 catch let error {
-                    throw SerializationError.JSONObject(error)
+                    throw SerializationError.jsonObject(error)
                 }
                 return meetpoints
             })
@@ -174,7 +174,7 @@ final class MeetPointService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)")!)
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -188,15 +188,15 @@ final class MeetPointService {
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
                 if let error = error {
-                    throw HttpRequestError.Default(error)
+                    throw HttpRequestError.error(error)
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.StatusCode(httpResponse.statusCode)
+                        throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
                 guard let data = data else {
-                    throw HttpRequestError.EmptyData
+                    throw HttpRequestError.emptyData
                 }
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
@@ -204,7 +204,7 @@ final class MeetPointService {
                     }
                 }
                 catch let error {
-                    throw SerializationError.JSONObject(error)
+                    throw SerializationError.jsonObject(error)
                 }
                 return MeetPoint()
             })
@@ -220,7 +220,7 @@ final class MeetPointService {
         
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "http://35.187.15.102:8080/api/meetpoint/\(meetpoint.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.meetpoint)/\(meetpoint.id!))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
@@ -231,15 +231,15 @@ final class MeetPointService {
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ MeetPointBuilder in
                 if let error = error {
-                    throw HttpRequestError.Default(error)
+                    throw HttpRequestError.error(error)
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     guard httpResponse.statusCode == 200 else {
-                        throw HttpRequestError.StatusCode(httpResponse.statusCode)
+                        throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
                 guard let data = data else {
-                    throw HttpRequestError.EmptyData
+                    throw HttpRequestError.emptyData
                 }
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
@@ -247,7 +247,7 @@ final class MeetPointService {
                     }
                 }
                 catch let error {
-                    throw SerializationError.JSONObject(error)
+                    throw SerializationError.jsonObject(error)
                 }
                 return MeetPoint()
             })

@@ -1,5 +1,5 @@
 //
-//  ConnexionController.swift
+//  InscriptionController.swift
 //  Stalker
 //
 //  Created by m2sar on 27/04/17.

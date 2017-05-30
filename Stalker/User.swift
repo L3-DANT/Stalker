@@ -1,12 +1,12 @@
 //
-//  Friend.swift
+//  User.swift
 //  Stalker
 //
 //  Created by m2sar on 04/05/17.
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct User {
     
@@ -36,7 +36,7 @@ struct User {
                   email: json["email"] as? String,
                   token: json["token"] as? String)
     }
-
+    
     // MARK: Methods
     
     func toDictionary() -> [String: Any] {
