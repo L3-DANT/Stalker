@@ -47,8 +47,7 @@ public class DAO<T> {
     }
 
     public List<T> getAll(Class<T> clazz) {
-        Query<T> truc = ds.createQuery(clazz);
-        return truc.asList();
+        return ds.createQuery(clazz).asList();
     }
 
 }

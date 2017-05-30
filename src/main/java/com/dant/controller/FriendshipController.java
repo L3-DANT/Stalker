@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by 3502804 on 10/05/17.
  */
-@Path("/api/friendship")
+@Path("/api/friend")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class FriendshipController {
@@ -31,18 +31,19 @@ public class FriendshipController {
     }
 
     @GET
+    @Consumes()
     public List<UserDTO> getFriendships(@HeaderParam("Token") String token) {
         return userBusiness.getFriendShips(token);
     }
 
     @GET
-    @Path("/getFriends")
+    @Path("/getfriends")
     public List<UserDTO> getFriends(@HeaderParam("Token") String token) {
         return userBusiness.getFriends(token);
     }
 
     @GET
-    @Path("/getDemands")
+    @Path("/getdemands")
     public List<UserDTO> getDemands(@HeaderParam("Token") String token) {
         return userBusiness.getDemands(token);
     }

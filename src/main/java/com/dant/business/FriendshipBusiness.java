@@ -44,14 +44,14 @@ public class FriendshipBusiness {
     public List<UserDTO> getFriends(String token) {
         User user = UtilBusiness.checkToken(token);
         List<UserDTO> friends = new ArrayList<>();
-        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", user.getEmail())) {
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailSource", user.getEmail())) {
             if(friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailDest());
                 if(friend != null)
                     friends.add(friend.toDTO());
             }
         }
-        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", user.getEmail())) {
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailDest", user.getEmail())) {
             if(friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
@@ -64,7 +64,7 @@ public class FriendshipBusiness {
     public List<UserDTO> getDemands(String token) {
         User user = UtilBusiness.checkToken(token);
         List<UserDTO> demands = new ArrayList<>();
-        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", user.getEmail())) {
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailDest", user.getEmail())) {
             if(!friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
@@ -78,27 +78,22 @@ public class FriendshipBusiness {
         User user = UtilBusiness.checkToken(token);
         if(!user.getEmail().equals(friendship.getEmailSource()) && !user.getEmail().equals(friendship.getEmailDest()))
             throw new ForbiddenException();
-        friendshipDAO.delete(Friendship.class, "friendSource", friendship.getEmailSource(), "friendDest", friendship.getEmailDest());
+        friendshipDAO.delete(Friendship.class, "emailSource", friendship.getEmailSource(), "emailDest", friendship.getEmailDest());
     }
 
     public List<UserDTO> getFriendShips(String token) {
         User user = UtilBusiness.checkToken(token);
-        System.out.println("Après token");
-        System.out.println(friendshipDAO.getAll(Friendship.class, "friendSource", user.getEmail()));
         List<UserDTO> friendships = new ArrayList<>();
-        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendSource", user.getEmail())) {
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailSource", user.getEmail())) {
             User friend = userDAO.getOne(User.class, "email", friendship.getEmailDest());
             if(friend != null)
                 friendships.add(friend.toDTO());
         }
-        System.out.println("Après boucle friendSource");
-        System.out.println(friendships);
-        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "friendDest", user.getEmail())) {
+        for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailDest", user.getEmail())) {
             User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
             if(friend != null)
                 friendships.add(friend.toDTO());
         }
-        System.out.println("Au return");
         return friendships;
     }
 }
