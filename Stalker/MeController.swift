@@ -19,10 +19,6 @@ class MeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
     @IBAction func shareMyPosition(_ sender: UISwitch) {
         Profile.setIsSharingPosition(sender.isOn)
         Profile.standard.synchronize()
@@ -39,26 +35,8 @@ class MeController: UIViewController {
         Profile.setIsConnected(false)
         Profile.setNilValueForKey("token")
         Profile.standard.synchronize()
+        self.tabBarController?.tabBar.isHidden = true
         exit(0)
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)
-//            if let tabBarController = self.tabBarController {
-        
-                //                var viewControllers = tabBarController.viewControllers
-                //                viewControllers?.removeLast()
-                //                if indexToRemove < tabBarController.viewControllers?.count {
-                //                    var viewControllers = tabBarController.viewControllers
-                //                    viewControllers?.remove(at: indexToRemove)
-                //                    tabBarController.viewControllers = viewControllers
-                //                }
-                //                    self.navigationController?.setNavigationBarHidden(true, animated: true)
-                //                    let signInController = (self.storyboard?.instantiateViewController(withIdentifier: "signInController"))! as UIViewController
-                //                    self.navigationController?.setViewControllers([signInController], animated: true)
-                //            }
-                
-//            }
-        
-//        }
     }
     
     func messageError(title: String, message: String) {

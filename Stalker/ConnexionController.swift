@@ -26,10 +26,6 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
     @IBAction func loginButton(_ sender: UIButton) {
         
         if emailInput.text != "" && passwordInput.text != "" {
@@ -82,11 +78,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
+        
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
