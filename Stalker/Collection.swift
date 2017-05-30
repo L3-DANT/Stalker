@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Collection {
+struct Collection {
     
     // MARK: Initialization
     

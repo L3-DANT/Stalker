@@ -11,15 +11,11 @@ final class UserService {
     
     // MARK: Initializers
     
-    private init() {}
+    private init() { }
 
     // MARK: Methods
     
     static func create(user: User, completion: @escaping (UserBuilder) -> Void) {
-        
-        // TODO: set token
-        
-        let token = User(token: "0").token!
         
         let json = try? JSONSerialization.data(withJSONObject: user.toDictionary())
         
@@ -29,7 +25,6 @@ final class UserService {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(token, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -62,16 +57,12 @@ final class UserService {
     
     static func get(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: set token
-        
-        let token = User(token: "0").token!
-        
         let session = URLSession.shared
         
         var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.id!))")!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(token, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ UserBuilder in
@@ -102,9 +93,6 @@ final class UserService {
     
     static func getFriends(isAccepted: Bool? = nil, completion: @escaping (UsersBuilder) -> Void) {
         
-        // TODO: set token
-        
-        let token = User(token: "0").token!
         let session = URLSession.shared
     
         var url = "\(Server.address)/\(Collection.friend)"
@@ -116,7 +104,7 @@ final class UserService {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(token, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             completion({ UsersBuilder in
@@ -150,10 +138,6 @@ final class UserService {
     
     static func update(user: User, completion: @escaping (UserBuilder) -> Void) {
         
-        // TODO: set token
-        
-        let token = User(token: "0").token!
-        
         let json = try? JSONSerialization.data(withJSONObject: user.toDictionary())
         
         let session = URLSession.shared
@@ -162,7 +146,7 @@ final class UserService {
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(token, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         request.httpBody = json
         
@@ -195,16 +179,12 @@ final class UserService {
     
     static func delete(user: User, completion: @escaping (EmptyBuilder) -> Void) {
         
-        // TODO: set token
-        
-        let token = User(token: "0").token!
-        
         let session = URLSession.shared
         
-        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user)/\(user.id!))")!)
+        var request = URLRequest(url: URL(string: "\(Server.address)/\(Collection.user))")!)
         request.httpMethod = "DELETE"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue(token, forHTTPHeaderField: "Token")
+        request.addValue(Profile.getToken()!, forHTTPHeaderField: "Token")
         
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             completion({ UserBuilder in

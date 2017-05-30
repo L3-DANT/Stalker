@@ -35,7 +35,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
             if let jsonData = try? JSONSerialization.data(withJSONObject: user.toDictionary(), options: .prettyPrinted) {
                 
                 let url = URL(string: "\(Server.address)/\(Collection.user)/me")!
-
+                
                 let request = NSMutableURLRequest(url: url)
                 request.httpMethod = "POST"
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -78,7 +78,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
