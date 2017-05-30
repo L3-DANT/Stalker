@@ -56,7 +56,7 @@ Les méthodes HTTP utilisé seront:
 > * **/position/**	: collection des positions.<br>
 > * **/meetpoint/**	: collection de lieux.
 
-## Collection: /friends/
+## Collection: /friend/
 * **GET** :
 	* /friend		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
 	* /friend/getfriends	: récupère la liste des amis de l'utilisateur actuellement connecté.
