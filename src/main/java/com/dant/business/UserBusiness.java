@@ -22,8 +22,7 @@ public class UserBusiness {
         if (user == null) {
             throw new NotFoundException();
         }
-        boolean validPassword = user.getPassword().equals(u.getPassword());
-        if (!validPassword) {
+        if (!user.getPassword().equals(u.getPassword())) {
             throw new ForbiddenException();
         }
         user.setToken(MongoUtil.generateToken());

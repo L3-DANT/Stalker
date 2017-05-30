@@ -45,6 +45,14 @@ public class User implements Serializable {
     public UserDTO toDTO() {
         return new UserDTO(name, email, token);
     }
+    public UserDTO toDTOWithoutToken() {
+        return new UserDTO(name, email);
+    }
+    public UserDTO toDTOWithLastPosition(Position position) {
+        if(position != null)
+            return new UserDTO(name, email, position.getLatitude(), position.getLongitude(), position.getTime());
+        return new UserDTO(name, email);
+    }
 
     public ObjectId getId() {
         return id;

@@ -10,19 +10,32 @@ public class UserDTO implements Serializable {
     public String name;
     public String email;
     public String token;
+    private double latitude;
+    private double longitude;
+    private long time;
 
     public UserDTO() {
     }
 
-    public UserDTO(String name, String email, String token) {
+    public UserDTO(String name, String email, String token, double latitude, double longitude, long time) {
         this.name = name;
         this.email = email;
         this.token = token;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.time = time;
+    }
+
+    public UserDTO(String name, String email, double latitude, double longitude, long time) {
+        this(name, email, "", latitude, longitude, time);
+    }
+
+    public UserDTO(String name, String email, String token) {
+        this(name, email, token, 0.0, 0.0, 0);
     }
 
     public UserDTO(String name, String email) {
-        this.name = name;
-        this.email = email;
+        this(name, email, "");
     }
 
 }

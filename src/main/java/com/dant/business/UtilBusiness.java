@@ -24,6 +24,15 @@ public class UtilBusiness {
         return user;
     }
 
+    public static Position getLastPosition(String emailUser) {
+        Position last = positionDAO.getOne(Position.class,"emailUser", emailUser);
+        for(Position position : positionDAO.getAll(Position.class,"emailUser", emailUser)) {
+            if(position.getTime() > last.getTime())
+                last = position;
+        }
+        return last;
+    }
+
     public static String createDataSet() {
         userDAO.save(new User("Pierre", "pierre@gmail.com", "1234"));
         userDAO.save(new User("Ondine", "ondine@gmail.com", "1234"));

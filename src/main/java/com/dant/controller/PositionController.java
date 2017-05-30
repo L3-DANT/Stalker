@@ -23,14 +23,13 @@ public class PositionController {
     }
 
     @GET
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("/{email}")
     public List<PositionDTO> getPositions(@HeaderParam("Token") String token, @PathParam("email") String emailUser) {
         return positionBusiness.getPositions(token, emailUser);
     }
 
     @GET
-    @Path("last")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("last/{email}")
     public PositionDTO getLastPosition(@HeaderParam("Token") String token, @PathParam("email") String emailUser) {
         return positionBusiness.getLastPosition(token, emailUser);
     }

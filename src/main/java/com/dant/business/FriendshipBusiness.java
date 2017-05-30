@@ -20,11 +20,13 @@ public class FriendshipBusiness {
     public FriendshipDTO askFriend(String token, Friendship friendship) {
         User asker = UtilBusiness.checkToken(token);
         if(!asker.getEmail().equals(friendship.getEmailSource()))
-            throw new ForbiddenException();
+            throw new ForbiddenException();         // If someone try to ask for friend in the name of someone else
         if(userDAO.getOne(User.class, "email", friendship.getEmailDest()) == null)
-            throw new NotFoundException();
+            throw new NotFoundException();          // If the asked user don't exist
+        if(asker.getEmail().equals(friendship.getEmailDest()))
+            throw new NotFoundException();          // If someone try to be his own friend
         if(friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailSource(), "emailDest", friendship.getEmailDest()) != null && friendshipDAO.getOne(Friendship.class, "emailSource", friendship.getEmailDest(), "emailDest", friendship.getEmailSource()) != null)
-            throw new BadRequestException();
+            throw new BadRequestException();        // If friendship exist with same or invers users
         return friendshipDAO.save(friendship).toDTO();
     }
 
@@ -48,14 +50,14 @@ public class FriendshipBusiness {
             if(friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailDest());
                 if(friend != null)
-                    friends.add(friend.toDTO());
+                    friends.add(friend.toDTOWithLastPosition(UtilBusiness.getLastPosition(friend.getEmail())));
             }
         }
         for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailDest", user.getEmail())) {
             if(friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
-                    friends.add(friend.toDTO());
+                    friends.add(friend.toDTOWithLastPosition(UtilBusiness.getLastPosition(friend.getEmail())));
             }
         }
         return friends;
@@ -68,7 +70,7 @@ public class FriendshipBusiness {
             if(!friendship.isAccepted()){
                 User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
                 if(friend != null)
-                    demands.add(friend.toDTO());
+                    demands.add(friend.toDTOWithLastPosition(UtilBusiness.getLastPosition(friend.getEmail())));
             }
         }
         return demands;
@@ -87,12 +89,12 @@ public class FriendshipBusiness {
         for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailSource", user.getEmail())) {
             User friend = userDAO.getOne(User.class, "email", friendship.getEmailDest());
             if(friend != null)
-                friendships.add(friend.toDTO());
+                friendships.add(friend.toDTOWithLastPosition(UtilBusiness.getLastPosition(friend.getEmail())));
         }
         for(Friendship friendship : friendshipDAO.getAll(Friendship.class, "emailDest", user.getEmail())) {
             User friend = userDAO.getOne(User.class, "email", friendship.getEmailSource());
             if(friend != null)
-                friendships.add(friend.toDTO());
+                friendships.add(friend.toDTOWithLastPosition(UtilBusiness.getLastPosition(friend.getEmail())));
         }
         return friendships;
     }

@@ -5,7 +5,6 @@ import com.dant.entity.Position;
 import com.dant.entity.User;
 import com.dant.entity.dto.PositionDTO;
 
-import javax.ws.rs.BadRequestException;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
@@ -39,11 +38,9 @@ public class PositionBusiness {
         UtilBusiness.checkToken(token);
         if (userDAO.getOne(User.class, "email", emailUser) == null)
             throw new NotFoundException();
-        Position last = positionDAO.getOne(Position.class,"emailUser", emailUser);
-        for(Position position : positionDAO.getAll(Position.class,"emailUser", emailUser)) {
-            if(position.getTime() > last.getTime())
-                last = position;
-        }
+        Position last = UtilBusiness.getLastPosition(emailUser);
+        if(last == null)
+            return null;
         return last.toDTO();
     }
 }
