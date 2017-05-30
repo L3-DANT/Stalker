@@ -10,7 +10,6 @@
 		0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B01EDCAF1100EB5EC3 /* Server.swift */; };
 		0E1140B31EDCB32200EB5EC3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B21EDCB32200EB5EC3 /* Collection.swift */; };
 		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
-		0EAFC4121EDCBCA400B353D6 /* FriendshipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
 		D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */; };
@@ -25,6 +24,7 @@
 		D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CA1ED84680008AE921 /* MeetPointService.swift */; };
 		D645C4CD1ED85ABB008AE921 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = D645C4CC1ED85ABB008AE921 /* Position.swift */; };
 		D64983681ED6094B007FF373 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64983671ED6094B007FF373 /* Pin.swift */; };
+		D659C4B91EDD783A00B32E7D /* FriendshipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D659C4B81EDD783A00B32E7D /* FriendshipService.swift */; };
 		D6607F791EDC9F260066D8BC /* AMeetPointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6607F781EDC9F260066D8BC /* AMeetPointController.swift */; };
 		D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193011EC306B100A42E5C /* MeetPoint.swift */; };
 		D67193041EC309DE00A42E5C /* MeetPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */; };
@@ -43,7 +43,6 @@
 		0E1140B01EDCAF1100EB5EC3 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		0E1140B21EDCB32200EB5EC3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
-		0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipService.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetPointController.swift; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		D645C4CA1ED84680008AE921 /* MeetPointService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointService.swift; sourceTree = "<group>"; };
 		D645C4CC1ED85ABB008AE921 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		D64983671ED6094B007FF373 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		D659C4B81EDD783A00B32E7D /* FriendshipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipService.swift; sourceTree = "<group>"; };
 		D6607F781EDC9F260066D8BC /* AMeetPointController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMeetPointController.swift; sourceTree = "<group>"; };
 		D67193011EC306B100A42E5C /* MeetPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPoint.swift; sourceTree = "<group>"; };
 		D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetPointsTableViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
 				D6B6AD341EDC33E80093DB07 /* Defaults.swift */,
 				D6CC71A41EDD751E00B61F32 /* Friendship.swift */,
-				0EAFC4111EDCBCA400B353D6 /* FriendshipService.swift */,
+				D659C4B81EDD783A00B32E7D /* FriendshipService.swift */,
 				D6DBB2681EBB75D00060756E /* FriendsTableViewCell.swift */,
 				D6DBB26A1EBB79450060756E /* FriendsTableViewController.swift */,
 				0E7F89D31EDA767100F9019E /* HttpRequestError.swift */,
@@ -226,7 +226,6 @@
 				D645C4CB1ED84680008AE921 /* MeetPointService.swift in Sources */,
 				0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */,
 				0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */,
-				0EAFC4121EDCBCA400B353D6 /* FriendshipService.swift in Sources */,
 				D6DBB26D1EBB7C280060756E /* User.swift in Sources */,
 				D617B59C1EC3724E00DB0187 /* NewMeetPointController.swift in Sources */,
 				D627E6F01EBA145200FEDEEA /* Session.swift in Sources */,
@@ -246,6 +245,7 @@
 				D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */,
 				D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */,
 				D6607F791EDC9F260066D8BC /* AMeetPointController.swift in Sources */,
+				D659C4B91EDD783A00B32E7D /* FriendshipService.swift in Sources */,
 				D6CC71A51EDD751E00B61F32 /* Friendship.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
