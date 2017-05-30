@@ -27,9 +27,9 @@ public class MeetPointController {
     @Path("/test/all")
     public List<MeetPointDTO> getMeetPointsTest(@HeaderParam("Token") String token) {
         List<MeetPointDTO> meetpoints = new ArrayList<>();
-        meetpoints.add(new MeetPointDTO("0", "Tour Eiffel", "Champ de Mars, 5 Avenue Anatole", 75007, "Paris", 48.8584, 2.2945));
-        meetpoints.add(new MeetPointDTO("1", "Cathédrale Notre-Dame de Paris", "6 Parvis Notre-Dame - Pl. Jean-Paul II", 75004, "Paris", 48.8530, 2.3499));
-        meetpoints.add(new MeetPointDTO("2", "Arc de Triomphe", "Place Charles de Gaulle", 75008, "Paris", 48.8738, 2.2950));
+        meetpoints.add(new MeetPointDTO("0", "Tour Eiffel", "Champ de Mars, 5 Avenue Anatole", 75007, "Paris", 48.8584, 2.2945,"kevin@gmail.com"));
+        meetpoints.add(new MeetPointDTO("1", "Cathédrale Notre-Dame de Paris", "6 Parvis Notre-Dame - Pl. Jean-Paul II", 75004, "Paris", 48.8530, 2.3499,"kevin@gmail.com"));
+        meetpoints.add(new MeetPointDTO("2", "Arc de Triomphe", "Place Charles de Gaulle", 75008, "Paris", 48.8738, 2.2950,"kevin@gmail.com"));
         return meetpoints;
     }
 
