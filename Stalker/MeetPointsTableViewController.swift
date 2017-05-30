@@ -13,7 +13,7 @@ class MeetPointsTableViewController: UITableViewController {
     // MARK: Properties
     
     var meetpoints = [MeetPoint]()
-    var meetpoint = MeetPoint()
+    var selectedMeetpoint = MeetPoint()
     
     // MARK: Methods
     
@@ -46,7 +46,7 @@ class MeetPointsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meetpoints.count
+        return self.meetpoints.count
     }
     
     
@@ -60,9 +60,9 @@ class MeetPointsTableViewController: UITableViewController {
         // TODO: set meetpoint
         
         //Fetches the appropriate friend for the data source layout
-        self.meetpoint = meetpoints[indexPath.row]
+        self.selectedMeetpoint = self.meetpoints[indexPath.row]
         
-        cell.meetpointLabel.text = meetpoint.name
+        cell.meetpointLabel.text = selectedMeetpoint.name
         
         return cell
     }
@@ -72,7 +72,7 @@ class MeetPointsTableViewController: UITableViewController {
         if segue.identifier == "meetPointCellSegue" {
             
             let viewController = segue.destination as! AMeetPointController
-            viewController.meetpoint = self.meetpoint
+            viewController.meetpoint = self.selectedMeetpoint
             
         }
     }
@@ -80,13 +80,28 @@ class MeetPointsTableViewController: UITableViewController {
     //Delete Button
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
+            self.selectedMeetpoint = self.meetpoints[indexPath.row]
             
             // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
             
             func myHandler(alert: UIAlertAction){
-                self.meetpoints.remove(at: indexPath.row)
-                tableView.reloadData()
-                //                print("You tapped: \(alert.title)")
+                
+                //Delete meetpoint
+                MeetPointService.delete(meetpoint: self.selectedMeetpoint, completion: { (inner: EmptyBuilder) in
+                    do {
+                        try inner()
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    catch let error {
+                        print("Async error while fetching MeetPoints: \(error)")
+                    }
+                })
+                //self.meetpoints.remove(at: indexPath.row)
+                //tableView.reloadData()
+                
             }
             
             let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "your meetpoint will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)

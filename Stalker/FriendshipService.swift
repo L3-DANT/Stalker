@@ -13,11 +13,6 @@ final class FriendshipService {
     
     private init() {}
     
-    // MARK: Builders
-    
-    typealias FriendshipBuilder = (Friendship) throws -> Friendship
-    typealias FriendshipsBuilder = () throws -> [Friendship]
-    
     // MARK: Methods
     
     static func create(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
@@ -163,7 +158,7 @@ final class FriendshipService {
         task.resume()
     }
     
-    static func update(friendship: Friendship, completion: @escaping (FriendshipBuilder) -> Void) {
+    static func update(friendship: Friendship, completion: @escaping (EmptyBuilder) -> Void) {
         
         // TODO: remove user
         
@@ -194,18 +189,6 @@ final class FriendshipService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return Friendship(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return Friendship()
             })
         })
         task.resume()

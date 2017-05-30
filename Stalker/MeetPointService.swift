@@ -14,11 +14,6 @@ final class MeetPointService {
     
     private init() {}
     
-    // MARK: Builders
-    
-    typealias MeetPointBuilder = (MeetPoint) throws -> MeetPoint
-    typealias MeetPointsBuilder = () throws -> [MeetPoint]
-    
     // MARK: Methods
     
     static func create(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
@@ -212,7 +207,7 @@ final class MeetPointService {
         task.resume()
     }
     
-    static func delete(meetpoint: MeetPoint, completion: @escaping (MeetPointBuilder) -> Void) {
+    static func delete(meetpoint: MeetPoint, completion: @escaping (EmptyBuilder) -> Void) {
         
         // TODO: remove user
         
@@ -238,18 +233,6 @@ final class MeetPointService {
                         throw HttpRequestError.statusCode(httpResponse.statusCode)
                     }
                 }
-                guard let data = data else {
-                    throw HttpRequestError.emptyData
-                }
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data) as? [String : Any] {
-                        return MeetPoint(json: json)
-                    }
-                }
-                catch let error {
-                    throw SerializationError.jsonObject(error)
-                }
-                return MeetPoint()
             })
         })
         task.resume()

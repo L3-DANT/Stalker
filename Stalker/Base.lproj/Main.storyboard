@@ -217,7 +217,11 @@
                                     <segue destination="76K-eC-aO2" kind="show" id="BnK-aj-mhk"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Request" id="rUc-uJ-Zfn"/>
+                            <barButtonItem title="Request" id="rUc-uJ-Zfn">
+                                <connections>
+                                    <segue destination="rdG-Eh-xR9" kind="show" id="cuF-NP-imN"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -226,17 +230,17 @@
             </objects>
             <point key="canvasLocation" x="2940" y="-143.47826086956522"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friend Requests Table View Controller-->
         <scene sceneID="8Fd-9O-2hQ">
             <objects>
-                <tableViewController id="rdG-Eh-xR9" sceneMemberID="viewController">
+                <tableViewController id="rdG-Eh-xR9" customClass="FriendRequestsTableViewController" customModule="Stalker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Wb-uS-18z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Qnp-xw-WpK">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reuseIdentifierCell" selectionStyle="default" indentationWidth="10" id="Qnp-xw-WpK">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qnp-xw-WpK" id="3dx-kN-krU">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -636,7 +640,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MeetPointsTableViewCell" id="YxG-3M-XLt" customClass="MeetPointsTableViewCell" customModule="Stalker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YxG-3M-XLt" id="bTv-Iq-puQ">
                                     <frame key="frameInset" width="342" height="50"/>
@@ -836,6 +840,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Thm-aA-J2Y"/>
-        <segue reference="qUk-sK-MWG"/>
+        <segue reference="3zL-jf-9N9"/>
     </inferredMetricsTieBreakers>
 </document>
