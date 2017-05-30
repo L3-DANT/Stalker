@@ -28,19 +28,18 @@ L'application envera des message sous la forme:<br>
 	"password": "dsfsq24d4sf25df4s"
 }
 ```
-> Note: les données envoyé diffère suivant la ressource distante.
+> Note: les données envoyé diffèrent suivant la ressource distante.
 
 # Serveur
 L'API répondra en JSON, sous la forme:
 ```json
 {
-	"code": 0,
-	"data": {}
+	"email": "john.doe@protonmail.ch",
+	"password": "dsfsq24d4sf25df4s",
+	"token": "sb4gom7igsdgh5fd9jmk"
 }
 ```
-> Note:
-> * **code**: (*int*) indique le code de résultat de l'appel.
-> * **data**: (*multi*) les données (optionnel).
+> Note: les données reçues diffèrent elles aussi suivant la ressource distante.
 
 # Méthodes
 Les méthodes HTTP utilisé seront:
@@ -59,35 +58,28 @@ Les méthodes HTTP utilisé seront:
 
 ## Collection: /friends/
 * **GET** :
-	* /friends		: récupère la liste des amis de l'utilisateur actuellement connecté.
-	* /friends/*[id-user]*	: test si l'utilisateur actuellement connecté est ami avec `[id-user]`.
-		* 200:oui, 404: non.
+	* /friends		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
+	* /friends/getfriends	: récupère la liste des amis de l'utilisateur actuellement connecté.
+	* /friends/getdemands	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
 * **POST** :
-	* /friends/*[id-user]*	: créer une demande d'ami à `[id-user]`.
+	* /friends/		: créer une demande d'ami.
+	* /friends/acceptfriend	: accepte une demande d'ami.
 * **DELETE** :
-	* /friends/*[id-user]*	: supprime la relations avec `[id-user]`.
+	* /friends/		: supprime la relations.
 
 ## Collection: /user/
-* **GET** :
-	* /user/*[id-user]*	: liste les méta-données de l'utilisateur `[id-user]`.
-		* 404: l'utilisateur `[id-user]` n'exist pas.
-	* /user/me :
-		* liste les méta-données de l'utilisateur actuellement connecté.
-		* si la session existe, alors: 200, sinon: 404.
 * **POST** :
-	* /user/		: connecte l'utilisateur.
-	* /user/create/	: créer un utilisateur.
+	* /user/			: créer l'utilisateur.
+	* /user/me/			: connectecréer un utilisateur.
 * **PUT** :
-	* /user/		: met à jour les données de l'utilisateur actuellement connecté.
+	* /user/			: met à jour les données de l'utilisateur actuellement connecté.
 * **DELETE** :
-	* /user/		: supprime l'utilisateur actuellement connecté.
+	* /user/			: supprime l'utilisateur actuellement connecté.
 
 ## Collection: /position/
 * **GET** :
-	* /position/				: récupère les positions de l'utilisateur actuellement connecté.
-	* /position/friends			: récupère les positions des amis de l'utilisateur actuellement connecté.
-	* /position/friends/*[n]*	: pagination à la position `[n]`.
-	* /position/*[id-user]*		: récupère la position de l'utilisateur `[id-user]`.
+	* /position/*[id-user]*			: récupère les positions de l'utilisateur `[id-user]`.
+	* /position/last/*[id-user]*		: récupère la plus récente position de l'utilisateur `[id-user]`.
 * **POST** :
 	* /position/				: ajoute une position de l'utilisateur actuellement connecté.
 
