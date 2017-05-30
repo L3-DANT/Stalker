@@ -5,6 +5,7 @@ import com.dant.entity.*;
 import com.dant.entity.dto.MeetPointDTO;
 
 import javax.ws.rs.BadRequestException;
+import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,35 +15,28 @@ import java.util.List;
  */
 public class MeetPointBusiness {
 
-    private final DAO<User> userDAO = new DAO<>();
     private final DAO<MeetPoint> meetPointDAO = new DAO<>();
 
-    public MeetPointDTO createMeetPoint(MeetPoint meetPoint) {
-        if (meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) != null) {
+    public MeetPointDTO createMeetPoint(String token, MeetPoint meetPoint) {
+        User user = UtilBusiness.checkToken(token);
+        if(!user.getEmail().equals(meetPoint.getEmailUser()))
+            throw new ForbiddenException();
+        if(meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) != null) {
             throw new BadRequestException();
         }
         return meetPointDAO.save(meetPoint).toDTO();
     }
 
-    public List<MeetPointDTO> getMeetPoints(String email) {
-        System.out.println("On est là !");
-        if (userDAO.getOne(User.class, "email", email) == null) {
-            throw new NotFoundException();
-        }
-        List<MeetPointDTO> meetPoints = new ArrayList<>();
-        for (MeetPoint meetPoint : meetPointDAO.getAll(MeetPoint.class, "emailUser", email)) {
-            meetPoints.add(meetPoint.toDTO());
-        }
-        return meetPoints;
-    }
-
-    public MeetPointDTO updateMeetPoint(MeetPoint m) {
+    public MeetPointDTO updateMeetPoint(String token, MeetPoint m) {
+        User user = UtilBusiness.checkToken(token);
         MeetPoint meetPoint = meetPointDAO.getOne(MeetPoint.class, "id", m.getOurId());
-        if (meetPointDAO.getOne(MeetPoint.class, "id", meetPoint.getOurId()) == null)
+        if(meetPoint == null)
             throw new NotFoundException();
+        if(!user.getEmail().equals(meetPoint.getEmailUser()))
+            throw new ForbiddenException();
         meetPoint.setName(m.getName());
         meetPoint.setAdress(m.getAdress());
-        meetPoint.setPostalCode(m.getPostalCode());
+        meetPoint.setZipCode(m.getZipCode());
         meetPoint.setTown(m.getTown());
         meetPoint.setLatitude(m.getLatitude());
         meetPoint.setLongitude(m.getLongitude());
@@ -50,7 +44,22 @@ public class MeetPointBusiness {
         return meetPointDAO.save(meetPoint).toDTO();
     }
 
-    public void removeMeetPoint(String id) {
+    public List<MeetPointDTO> getMeetPoints(String token) {
+        User user = UtilBusiness.checkToken(token);
+        List<MeetPointDTO> meetPoints = new ArrayList<>();
+        for(MeetPoint meetPoint : meetPointDAO.getAll(MeetPoint.class, "emailUser", user.getEmail())) {
+            meetPoints.add(meetPoint.toDTO());
+        }
+        return meetPoints;
+    }
+
+    public void removeMeetPoint(String token, String id) {
+        User user = UtilBusiness.checkToken(token);
+        MeetPoint meetPoint = meetPointDAO.getOne(MeetPoint.class, "id", id);
+        if(meetPoint == null)
+            throw new NotFoundException();
+        if(!user.getEmail().equals(meetPoint.getEmailUser()))
+            throw new ForbiddenException();
         meetPointDAO.delete(MeetPoint.class, "id", id);
     }
 }

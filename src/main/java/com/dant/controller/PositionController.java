@@ -18,20 +18,20 @@ public class PositionController {
     private PositionBusiness positionBusiness = new PositionBusiness();
 
     @POST
-    public PositionDTO createPosition(Position position) {
-        return positionBusiness.createPosition(position);
+    public PositionDTO createPosition(@HeaderParam("Token") String token, Position position) {
+        return positionBusiness.createPosition(token, position);
     }
 
     @GET
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public List<PositionDTO> getPositions(@PathParam("email") String emailUser) {
-        return positionBusiness.getPositions(emailUser);
+    public List<PositionDTO> getPositions(@HeaderParam("Token") String token, @PathParam("email") String emailUser) {
+        return positionBusiness.getPositions(token, emailUser);
     }
 
     @GET
     @Path("last")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public PositionDTO getLastPosition(@PathParam("email") String emailUser) {
-        return positionBusiness.getLastPosition(emailUser);
+    public PositionDTO getLastPosition(@HeaderParam("Token") String token, @PathParam("email") String emailUser) {
+        return positionBusiness.getLastPosition(token, emailUser);
     }
 }

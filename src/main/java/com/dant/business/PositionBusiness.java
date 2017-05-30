@@ -6,6 +6,7 @@ import com.dant.entity.User;
 import com.dant.entity.dto.PositionDTO;
 
 import javax.ws.rs.BadRequestException;
+import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +19,15 @@ public class PositionBusiness {
     private final DAO<User> userDAO = new DAO<>();
     private final DAO<Position> positionDAO = new DAO<>();
 
-    public PositionDTO createPosition(Position position) {
-        if(userDAO.getOne(User.class, "email", position.getEmailUser()) != null)
-            throw new BadRequestException();
+    public PositionDTO createPosition(String token, Position position) {
+        User user = UtilBusiness.checkToken(token);
+        if(!user.getEmail().equals(position.getEmailUser()))
+            throw new ForbiddenException();
         return positionDAO.save(position).toDTO();
     }
 
-    public List<PositionDTO> getPositions(String emailUser) {
-        if (userDAO.getOne(User.class, "email", emailUser) == null)
-            throw new NotFoundException();
-
+    public List<PositionDTO> getPositions(String token, String emailUser) {
+        UtilBusiness.checkToken(token);
         List<PositionDTO> positions = new ArrayList<>();
         for(Position position : positionDAO.getAll(Position.class, "emailUser", emailUser)) {
             positions.add(position.toDTO());
@@ -35,13 +35,15 @@ public class PositionBusiness {
         return positions;
     }
 
-    public PositionDTO getLastPosition(String emailUser) {
+    public PositionDTO getLastPosition(String token, String emailUser) {
+        UtilBusiness.checkToken(token);
         if (userDAO.getOne(User.class, "email", emailUser) == null)
             throw new NotFoundException();
         Position last = positionDAO.getOne(Position.class,"emailUser", emailUser);
         for(Position position : positionDAO.getAll(Position.class,"emailUser", emailUser)) {
-
+            if(position.getTime() > last.getTime())
+                last = position;
         }
-        return null;
+        return last.toDTO();
     }
 }

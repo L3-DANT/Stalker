@@ -17,31 +17,34 @@ public class MeetPoint implements Serializable {
     private String id;              // Id for
     private String name;
     private String address;
-    private int postalCode;
+    private int zipCode;
     private String town;
     private double latitude;
     private double longitude;
     private String emailUser;
 
-    public MeetPoint(String id, String name, String address, int postalCode, String town, double latitude, double longitude, String emailUser) {
-        this.id = id;
+    public MeetPoint(String id, String name, String address, int zipCode, String town, double latitude, double longitude, String emailUser) {
+        if(id == null)
+            RandomStringUtils.random(32, true, true);
+        else
+            this.id = id;
         this.name = name;
         this.address = address;
-        this.postalCode = postalCode;
+        this.zipCode = zipCode;
         this.town = town;
         this.latitude = latitude;
         this.longitude = longitude;
         this.emailUser = emailUser;
     }
 
-    public MeetPoint(String name, String address, int postalCode, String town, double latitude, double longitude, String emailUser) {
-        this(RandomStringUtils.random(32, true, true), name, address, postalCode, town, latitude, longitude, emailUser);
+    public MeetPoint(String name, String address, int zipCode, String town, double latitude, double longitude, String emailUser) {
+        this(RandomStringUtils.random(32, true, true), name, address, zipCode, town, latitude, longitude, emailUser);
     }
 
     public MeetPoint() {
     }
 
-    public MeetPointDTO toDTO() { return new MeetPointDTO(id, name, address, postalCode, town, latitude, longitude, emailUser); }
+    public MeetPointDTO toDTO() { return new MeetPointDTO(id, name, address, zipCode, town, latitude, longitude, emailUser); }
 
     public ObjectId getId() {
         return mongoId;
@@ -67,12 +70,12 @@ public class MeetPoint implements Serializable {
         return address;
     }
 
-    public int getPostalCode() {
-        return postalCode;
+    public int getZipCode() {
+        return zipCode;
     }
 
-    public void setPostalCode(int postalCode) {
-        this.postalCode = postalCode;
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getTown() {
@@ -123,7 +126,7 @@ public class MeetPoint implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return "Name : " + name + ", address : " + address  + ", zipCode : " + zipCode + ", town : " + town + "Latitude : " + latitude + ", longitude : " + longitude + ", emailUser : " + emailUser;
     }
 
 }
