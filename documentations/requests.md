@@ -1,9 +1,10 @@
-# Comminication vers l'API
+# Communication vers l'API
 
 ## Sommaire
 * Résumé
 * Client
 * Serveur
+* WebSockets
 * Méthodes
 * Collections
 	* Collection: /friend/
@@ -12,14 +13,13 @@
 	* Collection: /meetpoint/
 
 # Résumé
-* Les messages envoyé à l'API sera sous:
+* Les messages envoyés à l'API seront sous:
 	* `application/json`: pour l'envoi de message.
-	* `multipart/form-data`: pour l'envoi de données tel quel, utilisé pour l'envoi de fichier.
-* L'intéraction avec l'API se fera en **REST**.
-* Les réponse de l'API sera en **JSON**.
+	* L'interaction avec l'API se fera en **REST**.
+	* Les réponses de l'API seront en **JSON**.
 
 # Client
-L'application envera des message sous la forme:<br>
+L'application enverra des message sous la forme:<br>
 *JSON, example:*
 ```json
 {
@@ -28,7 +28,7 @@ L'application envera des message sous la forme:<br>
 	"password": "dsfsq24d4sf25df4s"
 }
 ```
-> Note: les données envoyé diffèrent suivant la ressource distante.
+> Note: les données envoyés diffèrent suivant la ressource distante.
 
 # Serveur
 L'API répondra en JSON, sous la forme:
@@ -40,6 +40,22 @@ L'API répondra en JSON, sous la forme:
 }
 ```
 > Note: les données reçues diffèrent elles aussi suivant la ressource distante.
+
+# WebSockets
+Le client iOS a l'initiative de la création du channel et des requêtes:
+ * le client s'abonne à un channel privé en s'athentifiant avec son token
+ * le serveur vérifie la validité du token et renvoie une requête avec un String
+ d'authentification sous la forme :
+```json
+ {
+  "auth":"278d425bdf160c739803:a99e78e7cd40dcd0d4ae06be0a5395b6cd3c085764229fd40b39ce92c39af33e"
+}
+```
+ * le client envoie des requêtes pour envoyer sa position ou récupérer la position de ses amis
+ * le serveur y répond
+
+* DOC Java : https://github.com/pusher/pusher-http-java
+* DOC Swift : https://pusher.com/docs/client_api_guide
 
 # Méthodes
 Les méthodes HTTP utilisé seront:
@@ -59,11 +75,12 @@ Les méthodes HTTP utilisé seront:
 ## Collection: /friend/
 * **GET** :
 	* /friend		: récupère la liste des amis et des demandes d'amis de l'utilisateur actuellement connecté.
-	* /friend/getfriends	: récupère la liste des amis de l'utilisateur actuellement connecté.
-	* /friend/getdemands	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
+	* /friend/?isAccepted=true	: récupère la liste des amis de l'utilisateur actuellement connecté.
+	* /friend/?isAccepted=false	: récupère la liste des demandes d'amis de l'utilisateur actuellement connecté.
 * **POST** :
 	* /friend/		: créer une demande d'ami.
-	* /friend/acceptfriend	: accepte une demande d'ami.
+* **PUT** :
+	* /friend/			: accepte une demande d'ami.
 * **DELETE** :
 	* /friend/		: supprime la relations.
 
