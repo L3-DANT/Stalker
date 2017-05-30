@@ -15,6 +15,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         emailInput.delegate = self
         emailInput.tag = 0
         passwordInput.delegate = self
@@ -23,6 +24,10 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
             let TabBarControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController
             self.navigationController?.pushViewController(TabBarControllerObj!, animated: false)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
@@ -75,6 +80,10 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

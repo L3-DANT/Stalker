@@ -19,6 +19,10 @@ class MeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func shareMyPosition(_ sender: UISwitch) {
         Defaults.standard.set(sender.isOn, forKey: Defaults.userSharingPosition)
         Defaults.standard.synchronize()
@@ -35,26 +39,11 @@ class MeController: UIViewController {
         Defaults.standard.set(false, forKey: Defaults.userIsConnected)
         Defaults.standard.set(nil, forKey: Defaults.userToken)
         Defaults.standard.synchronize()
-        exit(0)
-//        DispatchQueue.main.async {
-//            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)
-//            if let tabBarController = self.tabBarController {
-        
-                //                var viewControllers = tabBarController.viewControllers
-                //                viewControllers?.removeLast()
-                //                if indexToRemove < tabBarController.viewControllers?.count {
-                //                    var viewControllers = tabBarController.viewControllers
-                //                    viewControllers?.remove(at: indexToRemove)
-                //                    tabBarController.viewControllers = viewControllers
-                //                }
-                //                    self.navigationController?.setNavigationBarHidden(true, animated: true)
-                //                    let signInController = (self.storyboard?.instantiateViewController(withIdentifier: "signInController"))! as UIViewController
-                //                    self.navigationController?.setViewControllers([signInController], animated: true)
-                //            }
-                
-//            }
-        
-//        }
+        self.tabBarController?.tabBar.isHidden = true
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = true
+            self.performSegue(withIdentifier: "logOutToSignIn", sender: self)
+        }
     }
     
     func messageError(title: String, message: String) {
