@@ -42,20 +42,19 @@ L'API répondra en JSON, sous la forme:
 > Note: les données reçues diffèrent elles aussi suivant la ressource distante.
 
 # WebSockets
-Le client iOS a l'initiative de la création du channel et des requêtes:
- * le client s'abonne à un channel privé en s'athentifiant avec son token
- * le serveur vérifie la validité du token et renvoie une requête avec un String
- d'authentification sous la forme :
-```json
- {
-  "auth":"278d425bdf160c739803:a99e78e7cd40dcd0d4ae06be0a5395b6cd3c085764229fd40b39ce92c39af33e"
-}
-```
- * le client envoie des requêtes pour envoyer sa position ou récupérer la position de ses amis
- * le serveur y répond
+Le client iOS a des requêtes:
+ * Par requête REST sur /api/user, l'application s'authentifie
+ * Le serveur renvoie un token à l'application et s'abonne au channel portant le nom du token
+ * le client s'abonne au channel portant le nom du token
+ * le client envoie sa position par WebSocket
+ * le serveur y répond par WebSocket en transmettant la dernière position de ses amis
 
-* DOC Java : https://github.com/pusher/pusher-http-java
-* DOC Swift : https://pusher.com/docs/client_api_guide
+* QuickStart Java : https://pusher.com/docs/android_quick_start
+* Readme swift : https://github.com/pusher/pusher-websocket-java#subscribing-to-channels
+* Doc API Java : http://pusher.github.io/pusher-websocket-java/
+* QuickStart Swift : https://pusher.com/docs/ios_quick_start
+* Readme Swift : https://github.com/pusher/pusher-websocket-swift
+
 
 # Méthodes
 Les méthodes HTTP utilisé seront:
