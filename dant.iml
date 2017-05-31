@@ -30,6 +30,7 @@
     <orderEntry type="library" name="Maven: com.thoughtworks.proxytoys:proxytoys:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.pusher:pusher-java-client:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.pusher:java-websocket:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: com.pusher:pusher-http-java:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" level="project" />

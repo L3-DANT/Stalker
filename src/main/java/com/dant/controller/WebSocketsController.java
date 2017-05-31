@@ -1,27 +1,45 @@
 package com.dant.controller;
 
+import com.dant.business.FriendshipBusiness;
+import com.dant.business.PositionBusiness;
+import com.dant.entity.Position;
+import com.dant.entity.User;
 import com.dant.util.PusherUtil;
-import com.pusher.client.Pusher;
-import com.pusher.client.channel.Channel;
-import com.pusher.client.channel.SubscriptionEventListener;
+import com.pusher.rest.Pusher;
+import com.google.gson.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.Collections;
+
 
 /**
  * Created by Camilo on 31/05/2017.
  */
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class WebSocketsController {
 
-    private Pusher pusher = PusherUtil.pusher();
+    private Pusher pusherWriter = new Pusher("346005", "ff19fcd2fd235bddc039", "cc12ac268781ad64538f");
+    private com.pusher.client.Pusher pusherReader = PusherUtil.pusher();
+    Gson gson = new Gson();
 
-    public boolean link(String channelName) {
-        // Subscribe to a channel
-        Channel channel = pusher.subscribe(channelName);
+    private FriendshipBusiness friendshipBusiness = new FriendshipBusiness();
+    private PositionBusiness positionBusinness = new PositionBusiness();
 
-        // Bind to listen for events called "my-event" sent to "my-channel"
-        channel.bind("position", new SubscriptionEventListener() {
-            @Override
-            public void onEvent(String channel, String event, String data) {
-                System.out.println("Received event with data: " + data);
-            }
-        });
+    public void trigger(String channel, String event, String data) {
+        pusherWriter.setCluster("eu");
+        pusherWriter.setEncrypted(true);
+        switch(event) {
+            case "addPosition":
+                Position p = gson.fromJson(data, Position.class);
+                positionBusinness.createWBPosition(p);
+                pusherWriter.trigger(channel, event, gson.toJson(friendshipBusiness.getFriends(channel)));
+                break;
+            case "unsubscribe":
+                pusherReader.unsubscribe(channel);
+                break;
+        }
     }
+
 }

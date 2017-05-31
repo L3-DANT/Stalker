@@ -25,6 +25,11 @@ public class PositionBusiness {
         return positionDAO.save(position).toDTO();
     }
 
+    //Methode pour le websocket
+    public PositionDTO createWBPosition(Position position) {
+        return positionDAO.save(position).toDTO();
+    }
+
     public List<PositionDTO> getPositions(String token, String emailUser) {
         UtilBusiness.checkToken(token);
         List<PositionDTO> positions = new ArrayList<>();

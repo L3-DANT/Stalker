@@ -3,6 +3,7 @@ package com.dant.controller;
 import com.dant.business.*;
 import com.dant.entity.dto.*;
 import com.dant.entity.*;
+import com.dant.util.PusherUtil;
 import com.pusher.client.PusherOptions;
 import com.pusher.client.channel.Channel;
 import com.pusher.client.Pusher;
@@ -23,6 +24,7 @@ import javax.ws.rs.core.MediaType;
 public class UserController {
 
     private UserBusiness userBusiness = new UserBusiness();
+    private Pusher pusher = PusherUtil.pusher();
 
     @POST
     public UserDTO createUser(User user) {
@@ -32,34 +34,8 @@ public class UserController {
     @POST
     @Path("me")
     public UserDTO authenticate(User u) {
-        PusherOptions options = new PusherOptions();
-        options.setCluster("eu");
-
-        Pusher pusher = new Pusher("ff19fcd2fd235bddc039", options);
-
-        pusher.connect(new ConnectionEventListener() {
-            @Override
-            public void onConnectionStateChange(ConnectionStateChange change) {
-                System.out.println("State changed to " + change.getCurrentState() +
-                        " from " + change.getPreviousState());
-            }
-
-            @Override
-            public void onError(String message, String code, Exception e) {
-                System.out.println("There was a problem connecting!");
-            }
-        }, ConnectionState.ALL);
-
-    // Subscribe to a channel
-        Channel channel = pusher.subscribe("my-channel");
-
-    // Bind to listen for events called "my-event" sent to "my-channel"
-        channel.bind("my-event", new SubscriptionEventListener() {
-            @Override
-            public void onEvent(String channel, String event, String data) {
-                System.out.println("Received event with data: " + data);
-            }
-        });
+//        PusherUtil pu = new PusherUtil();
+//        pu.link(u.getToken());
         return userBusiness.authenticate(u);
     }
 
