@@ -49,8 +49,12 @@ Le client iOS a des requêtes:
  * le client envoie sa position par WebSocket
  * le serveur y répond par WebSocket en transmettant la dernière position de ses amis
 
-* DOC Java : https://pusher.com/docs/android_quick_start
-* DOC Swift : https://pusher.com/docs/ios_quick_start
+* QuickStart Java : https://pusher.com/docs/android_quick_start
+* Readme swift : https://github.com/pusher/pusher-websocket-java#subscribing-to-channels
+* Doc API Java : http://pusher.github.io/pusher-websocket-java/
+* QuickStart Swift : https://pusher.com/docs/ios_quick_start
+* Readme Swift : https://github.com/pusher/pusher-websocket-swift
+
 
 # Méthodes
 Les méthodes HTTP utilisé seront:
