@@ -31,10 +31,13 @@ struct User {
     }
     
     init(json: [String: Any]) {
+        let position = Position(json: json["lastPosition"] as! [String : Any])
+        
         self.init(id: json["id"] as? String,
                   name: json["name"] as? String,
                   email: json["email"] as? String,
-                  token: json["token"] as? String)
+                  token: json["token"] as? String,
+                  lastPosition: position)
     }
     
     // MARK: Methods

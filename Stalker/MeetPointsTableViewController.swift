@@ -20,7 +20,7 @@ class MeetPointsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MeetPointService.getAll(completion: { (inner: () throws -> [MeetPoint]) in
+        MeetPointService.getAll(completion: { (inner: MeetPointsBuilder) in
             do {
                 self.meetpoints = try inner()
                 

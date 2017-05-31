@@ -6,7 +6,6 @@
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class FriendRequestsTableViewCell: UITableViewCell {

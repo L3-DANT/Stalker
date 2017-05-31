@@ -6,7 +6,6 @@
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class AFriendController: UIViewController {
@@ -15,9 +14,6 @@ class AFriendController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
-    
-    //latitude
-    //longitude
     
     override func viewDidLoad() {
         super.viewDidLoad()

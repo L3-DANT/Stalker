@@ -359,13 +359,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-9z-Ier" userLabel="PropertiesStackView">
                                         <rect key="frame" x="20" y="126" width="295" height="54"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUD-xD-bb5" userLabel="Name">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wUD-xD-bb5">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last position known" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbf-YD-Ll3" userLabel="Position">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Last known position" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbf-YD-Ll3">
                                                 <rect key="frame" x="0.0" y="33.5" width="295" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -415,8 +415,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="MyFriend" id="CmK-t2-Opu"/>
                     <connections>
-                        <outlet property="nameLabel" destination="wUD-xD-bb5" id="rnT-7i-4Ue"/>
-                        <outlet property="positionLabel" destination="lbf-YD-Ll3" id="3Vp-qG-C94"/>
+                        <outlet property="nameLabel" destination="wUD-xD-bb5" id="dAb-S5-0bv"/>
+                        <outlet property="positionLabel" destination="lbf-YD-Ll3" id="GS1-DN-oUk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmB-MD-msQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +448,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-vL-ZTV">
                                         <rect key="frame" x="15" y="178" width="313" height="127"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-S1-SmH" userLabel="Name">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-S1-SmH">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -460,13 +460,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postal Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCA-ki-jKq" userLabel="Zip Code">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCA-ki-jKq">
                                                 <rect key="frame" x="0.0" y="71" width="313" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-2P-iaz" userLabel="Town">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Town" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHN-2P-iaz">
                                                 <rect key="frame" x="0.0" y="106.5" width="313" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -504,11 +504,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="My MeetPoint" id="6jW-ml-osJ"/>
                     <connections>
-                        <outlet property="addressLabel" destination="4ck-KS-rPa" id="7fp-fj-on1"/>
-                        <outlet property="cityLabel" destination="KHN-2P-iaz" id="qJd-Jc-plP"/>
-                        <outlet property="nameLabel" destination="sFf-S1-SmH" id="P4I-ZE-0Of"/>
-                        <outlet property="townLabel" destination="KHN-2P-iaz" id="xv7-97-r7W"/>
-                        <outlet property="zipCodeLabel" destination="kCA-ki-jKq" id="bzl-Sq-BGw"/>
+                        <outlet property="addressLabel" destination="4ck-KS-rPa" id="pUS-XC-xL9"/>
+                        <outlet property="nameLabel" destination="sFf-S1-SmH" id="0Te-I4-PIk"/>
+                        <outlet property="townLabel" destination="KHN-2P-iaz" id="15e-6h-MxH"/>
+                        <outlet property="zipCodeLabel" destination="kCA-ki-jKq" id="Abc-ya-WrR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx0-Y7-elv" userLabel="First Responder" sceneMemberID="firstResponder"/>
