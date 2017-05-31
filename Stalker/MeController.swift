@@ -10,8 +10,17 @@ import UIKit
 
 class MeController: UIViewController {
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
+    }
+    
+    private func loadData() {
+        nameLabel.text = Session.getName()
+        emailLabel.text = Session.getEmail()
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,9 +40,10 @@ class MeController: UIViewController {
     @IBAction func myItineraris(_ sender: UIButton) {
         self.messageError(title: "My Itineraries", message: "Available soon")
     }
+    
     @IBAction func logOut(_ sender: UIButton) {
         Session.setIsConnected(false)
-        Session.setNilValueForKey("token")
+        Session.standard.setNilValueForKey("token")
         Session.standard.synchronize()
         exit(0)
     }
@@ -46,5 +56,5 @@ class MeController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
+ 
 }

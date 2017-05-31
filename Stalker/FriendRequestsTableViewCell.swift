@@ -12,7 +12,7 @@ class FriendRequestsTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
-    @IBOutlet weak var friendLabel: UILabel!
+    @IBOutlet weak var friendLabel: UILabel!    
     
     // MARK: Methods
     

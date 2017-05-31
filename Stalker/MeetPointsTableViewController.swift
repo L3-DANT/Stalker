@@ -13,13 +13,16 @@ class MeetPointsTableViewController: UITableViewController {
     // MARK: Properties
     
     var meetpoints = [MeetPoint]()
-    var selectedMeetpoint = MeetPoint()
+    var meetpoint = MeetPoint()
     
     // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.loadMeetPoints()
+    }
+    
+    private func loadMeetPoints() {
         MeetPointService.getAll(completion: { (inner: MeetPointsBuilder) in
             do {
                 self.meetpoints = try inner()
@@ -32,8 +35,6 @@ class MeetPointsTableViewController: UITableViewController {
                 print("Async error while fetching MeetPoints: \(error)")
             }
         })
-        
-        print("meetpoints : " + "\(self.meetpoints)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,45 +52,33 @@ class MeetPointsTableViewController: UITableViewController {
         return self.meetpoints.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.meetpoint = self.meetpoints[indexPath.row]
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MeetPointsTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MeetPointsTableViewCell else {
-            fatalError("The dequeue cell is not an instance of MeetPointTableViewCell")
+            fatalError("The dequeue cell is not an instance of MeetPointTableViewCell.")
         }
         
-        // TODO: set meetpoint
-        
-        //Fetches the appropriate friend for the data source layout
-        self.selectedMeetpoint = self.meetpoints[indexPath.row]
-        
-        cell.meetpointLabel.text = selectedMeetpoint.name
+        // Fetches the appropriate friend for the data source layout
+        self.meetpoint = self.meetpoints[indexPath.row]
+        cell.meetpointLabel.text = self.meetpoint.name
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "meetPointCellSegue" {
-            
-            let viewController = segue.destination as! AMeetPointController
-            viewController.meetpoint = self.selectedMeetpoint
-            
-        }
-    }
-    
-    //Delete Button
+    // Delete Button
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .destructive, title: "Delete", handler: { (action, indexPath) in
-            self.selectedMeetpoint = self.meetpoints[indexPath.row]
             
-            // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
+            // The UIAlertControllerStyle ActionSheet is used when there are more than one button
             
             func myHandler(alert: UIAlertAction){
-                
-                //Delete meetpoint
-                MeetPointService.delete(meetpoint: self.selectedMeetpoint, completion: { (inner: MeetPointBuilder) in
+                // Delete meetpoint
+                MeetPointService.delete(meetpoint: self.meetpoint, completion: { (inner: MeetPointBuilder) in
                     do {
                         _ = try inner()
                         
@@ -98,31 +87,29 @@ class MeetPointsTableViewController: UITableViewController {
                         }
                     }
                     catch let error {
-                        print("Async error while fetching MeetPoints: \(error)")
+                        print("Async error while deleting meetpoint: \(error)")
                     }
                 })
-                //self.meetpoints.remove(at: indexPath.row)
-                //tableView.reloadData()
-                
             }
             
-            let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "your meetpoint will be deleted", preferredStyle: UIAlertControllerStyle.actionSheet)
-            
-            
-            
+            let otherAlert = UIAlertController(title: "Do you want to delete this meetpoint?", message: "Your meetpoint will be deleted.", preferredStyle: UIAlertControllerStyle.actionSheet)
             let callFunction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive, handler: myHandler)
-            
             let dismiss = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             
-            // relate actions to controllers
+            // Relate actions to controllers
             otherAlert.addAction(callFunction)
             otherAlert.addAction(dismiss)
             
             self.present(otherAlert, animated: true, completion: nil)
-            
-            
         })]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AMeetPointSegue" {
+            let destinationViewController = segue.destination as! AMeetPointController
+            destinationViewController.data = self.meetpoint
+            
+        }
+    }
     
 }

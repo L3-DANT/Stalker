@@ -10,7 +10,7 @@ import UIKit
 
 class AMeetPointController: UIViewController {
     
-    var meetpoint: MeetPoint?
+    var data: MeetPoint?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -34,7 +34,7 @@ class AMeetPointController: UIViewController {
     }
     
     private func updateData() throws {
-        guard let meetpoint = self.meetpoint else {
+        guard let meetpoint = self.data else {
             throw DataError.invalid("meetpoint")
         }
         guard let zipCode = meetpoint.zipCode else {

@@ -199,7 +199,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc0-O7-18n" userLabel="Friend">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc0-O7-18n">
                                             <rect key="frame" x="8" y="8" width="326" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -214,8 +214,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="friendLabel" destination="mc0-O7-18n" id="PmO-nP-ki6"/>
-                                    <segue destination="AhU-5q-eVz" kind="show" identifier="friendCellSegue" id="22k-kL-v67"/>
+                                    <outlet property="friendLabel" destination="mc0-O7-18n" id="AqA-rC-gNM"/>
+                                    <segue destination="AhU-5q-eVz" kind="show" identifier="AFriendSegue" id="22k-kL-v67"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -261,7 +261,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjf-3b-H5u" userLabel="Friend Request">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjf-3b-H5u">
                                             <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -275,6 +275,9 @@
                                         <constraint firstItem="Yjf-3b-H5u" firstAttribute="top" secondItem="3dx-kN-krU" secondAttribute="topMargin" id="XAd-nO-QsK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="friendLabel" destination="Yjf-3b-H5u" id="YCq-g6-E9T"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -587,21 +590,31 @@
                                 <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kTY-rN-u3p" userLabel="LabelsView">
-                                        <rect key="frame" x="149" y="118" width="45" height="56"/>
+                                        <rect key="frame" x="0.0" y="118" width="343" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CQ-I0-51b">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-i5-wfi">
-                                                <rect key="frame" x="0.0" y="35.5" width="45" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6d-i5-wfi">
+                                                <rect key="frame" x="0.0" y="35.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="y6d-i5-wfi" secondAttribute="bottom" id="0bc-C6-7O3"/>
+                                            <constraint firstItem="y6d-i5-wfi" firstAttribute="top" secondItem="0CQ-I0-51b" secondAttribute="bottom" constant="15" id="8WQ-7H-7Kc"/>
+                                            <constraint firstAttribute="trailing" secondItem="0CQ-I0-51b" secondAttribute="trailing" id="Cnr-is-1gU"/>
+                                            <constraint firstItem="0CQ-I0-51b" firstAttribute="leading" secondItem="kTY-rN-u3p" secondAttribute="leading" id="QFO-Eb-hRY"/>
+                                            <constraint firstItem="y6d-i5-wfi" firstAttribute="leading" secondItem="kTY-rN-u3p" secondAttribute="leading" id="YFl-Z5-2XF"/>
+                                            <constraint firstItem="0CQ-I0-51b" firstAttribute="top" secondItem="kTY-rN-u3p" secondAttribute="top" id="gcL-pd-DLi"/>
+                                            <constraint firstAttribute="trailing" secondItem="y6d-i5-wfi" secondAttribute="trailing" id="ofC-5g-asv"/>
+                                            <constraint firstItem="y6d-i5-wfi" firstAttribute="top" secondItem="0CQ-I0-51b" secondAttribute="bottom" constant="15" id="w1v-nD-1hf"/>
+                                        </constraints>
                                     </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Man" translatesAutoresizingMaskIntoConstraints="NO" id="chT-d3-ysJ">
                                         <rect key="frame" x="115" y="-15" width="113" height="113"/>
@@ -661,12 +674,14 @@
                                 <constraints>
                                     <constraint firstItem="chT-d3-ysJ" firstAttribute="top" secondItem="Pf2-DN-Aac" secondAttribute="top" constant="-15" id="3lk-9g-uXn"/>
                                     <constraint firstItem="ZI7-PD-SjK" firstAttribute="leading" secondItem="Pf2-DN-Aac" secondAttribute="leading" constant="10" id="Etf-MH-zKx"/>
+                                    <constraint firstAttribute="trailing" secondItem="kTY-rN-u3p" secondAttribute="trailing" id="GiH-hg-2vc"/>
                                     <constraint firstItem="chT-d3-ysJ" firstAttribute="centerX" secondItem="Pf2-DN-Aac" secondAttribute="centerX" id="Rlq-ff-CYJ"/>
                                     <constraint firstItem="kTY-rN-u3p" firstAttribute="top" secondItem="chT-d3-ysJ" secondAttribute="bottom" constant="20" id="bII-Sz-0eQ"/>
                                     <constraint firstItem="ZI7-PD-SjK" firstAttribute="centerX" secondItem="Pf2-DN-Aac" secondAttribute="centerX" id="eb5-ag-u3m"/>
                                     <constraint firstItem="kTY-rN-u3p" firstAttribute="centerX" secondItem="Pf2-DN-Aac" secondAttribute="centerX" id="fCv-jS-FYL"/>
                                     <constraint firstAttribute="trailing" secondItem="ZI7-PD-SjK" secondAttribute="trailing" constant="10" id="h5a-o2-kxR"/>
                                     <constraint firstItem="ZI7-PD-SjK" firstAttribute="top" secondItem="w0I-z1-sMw" secondAttribute="bottom" constant="50" id="om6-AW-3ST"/>
+                                    <constraint firstItem="kTY-rN-u3p" firstAttribute="leading" secondItem="Pf2-DN-Aac" secondAttribute="leading" id="qxX-wL-ZXV"/>
                                     <constraint firstAttribute="bottom" secondItem="chT-d3-ysJ" secondAttribute="bottom" constant="416" id="uXI-E7-sQK"/>
                                     <constraint firstItem="w0I-z1-sMw" firstAttribute="top" secondItem="kTY-rN-u3p" secondAttribute="bottom" constant="45" id="uxR-pc-NDC"/>
                                     <constraint firstItem="w0I-z1-sMw" firstAttribute="leading" secondItem="Pf2-DN-Aac" secondAttribute="leading" constant="4" id="yhF-Tx-ee7"/>
@@ -683,6 +698,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="About Me" id="PF5-f3-Rmu"/>
                     <connections>
+                        <outlet property="emailLabel" destination="y6d-i5-wfi" id="Dcg-Bz-TxF"/>
+                        <outlet property="nameLabel" destination="0CQ-I0-51b" id="iH8-mV-yBz"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logOutToSignIn" id="qUk-sK-MWG"/>
                     </connections>
                 </viewController>
@@ -706,7 +723,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QY9-dC-ioV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MeetPoint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QY9-dC-ioV">
                                             <rect key="frame" x="8" y="8" width="359" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -717,7 +734,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="meetpointLabel" destination="QY9-dC-ioV" id="k4Y-Mp-dFB"/>
-                                    <segue destination="6tT-47-eND" kind="show" identifier="meetPointCellSegue" id="x3Y-Oy-cne"/>
+                                    <segue destination="6tT-47-eND" kind="show" identifier="AMeetPointSegue" id="x3Y-Oy-cne"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -906,6 +923,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Thm-aA-J2Y"/>
-        <segue reference="3zL-jf-9N9"/>
+        <segue reference="qUk-sK-MWG"/>
     </inferredMetricsTieBreakers>
 </document>

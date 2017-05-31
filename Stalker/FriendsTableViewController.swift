@@ -107,7 +107,7 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "friendCellSegue" {
+        if segue.identifier == "AFriendSegue" {
             let destinationViewController = segue.destination as! AFriendController
             destinationViewController.data = self.friend
         }

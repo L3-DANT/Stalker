@@ -57,6 +57,7 @@ class ConnexionController: UIViewController, UITextFieldDelegate {
                             let userConnected = User(json: parseJSON as! [String : Any])
                             Session.setIsConnected(true)
                             Session.setToken(userConnected.token!)
+                            Session.setName(userConnected.name!)
                             Session.setEmail(userConnected.email!)
                             Session.standard.synchronize()
                             if userConnected.token != nil {

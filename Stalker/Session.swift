@@ -15,6 +15,7 @@
     private convenience init() {
         self.init()
         Session.standard.setNilValueForKey("token")
+        Session.standard.setNilValueForKey("name")
         Session.standard.setNilValueForKey("email")
         Session.standard.setNilValueForKey("isConnected")
         Session.standard.setNilValueForKey("isSharingPosition")
@@ -24,6 +25,10 @@
     
     static func getToken() -> String? {
         return Session.standard.value(forKey: "token") as? String
+    }
+    
+    static func getName() -> String? {
+        return Session.standard.value(forKey: "name") as? String
     }
     
     static func getEmail() -> String? {
@@ -42,6 +47,10 @@
         Session.standard.set(token, forKey: "token")
     }
     
+    static func setName(_ name: String?) {
+        Session.standard.set(name, forKey: "name")
+    }
+    
     static func setEmail(_ email: String?) {
         Session.standard.set(email, forKey: "email")
     }
@@ -52,6 +61,6 @@
     
     static func setIsSharingPosition(_ isSharingPosition: Bool?) {
         Session.standard.set(isSharingPosition, forKey: "isSharingPosition")
-    }    
+    }
     
  }
