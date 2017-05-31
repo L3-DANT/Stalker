@@ -10,9 +10,7 @@ public class UserDTO implements Serializable {
     public String name;
     public String email;
     public String token;
-    private double latitude;
-    private double longitude;
-    private long time;
+    public PositionDTO lastPosition;
 
     public UserDTO() {
     }
@@ -21,9 +19,7 @@ public class UserDTO implements Serializable {
         this.name = name;
         this.email = email;
         this.token = token;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.time = time;
+        this.lastPosition = new PositionDTO(latitude, longitude, time, email);
     }
 
     public UserDTO(String name, String email, double latitude, double longitude, long time) {
