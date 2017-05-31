@@ -15,24 +15,36 @@ class AMeetPointController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var pcLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    
+    @IBOutlet weak var zipCodeLabel: UILabel!
+    @IBOutlet weak var townLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (self.meetpoint != nil){
-            nameLabel.text = self.meetpoint?.name
-            addressLabel.text = self.meetpoint?.address
-            pcLabel.text = "\(String(describing: self.meetpoint?.zipCode))"
-            cityLabel.text = self.meetpoint?.town
+        do {
+            try self.updateData()
+        }
+        catch let error {
+            print(error)
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func updateData() throws {
+        guard let meetpoint = self.meetpoint else {
+            throw DataError.invalid("meetpoint")
+        }
+        guard let zipCode = meetpoint.zipCode else {
+            throw DataError.invalid("zipCode")
+        }
+        nameLabel.text = meetpoint.name
+        addressLabel.text = meetpoint.address
+        zipCodeLabel.text = "\(zipCode)"
+        townLabel.text = meetpoint.town
     }
     
 }
