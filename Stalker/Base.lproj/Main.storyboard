@@ -199,7 +199,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc0-O7-18n">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc0-O7-18n" userLabel="Friend">
                                             <rect key="frame" x="8" y="8" width="326" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -254,12 +254,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reuseIdentifierCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestsTableViewCell" id="Qnp-xw-WpK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reuseIdentifierCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestsTableViewCell" id="Qnp-xw-WpK" customClass="FriendRequestsTableViewCell" customModule="Stalker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qnp-xw-WpK" id="3dx-kN-krU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjf-3b-H5u" userLabel="Friend Request">
+                                            <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Yjf-3b-H5u" secondAttribute="trailing" id="KTn-D5-Q21"/>
+                                        <constraint firstItem="Yjf-3b-H5u" firstAttribute="leading" secondItem="3dx-kN-krU" secondAttribute="leadingMargin" id="OIw-0J-IO1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Yjf-3b-H5u" secondAttribute="bottom" id="QtK-0H-Ad5"/>
+                                        <constraint firstItem="Yjf-3b-H5u" firstAttribute="top" secondItem="3dx-kN-krU" secondAttribute="topMargin" id="XAd-nO-QsK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

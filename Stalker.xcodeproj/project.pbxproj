@@ -10,6 +10,7 @@
 		0E1140B11EDCAF1100EB5EC3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B01EDCAF1100EB5EC3 /* Server.swift */; };
 		0E1140B31EDCB32200EB5EC3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1140B21EDCB32200EB5EC3 /* Collection.swift */; };
 		0E11D3A01EDE405200B45663 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11D39F1EDE405200B45663 /* DataError.swift */; };
+		0E11D3A31EDE4F7700B45663 /* FriendRequestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11D3A21EDE4F7700B45663 /* FriendRequestsTableViewCell.swift */; };
 		0E7F89D41EDA767100F9019E /* HttpRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7F89D31EDA767100F9019E /* HttpRequestError.swift */; };
 		D60736131EB2315600703459 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60736121EB2315600703459 /* MapViewController.swift */; };
 		D60736181EB235B800703459 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60736171EB235B800703459 /* MapKit.framework */; };
@@ -46,6 +47,7 @@
 		0E1140B01EDCAF1100EB5EC3 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		0E1140B21EDCB32200EB5EC3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		0E11D39F1EDE405200B45663 /* DataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		0E11D3A21EDE4F7700B45663 /* FriendRequestsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewCell.swift; sourceTree = "<group>"; };
 		0E7F89D31EDA767100F9019E /* HttpRequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestError.swift; sourceTree = "<group>"; };
 		D60736121EB2315600703459 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D60736171EB235B800703459 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -135,11 +137,11 @@
 				D6182A451EDD696C005F7431 /* AFriendController.swift */,
 				D6607F781EDC9F260066D8BC /* AMeetPointController.swift */,
 				D640C5D61EB21E24006F0C0F /* ConnexionController.swift */,
-				D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */,
 				D684FD9D1EC6159D00F1BCDA /* InscriptionController.swift */,
 				D60736121EB2315600703459 /* MapViewController.swift */,
 				D6B6AD351EDC33E80093DB07 /* MeController.swift */,
 				D617B59B1EC3724E00DB0187 /* NewMeetPointController.swift */,
+				0E11D3A11EDE4F0C00B45663 /* FriendRequests */,
 				0E11D39D1EDE38FA00B45663 /* Friends */,
 				0E11D39E1EDE392F00B45663 /* MeetPoints */,
 			);
@@ -162,6 +164,15 @@
 				D67193031EC309DE00A42E5C /* MeetPointsTableViewController.swift */,
 			);
 			name = MeetPoints;
+			sourceTree = "<group>";
+		};
+		0E11D3A11EDE4F0C00B45663 /* FriendRequests */ = {
+			isa = PBXGroup;
+			children = (
+				0E11D3A21EDE4F7700B45663 /* FriendRequestsTableViewCell.swift */,
+				D6B34B631EDD9A9C0046EDCA /* FriendRequestsTableViewController.swift */,
+			);
+			name = FriendRequests;
 			sourceTree = "<group>";
 		};
 		D60736161EB235B800703459 /* Frameworks */ = {
@@ -304,6 +315,7 @@
 				D67193021EC306B100A42E5C /* MeetPoint.swift in Sources */,
 				D6B34B661EDDB3CC0046EDCA /* Builder.swift in Sources */,
 				D67193061EC30A8F00A42E5C /* MeetPointsTableViewCell.swift in Sources */,
+				0E11D3A31EDE4F7700B45663 /* FriendRequestsTableViewCell.swift in Sources */,
 				D6607F791EDC9F260066D8BC /* AMeetPointController.swift in Sources */,
 				D659C4B91EDD783A00B32E7D /* FriendshipService.swift in Sources */,
 				D6CC71A51EDD751E00B61F32 /* Friendship.swift in Sources */,

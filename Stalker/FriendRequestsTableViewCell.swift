@@ -1,15 +1,16 @@
 //
-//  FriendsTableViewCell.swift
+//  FriendRequestsTableViewCell.swift
 //  Stalker
 //
-//  Created by m2sar on 04/05/17.
+//  Created by kvin on 30/05/2017.
 //  Copyright © 2017 m2sar. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class FriendsTableViewCell: UITableViewCell {
-
+class FriendRequestsTableViewCell: UITableViewCell {
+    
     // MARK: Properties
     
     @IBOutlet weak var friendLabel: UILabel!
@@ -20,11 +21,11 @@ class FriendsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

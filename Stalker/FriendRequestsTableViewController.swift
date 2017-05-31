@@ -12,29 +12,14 @@ class FriendRequestsTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    var maybeFriends = [User]()
-    var maybeFriend = User()
-    var maybeFriendship = Friendship()
-    
-    let cellReuseIdentifier = "cell"
+    var friends = [User]()
+    var friend = User()
     
     // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        FriendshipService.getAll(isAccepted: false, completion: { (inner: () throws -> [User]) in
-            do {
-                self.maybeFriends = try inner()
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-            catch let error {
-                print("Async error while fetching MeetPoints: \(error)")
-            }
-        })
+        self.loadFriends()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,34 +34,38 @@ class FriendRequestsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return maybeFriends.count
+        return self.friends.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.maybeFriend = self.maybeFriends[indexPath.row]
+        self.friend = self.friends[indexPath.row]
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "FriendRequestsTableViewCell"
         
-        let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FriendRequestsTableViewCell else {
+            fatalError("The dequeue cell is not an instance of FriendRequestsTableViewCell.")
+        }
         
-        cell.textLabel?.text = self.maybeFriends[indexPath.row].name
+        // Fetches the appropriate friend for the data source layout
+        self.friend = friends[indexPath.row]
+        cell.friendLabel.text = self.friend.name
         
         return cell
     }
     
-    // Accept Button
+    // Add and decline Buttons
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return [UITableViewRowAction(style: .default, title: "Add", handler: { (action, indexPath) in
             
-            self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Session.getEmail()!, isAccepted: true)
+            // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
             
-            // The UIAlertControllerStyle ActionSheet is used when there are more than one button
-            
-            func myHandler(alert: UIAlertAction){
+            func myHandler(alert: UIAlertAction) {
+                let friendship = Friendship(emailSource: self.friend.email, emailDest: Session.getEmail()!, isAccepted: true)
                 
-                // Update isAccepted : true
-                FriendshipService.update(friendship: self.maybeFriendship, completion: { (inner: FriendshipBuilder) in
+                // Update friendship
+                FriendshipService.update(friendship: friendship, completion: { (inner: FriendshipBuilder) in
                     do {
                         _ = try inner()
                         
@@ -85,73 +74,68 @@ class FriendRequestsTableViewController: UITableViewController {
                         }
                     }
                     catch let error {
-                        print("Async error while fetching MeetPoints: \(error)")
+                        print("Async error while updating friendship : \(error)")
                     }
                 })
-                
-                //self.friends
-                tableView.reloadData()
             }
             
-            let otherAlert = UIAlertController(title: "Do you want to accept this friendship?", message: "this demand will be accepted", preferredStyle: UIAlertControllerStyle.actionSheet)
-            
-            
-            
+            let otherAlert = UIAlertController(title: "Do you want to accept this friendship?", message: "This friend will be added.", preferredStyle: UIAlertControllerStyle.actionSheet)
             let callFunction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: myHandler)
-            
             let dismiss = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
             
-            // relate actions to controllers
+            // Relate actions to controllers
             otherAlert.addAction(callFunction)
             otherAlert.addAction(dismiss)
             
             self.present(otherAlert, animated: true, completion: nil)
-            
         }),
-                UITableViewRowAction(style: .default, title: "Refuse", handler: { (action, indexPath) in
+                UITableViewRowAction(style: .default, title: "Decline", handler: { (action, indexPath) in
                     
                     // The UIAlertControllerStyle ActionSheet is used when there are more than one button.
                     
-                    self.maybeFriendship = Friendship(emailSource: self.maybeFriend.email, emailDest: Session.getEmail(), isAccepted: false)
-                    
-                    func myHandler(alert: UIAlertAction){
+                    func myHandler(alert: UIAlertAction) {
+                        let friendship = Friendship(emailSource: Session.getEmail(), emailDest: self.friend.email, isAccepted: false)
                         
-                        /*FriendshipService.update(friendship: self.maybeFriendship, completion: { (inner: EmptyBuilder) in
-                         do {
-                         try inner()
-                         
-                         DispatchQueue.main.async {
-                         self.tableView.reloadData()
-                         }
-                         }
-                         catch let error {
-                         print("Async error while fetching MeetPoints: \(error)")
-                         }
-                         })*/
-                        
-                        //self.friends
-                        //tableView.reloadData()
-                        
+                        // Delete friendship
+                        FriendshipService.delete(friendship: friendship, completion: { ( inner: FriendshipBuilder) in
+                            do {
+                                _ = try inner()
+                                
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
+                            }
+                            catch let error {
+                                print("Async error while deleting friendship: \(error)")
+                            }
+                        })
                     }
-                    let otherAlert = UIAlertController(title: "Do you want to refuse this friend?", message: "this demand will be deleted", preferredStyle:UIAlertControllerStyle.actionSheet)
                     
-                    
-                    
+                    let otherAlert = UIAlertController(title: "Do you want to decline this friendship?", message: "This request will be declined.", preferredStyle:UIAlertControllerStyle.actionSheet)
                     let callFunction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: myHandler)
-                    
                     let dismiss = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
                     
-                    // relate actions to controllers
+                    // Relate actions to controllers
                     otherAlert.addAction(callFunction)
                     otherAlert.addAction(dismiss)
                     
                     self.present(otherAlert, animated: true, completion: nil)
-                    
-                })
-        ]
-        
+                })]
     }
     
-    
+    private func loadFriends() {
+        FriendshipService.getAll(isAccepted: false, completion: { (inner: UsersBuilder) in
+            do {
+                self.friends = try inner()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch let error {
+                print("Async error while fetching MeetPoints: \(error)")
+            }
+        })
+    }
     
 }
