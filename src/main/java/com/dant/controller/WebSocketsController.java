@@ -12,12 +12,12 @@ public class WebSocketsController {
 
     private Pusher pusher = PusherUtil.pusher();
 
-    public boolean link(String channel) {
+    public boolean link(String channelName) {
         // Subscribe to a channel
-        Channel channel = pusher.subscribe(channel);
+        Channel channel = pusher.subscribe(channelName);
 
         // Bind to listen for events called "my-event" sent to "my-channel"
-        channel.bind("my-event", new SubscriptionEventListener() {
+        channel.bind("position", new SubscriptionEventListener() {
             @Override
             public void onEvent(String channel, String event, String data) {
                 System.out.println("Received event with data: " + data);
